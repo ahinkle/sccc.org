@@ -4,8 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afadd363686409b198568a538aba6fe2",
+    "content-hash": "e79a2593588b11e1d135ee69f62778b6",
     "packages": [
+        {
+            "name": "ahinkle/auto-resolvable-blade-components",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ahinkle/laravel-resolvable-components.git",
+                "reference": "6cae9db871290797ed9e11d3bc86c353b440ab03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ahinkle/laravel-resolvable-components/zipball/6cae9db871290797ed9e11d3bc86c353b440ab03",
+                "reference": "6cae9db871290797ed9e11d3bc86c353b440ab03",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0",
+                "illuminate/view": "^10.0",
+                "php": "^8.1|^8.2"
+            },
+            "require-dev": {
+                "illuminate/container": "^10.0",
+                "illuminate/contracts": "^10.0",
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^9.5|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ahinkle\\AutoResolvableComponents\\AutoResolvableComponentsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ahinkle\\AutoResolvableComponents\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Hinkle",
+                    "email": "ahinkle10@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to automatically resolve your Blade Component views based on the component class names.",
+            "homepage": "https://github.com/ahinkle/laravel-resolvable-components",
+            "keywords": [
+                "ahinkle",
+                "auto",
+                "blade",
+                "component",
+                "components",
+                "laravel",
+                "resolvable",
+                "views"
+            ],
+            "support": {
+                "issues": "https://github.com/ahinkle/laravel-resolvable-components/issues",
+                "source": "https://github.com/ahinkle/laravel-resolvable-components/tree/3.0.0"
+            },
+            "time": "2023-02-15T17:15:04+00:00"
+        },
         {
             "name": "blade-ui-kit/blade-heroicons",
             "version": "2.1.0",
@@ -7528,16 +7595,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.10.3",
+            "version": "v1.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "c472786bca01e4812a9bb7933b23edfc5b6877b7"
+                "reference": "d1915b6ecc6406c00472c6b9ae75b46aa153bbb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/c472786bca01e4812a9bb7933b23edfc5b6877b7",
-                "reference": "c472786bca01e4812a9bb7933b23edfc5b6877b7",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/d1915b6ecc6406c00472c6b9ae75b46aa153bbb2",
+                "reference": "d1915b6ecc6406c00472c6b9ae75b46aa153bbb2",
                 "shasum": ""
             },
             "require": {
@@ -7548,9 +7615,9 @@
                 "php": "^8.1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.18.0",
+                "friendsofphp/php-cs-fixer": "^3.21.1",
                 "illuminate/view": "^10.5.1",
-                "laravel-zero/framework": "^10.0.2",
+                "laravel-zero/framework": "^10.1.1",
                 "mockery/mockery": "^1.5.1",
                 "nunomaduro/larastan": "^2.5.1",
                 "nunomaduro/termwind": "^1.15.1",
@@ -7590,7 +7657,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2023-06-20T15:55:03+00:00"
+            "time": "2023-08-08T15:17:16+00:00"
         },
         {
             "name": "laravel/sail",
