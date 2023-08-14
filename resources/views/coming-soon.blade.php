@@ -37,7 +37,11 @@
                     <p>Wednesday (youth): 6:00 pm</p>
                 </div>
 
-                <div class="pt-10">
+                <div class="pt-2">
+                    <a href="https://tinyurl.com/SCCCWomen" target="_blank" class="text-xl text-white hover:text-red-500 underline">Click here to register for Womens' Conference</a>
+                </div>
+
+                <div class="pt-6">
                     <a href="https://youtube.com/@SantaClausChristianChurch" target="_blank" class="text-2xl text-white hover:text-red-500 underline">Watch on YouTube</a>
 
                     <div class="pt-5">
