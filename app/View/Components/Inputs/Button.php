@@ -7,7 +7,8 @@ use Ahinkle\AutoResolvableComponents\AutoResolvableComponent;
 class Button extends AutoResolvableComponent
 {
     public function __construct(
-        public ?string $href,
+        public ?string $href = null,
+        public ?string $type = 'button',
     ) {
         //
     }
