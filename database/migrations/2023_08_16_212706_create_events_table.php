@@ -16,13 +16,17 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
+            $table->string('location');
             $table->dateTime('event_start')
                 ->index();
             $table->dateTime('event_end')
                 ->nullable();
-            $table->string('location');
             $table->string('repeat_frequency')
                 ->nullable();
+            $table->foreignId('last_updated_id')
+                ->nullable()
+                ->constrained('users')
+                ->nullOnDelete();
             $table->timestamps();
         });
     }

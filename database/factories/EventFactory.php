@@ -15,10 +15,28 @@ class EventFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'description' => $this->faker->text,
-            'image' => 'https://loremflickr.com/600/600/nature',
-            'event_start' => $this->faker->dateTimeBetween('now', '+1 year'),
+            'image' => 'https://via.placeholder.com/400x400',
+            'event_start' => $this->faker->dateTime(),
             'location' => $this->faker->company.PHP_EOL.$this->faker->address,
         ];
+    }
+
+    public function upcoming(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'event_start' => $this->faker->dateTimeBetween('now', '+1 year'),
+            ];
+        });
+    }
+
+    public function past(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'event_start' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
+            ];
+        });
     }
 
     public function repeats(): self

@@ -46,13 +46,6 @@
         <x-cards.current-message-series />
         <x-cards.rooted />
         <x-cards.about-us-cta />
-    </div>
-
-    <div class="max-w-screen-xl mx-auto pt-20 px-2">
-        <h2 class="text-4xl font-poppins font-semibold">Upcoming Events</h2>
-
-        <div class="text-center">
-            <x-inputs.button href="#" class="my-5">View All Events</x-inputs.button>
-        </div>
+        <x-events.upcoming-events-slider />
     </div>
 </x-layout.app>

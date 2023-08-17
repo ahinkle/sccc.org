@@ -1,4 +1,4 @@
-<x-cards.two-column-card>
+<x-cards.two-column-card @class([$attributes->get('class')])>
     <div>
         <img src="https://via.placeholder.com/600x600" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
     </div>
