@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.home-hero {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../img/SCUMC_Low_N.jpg");
+    /* Position and center the image to scale nicely on all screens */
+    @apply bg-center bg-no-repeat bg-cover relative;
+}

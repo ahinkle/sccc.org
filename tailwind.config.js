@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         'libre': ['"Libre Baskerville", "Open Sans"', 'sans-serif'],
+        'poppins': ['"Poppins", "Open Sans"', 'sans-serif'],
       }
     },
   },
