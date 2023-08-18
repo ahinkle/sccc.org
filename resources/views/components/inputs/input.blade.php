@@ -11,7 +11,7 @@
         {{ $attributes }}
         @class([
             'w-full min-w-0 appearance-none border-0 bg-white px-3 py-4 text-base text-gray-900 shadow-sm ring-1 ring-inset
-            ring-black placeholder:text-gray-400 sm:w-64 sm:text-sm sm:leading-6 xl:w-full',
+            ring-black placeholder:text-gray-400 sm:text-sm sm:leading-6',
         ])
     />
 </div>

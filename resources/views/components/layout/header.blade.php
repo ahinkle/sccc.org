@@ -14,8 +14,8 @@
     <nav class="w-1/2 hidden xl:grid xl:grid-flow-col xl:auto-cols-max gap-10 justify-center mx-auto font-poppins uppercase text-lg leading-10 tracking-wide">
         <x-layout.nav-item href='/' title="Home" />
         <x-layout.nav-item href='/' title="About">
-            <x-layout.nav-item href='/' title="Our Beliefs" />
-            <x-layout.nav-item href='/' title="Staff" />
+            <x-layout.nav-item href='/about/what-we-believe' title="Our Beliefs" />
+            <x-layout.nav-item href='/about/staff' title="Staff" />
             <x-layout.nav-item href='/' title="Location & Times" />
             <x-layout.nav-item href='/' title="Events & Calendar" />
             <x-layout.nav-item href='/' title="Careers" />
