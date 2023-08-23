@@ -26,7 +26,7 @@ class Event extends Model
      * The attributes that should be cast.
      */
     protected $casts = [
-        'event_start' => 'datetime',
+        'starts_at' => 'datetime',
         'event_end' => 'datetime',
         'repeat_frequency' => EventFrequency::class,
     ];
@@ -36,6 +36,6 @@ class Event extends Model
      */
     public function scopeUpcoming(Builder $query): Builder
     {
-        return $query->where('event_start', '>=', today());
+        return $query->where('starts_at', '>=', today());
     }
 }

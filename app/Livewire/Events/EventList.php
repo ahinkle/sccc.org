@@ -53,10 +53,10 @@ class EventList extends Component
     protected function events(): LengthAwarePaginator
     {
         return Event::query()
-            ->when($this->startDate, fn ($query) => $query->whereDate('event_start', '>=', $this->startDate))
+            ->when($this->startDate, fn ($query) => $query->whereDate('starts_at', '>=', $this->startDate))
             ->when($this->endDate, fn ($query) => $query->whereDate('event_end', '<=', $this->endDate))
             ->when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%"))
-            ->orderBy('event_start')
+            ->orderBy('starts_at')
             ->paginate(10);
     }
 }

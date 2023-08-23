@@ -31,7 +31,7 @@ class EventResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('event_start')
+                Tables\Columns\TextColumn::make('starts_at')
                     ->label('Event Start')
                     ->dateTime('M j, Y g:i A')
                     ->sortable(),

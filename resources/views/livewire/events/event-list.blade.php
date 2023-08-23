@@ -21,14 +21,14 @@
                         <img class="w-full h-36 object-cover rounded-t-lg" src="{{ $event->image }}" alt="{{ $event->name }}">
                         <div class="grid grid-cols-1 gap-y-2 py-2">
                             <div class="row-span-1">
-                                <p class="text-2xl font-semibold font-poppins text-green-900">{{ $event->event_start->format('j') }}</p>
+                                <p class="text-2xl font-semibold font-poppins text-green-900">{{ $event->starts_at->format('j') }}</p>
                             </div>
                             <div class="row-span-1">
-                                <p class="text-base font-semibold font-poppins uppercase">{{ $event->event_start->format('M') }}</p>
+                                <p class="text-base font-semibold font-poppins uppercase">{{ $event->starts_at->format('M') }}</p>
                             </div>
                             <div class="row-span-1">
-                                @if ($event->event_start->format('H:i:s') !== '00:00:00')
-                                    <span class="text-sm font-poppins py-2 text-green-900">{{ $event->event_start->format('g:i A') }}</span>
+                                @if ($event->starts_at->format('H:i:s') !== '00:00:00')
+                                    <span class="text-sm font-poppins py-2 text-green-900">{{ $event->starts_at->format('g:i A') }}</span>
                                 @endif
                             </div>
                         </div>

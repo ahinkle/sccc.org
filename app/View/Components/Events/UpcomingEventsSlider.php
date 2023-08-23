@@ -19,6 +19,6 @@ class UpcomingEventsSlider extends AutoResolvableComponent
      */
     protected function upcomingEvents(): Collection
     {
-        return Event::upcoming()->orderBy('event_start')->limit(7)->get();
+        return Event::upcoming()->orderBy('starts_at')->limit(7)->get();
     }
 }

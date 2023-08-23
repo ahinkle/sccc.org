@@ -16,7 +16,7 @@ class EventFactory extends Factory
             'name' => $this->faker->sentence(),
             'description' => $this->faker->text,
             'image' => 'https://via.placeholder.com/400x400',
-            'event_start' => $this->faker->dateTime(),
+            'starts_at' => $this->faker->dateTime(),
             'location' => $this->faker->company.PHP_EOL.$this->faker->address,
         ];
     }
@@ -25,7 +25,7 @@ class EventFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'event_start' => $this->faker->dateTimeBetween('now', '+1 year'),
+                'starts_at' => $this->faker->dateTimeBetween('now', '+1 year'),
             ];
         });
     }
@@ -34,7 +34,7 @@ class EventFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'event_start' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
+                'starts_at' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
             ];
         });
     }

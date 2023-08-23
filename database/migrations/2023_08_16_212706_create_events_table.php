@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('location');
-            $table->dateTime('event_start')
+            $table->dateTime('starts_at')
                 ->index();
             $table->dateTime('event_end')
                 ->nullable();

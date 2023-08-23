@@ -15,14 +15,14 @@
                             <div class="text-center py-4 col-span-3 border-r">
                                 <div class="grid grid-cols-1 gap-y-2">
                                     <div class="row-span-1">
-                                        <p class="text-xl font-semibold font-poppins text-green-900">{{ $event->event_start->format('j') }}</p>
+                                        <p class="text-xl font-semibold font-poppins text-green-900">{{ $event->starts_at->format('j') }}</p>
                                     </div>
                                     <div class="row-span-1">
-                                        <p class="text-sm font-semibold font-poppins uppercase">{{ $event->event_start->format('M') }}</p>
+                                        <p class="text-sm font-semibold font-poppins uppercase">{{ $event->starts_at->format('M') }}</p>
                                     </div>
                                     <div class="row-span-1">
-                                        @if ($event->event_start->format('H:i:s') !== '00:00:00')
-                                            <span class="text-xs font-poppins py-2 text-green-900">{{ $event->event_start->format('g:i A') }}</span>
+                                        @if ($event->starts_at->format('H:i:s') !== '00:00:00')
+                                            <span class="text-xs font-poppins py-2 text-green-900">{{ $event->starts_at->format('g:i A') }}</span>
                                         @endif
                                     </div>
                                 </div>
