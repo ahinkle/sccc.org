@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\EventFrequency;
+use App\Models\Concerns\CreatesRedirects;
 use App\Observers\EventObserver;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        CreatesRedirects;
 
     /**
      * The "booted" method of the model.
