@@ -27,7 +27,7 @@ class Event extends Model
      */
     protected $casts = [
         'starts_at' => 'datetime',
-        'event_end' => 'datetime',
+        'ends_at' => 'datetime',
         'repeat_frequency' => EventFrequency::class,
     ];
 
@@ -37,5 +37,32 @@ class Event extends Model
     public function scopeUpcoming(Builder $query): Builder
     {
         return $query->where('starts_at', '>=', today());
+    }
+
+    /**
+     * Scope a query to only include recurring events.
+     */
+    public function scopeRecurring(Builder $query): Builder
+    {
+        return $query->whereNotNull('repeat_frequency');
+    }
+
+    /**
+     * Scope a query to only include events that have started.
+     */
+    public function scopeHasStarted(Builder $query): Builder
+    {
+        return $query->where('starts_at', '<=', now());
+    }
+
+    /**
+     * Scope a query to only include events that have not ended.
+     */
+    public function scopeNotEnded(Builder $query): Builder
+    {
+        return $query->where(function (Builder $query) {
+            $query->whereNull('ends_at')
+                ->orWhere('ends_at', '>=', now());
+        });
     }
 }

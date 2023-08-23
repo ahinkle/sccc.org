@@ -39,11 +39,20 @@ class EventFactory extends Factory
         });
     }
 
-    public function repeats(): self
+    public function repeats(EventFrequency $eventFrequency = null): self
+    {
+        return $this->state(function (array $attributes) use ($eventFrequency) {
+            return [
+                'repeat_frequency' => $eventFrequency ?? $this->faker->randomElement(EventFrequency::values()),
+            ];
+        });
+    }
+
+    public function expired(): self
     {
         return $this->state(function (array $attributes) {
             return [
-                'repeat_frequency' => $this->faker->randomElement(EventFrequency::values()),
+                'ends_at' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
             ];
         });
     }

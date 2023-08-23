@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('location');
             $table->dateTime('starts_at')
                 ->index();
-            $table->dateTime('event_end')
+            $table->dateTime('ends_at')
                 ->nullable();
             $table->string('repeat_frequency')
                 ->nullable();
