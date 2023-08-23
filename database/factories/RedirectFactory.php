@@ -12,8 +12,8 @@ class RedirectFactory extends Factory
     public function definition(): array
     {
         return [
-            'from' => $this->faker->url,
-            'to' => $this->faker->url,
+            'from' => $this->faker->slug(),
+            'to' => $this->faker->slug(),
             'code' => $this->faker->randomElement([301, 302]),
         ];
     }
