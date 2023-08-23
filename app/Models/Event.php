@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Enums\EventFrequency;
-use App\Models\Concerns\CreatesRedirects;
+use Illuminate\Support\Carbon;
 use App\Observers\EventObserver;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\CreatesRedirects;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
@@ -64,5 +65,17 @@ class Event extends Model
             $query->whereNull('ends_at')
                 ->orWhere('ends_at', '>=', now());
         });
+    }
+
+    /**
+     * Get the next occurance of the event.
+     */
+    public function nextOccurance(): ?Carbon
+    {
+        if (! $this->repeat_frequency) {
+            return null;
+        }
+
+        return $this->repeat_frequency->nextOccurance($this->starts_at);
     }
 }

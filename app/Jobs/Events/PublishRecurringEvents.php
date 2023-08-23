@@ -33,7 +33,7 @@ class PublishRecurringEvents implements ShouldQueue
     protected function publishNextOccurrence(Event $event): void
     {
         $event->replicate()
-            ->fill(['starts_at' => $event->repeat_frequency->nextOccurance($event->starts_at)])
+            ->fill(['starts_at' => $event->nextOccurance()])
             ->save();
     }
 }

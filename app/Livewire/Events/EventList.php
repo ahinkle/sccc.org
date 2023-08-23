@@ -4,6 +4,7 @@ namespace App\Livewire\Events;
 
 use App\Models\Event;
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Rule;
@@ -40,7 +41,7 @@ class EventList extends Component
         $this->startDate = now()->startOfDay();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.events.event-list', [
             'events' => $this->events(),
@@ -54,7 +55,7 @@ class EventList extends Component
     {
         return Event::query()
             ->when($this->startDate, fn ($query) => $query->whereDate('starts_at', '>=', $this->startDate))
-            ->when($this->endDate, fn ($query) => $query->whereDate('ends_at', '<=', $this->endDate))
+            ->when($this->endDate, fn ($query) => $query->whereDate('starts_at', '<=', $this->endDate))
             ->when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%"))
             ->orderBy('starts_at')
             ->paginate(10);
