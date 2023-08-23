@@ -5,6 +5,7 @@
             <div class="grid grid-cols-1 gap-y-4 px-4">
                 <x-inputs.input
                      name="search"
+                     wire:model.live="search"
                      type="search"
                      placeholder="Name of Event"
                      hideLabel

@@ -8,8 +8,6 @@
         name="{{ $name }}"
         id="{{ $name }}"
         @if ($placeholder) placeholder="{{ $placeholder }}" @endif
-        @if ($wireModel) wire:model="{{ $wireModel }}" @endif
-        @if ($wireModelBlur) wire:model.blur="{{ $wireModelBlur }}" @endif
         {{ $attributes }}
         @class([
             'w-full min-w-0 appearance-none border-0 bg-white px-3 py-4 text-base text-gray-900 shadow-sm ring-1 ring-inset
