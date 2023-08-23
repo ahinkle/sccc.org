@@ -45,9 +45,9 @@
                                     {{ $event->description }} .. <a href="#" class="text-green-900 hover:text-green-700 text-sm">read more</a>
                                 </p>
 
-                             <p class="whitespace-pre-line text-sm italic font-poppins">
-                                {{ $event->location }}
-                            </p>
+                                <p class="whitespace-pre-line text-sm italic font-poppins">
+                                    {{ $event->location }}
+                                </p>
                             </div>
                         </div>
                      </div>
