@@ -12,6 +12,9 @@ class Input extends AutoResolvableComponent
         public ?string $label = null,
         public bool $hideLabel = false,
         public ?string $placeholder = null,
+        public ?string $wireModel = null,
+        public ?string $wireModelBlur = null,
+        public ?string $class = null,
     ) {
         $this->label ??= $this->guessLabel();
         $this->placeholder ??= $this->label;

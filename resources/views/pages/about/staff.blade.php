@@ -7,7 +7,6 @@
     <x-hero.page-hero>
        <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">Our Staff</h1>
     </x-hero.page-hero>
-
     <div class="max-w-screen-xl mx-auto py-20">
         <x-cards.two-column-card>
             <div class="grid gap-y-10 px-5 self-center">
@@ -23,7 +22,7 @@
                     From pastors who provide insightful sermons and pastoral care, to administrative staff who ensure the smooth functioning of our church, to dedicated volunteers who lead various ministries and programs – we are all here to create an environment where you can experience God's love, find purpose, and develop meaningful connections with others who share your faith.
                 </p>
             </div>
-            <div>
+            <div class="flex justify-center">
                 <img src="https://via.placeholder.com/600x600" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>

@@ -45,6 +45,6 @@
     </div>
 
     <div class="text-center">
-        <x-inputs.button href="#" class="my-5">View All Events</x-inputs.button>
+        <x-inputs.button href="/events" class="my-5">View All Events</x-inputs.button>
     </div>
 </div>
