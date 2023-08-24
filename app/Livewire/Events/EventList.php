@@ -32,7 +32,7 @@ class EventList extends Component
     /**
      * The search term for events.
      */
-    #[Rule(['nullable', 'string'])]
+    #[Rule(['nullable', 'string', 'max:255'])]
     #[Url]
     public ?string $search = null;
 

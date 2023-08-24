@@ -1,36 +1,49 @@
 <div class="grid grid-cols-12 gap-6">
     <div class="col-span-3">
         <form wire:submit class="bg-gray-100 py-10 -mt-16 shadow-lg">
-            <h2 class="text-black px-4 pb-5 uppercase text-sm">Filters</h2>
-            <div class="grid grid-cols-1 gap-y-4 px-4">
-                <x-inputs.input
-                     name="search"
-                     wire:model.live="search"
-                     type="search"
-                     placeholder="Name of Event"
-                     hideLabel
-                />
-                <div class="grid grid-cols-9">
-                    <div class="col-span-4">
-                        <x-inputs.input
-                            name="startDate"
-                            wire:model.live="startDate"
-                            type="date"
-                            placeholder="Name of Event"
-                            hideLabel
-                        />
+            <div class="px-4">
+                <h2 class="text-black pb-5 uppercase text-sm">Filters</h2>
+
+                @if ($errors->any())
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <ul class="list-disc pl-5">
+                            @foreach ($errors->all() as $error)
+                                <li class="text-sm">{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <div class="col-span-1 place-self-center">
-                        <span class="text-black font-poppins">to</span>
-                    </div>
-                    <div class="col-span-4">
-                        <x-inputs.input
-                            name="endDate"
-                            wire:model.live="endDate"
-                            type="date"
-                            placeholder="Name of Event"
-                            hideLabel
-                        />
+                @endif
+
+                <div class="grid grid-cols-1 gap-y-4">
+                    <x-inputs.input
+                        name="search"
+                        wire:model.live="search"
+                        type="search"
+                        placeholder="Name of Event"
+                        hideLabel
+                    />
+                    <div class="grid grid-cols-9">
+                        <div class="col-span-4">
+                            <x-inputs.input
+                                name="startDate"
+                                wire:model.live="startDate"
+                                type="date"
+                                placeholder="Name of Event"
+                                hideLabel
+                            />
+                        </div>
+                        <div class="col-span-1 place-self-center">
+                            <span class="text-black font-poppins">to</span>
+                        </div>
+                        <div class="col-span-4">
+                            <x-inputs.input
+                                name="endDate"
+                                wire:model.live="endDate"
+                                type="date"
+                                placeholder="Name of Event"
+                                hideLabel
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
