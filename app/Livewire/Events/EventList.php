@@ -20,14 +20,14 @@ class EventList extends Component
      */
     #[Rule(['required', 'date', 'gte:today'])]
     #[Url]
-    public ?Carbon $startDate = null;
+    public ?string $startDate = null;
 
     /**
      * The end date search range for events.
      */
     #[Rule(['nullable', 'date', 'after_or_equal:startDate'])]
     #[Url]
-    public ?Carbon $endDate = null;
+    public ?string $endDate = null;
 
     /**
      * The search term for events.
@@ -38,20 +38,29 @@ class EventList extends Component
 
     public function mount(): void
     {
-        $this->startDate = now()->startOfDay();
+        $this->startDate = today()->format('Y-m-d');
     }
 
     public function render(): View
     {
         return view('livewire.events.event-list', [
             'events' => $this->events(),
+            'isSearching' => $this->isSearching(),
         ]);
+    }
+
+    /**
+     * Clear the search parameters.
+     */
+    public function resetFilters(): void
+    {
+        $this->reset(['startDate' => today()->format('Y-m-d'), 'endDate', 'search']);
     }
 
     /**
      * Get the events for the event list.
      */
-    protected function events(): LengthAwarePaginator
+    public function events(): LengthAwarePaginator
     {
         return Event::query()
             ->when($this->startDate, fn ($query) => $query->whereDate('starts_at', '>=', $this->startDate))
@@ -59,5 +68,21 @@ class EventList extends Component
             ->when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%"))
             ->orderBy('starts_at')
             ->paginate(10);
+    }
+
+    /**
+     * Determine if the user is searching for events.
+     */
+    protected function isSearching(): bool
+    {
+        if ($this->endDate || $this->search) {
+            return true;
+        }
+
+        if ($this->startDate) {
+            return $this->startDate !== today()->format('Y-m-d');
+        }
+
+        return false;
     }
 }

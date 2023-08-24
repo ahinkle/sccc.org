@@ -8,5 +8,7 @@
        <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">Events</h1>
     </x-hero.page-hero>
 
-    <livewire:events.event-list />
+    <div>
+        <livewire:events.event-list />
+    </div>
 </x-layout.app>
