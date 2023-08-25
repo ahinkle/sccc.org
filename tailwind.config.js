@@ -24,7 +24,7 @@ export default {
         'libre': ['"Libre Baskerville", "Open Sans"', 'sans-serif'],
         'poppins': ['"Poppins", "Open Sans"', 'sans-serif'],
         'sen': ['"Sen", "Open Sans"', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [],

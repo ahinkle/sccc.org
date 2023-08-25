@@ -1,5 +1,5 @@
-<div class="grid grid-cols-12 gap-6">
-    <div class="col-span-3">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 px-4 lg:px-0">
+    <div class="col-span-1 lg:col-span-4 xl:col-span-3">
         <form wire:submit class="bg-gray-100 py-10 -mt-16 shadow-lg">
             <div class="px-4">
                 <h2 class="text-black pb-5 uppercase text-sm">Filters</h2>
@@ -22,8 +22,8 @@
                         placeholder="Name of Event"
                         hideLabel
                     />
-                    <div class="grid grid-cols-9">
-                        <div class="col-span-4">
+                    <div class="grid sm:grid-cols-9 pt-5 sm:pt-0 gap-y-2 sm:gap-y-0">
+                        <div class="sm:col-span-4">
                             <x-inputs.input
                                 name="startDate"
                                 wire:model.live="startDate"
@@ -32,10 +32,10 @@
                                 hideLabel
                             />
                         </div>
-                        <div class="col-span-1 place-self-center">
+                        <div class="sm:col-span-1 place-self-center">
                             <span class="text-black font-poppins">to</span>
                         </div>
-                        <div class="col-span-4">
+                        <div class="sm:col-span-4">
                             <x-inputs.input
                                 name="endDate"
                                 wire:model.live="endDate"
@@ -50,7 +50,7 @@
         </form>
     </div>
 
-    <div class="col-span-9">
+    <div class="col-span-1 lg:col-span-8 xl:col-span-9">
         @if ($isSearching)
             <div class="mt-5">
                 @if ($events->count() === 0)
@@ -67,7 +67,7 @@
                 @endif
             <div>
         @endif
-        <ul class="grid grid-cols-2 gap-y-14 mt-10 gap-x-6">
+        <ul class="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-10 gap-x-6">
             @foreach ($events as $event)
                 <li wire:key="{{ $event->id }}">
                     <div class="grid grid-cols-12">
@@ -95,12 +95,14 @@
                                         {{ $event->name }}
                                     </h2>
 
+                                    <div class="w-38">
+                                        <p class="whitespace-pre-line text-sm italic font-poppins -mb-3">
+                                            {{ $event->location }}
+                                        </p>
+                                    </div>
+
                                     <p>
                                         {{ $event->description }} .. <a href="#" class="text-green-900 hover:text-green-700 text-sm">read more</a>
-                                    </p>
-
-                                    <p class="whitespace-pre-line text-sm italic font-poppins">
-                                        {{ $event->location }}
                                     </p>
                                 </div>
                             </div>

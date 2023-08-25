@@ -17,7 +17,11 @@ class EventFactory extends Factory
             'description' => $this->faker->text,
             'image' => 'https://via.placeholder.com/400x400',
             'starts_at' => $this->faker->dateTime(),
-            'location' => $this->faker->company.PHP_EOL.$this->faker->address,
+            'location' => $this->faker->company(),
+            'address' => $this->faker->streetAddress(),
+            'city' => $this->faker->city(),
+            'state' => $this->faker->state(),
+            'zip_code' => $this->faker->postcode(),
         ];
     }
 

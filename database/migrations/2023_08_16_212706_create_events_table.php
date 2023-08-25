@@ -19,6 +19,10 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('location');
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip_code');
             $table->dateTime('starts_at')
                 ->index();
             $table->dateTime('ends_at')

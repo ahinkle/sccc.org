@@ -60,7 +60,7 @@ class EventList extends Component
     /**
      * Get the events for the event list.
      */
-    public function events(): LengthAwarePaginator
+    protected function events(): LengthAwarePaginator
     {
         return Event::query()
             ->when($this->startDate, fn ($query) => $query->whereDate('starts_at', '>=', $this->startDate))
