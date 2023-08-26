@@ -96,6 +96,7 @@ class EventResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('id', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
@@ -109,6 +110,9 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('ends_at')
                     ->label('Event End')
                     ->dateTime('M j, Y g:i A'),
+
+                Tables\Columns\TextColumn::make('repeat_frequency')
+                    ->label('Repeats?'),
             ])
             ->filters([
                 //
@@ -154,6 +158,7 @@ class EventResource extends Resource
                             'repeat_frequency' => $data['repeat_frequency'],
                         ])->save();
                     }),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
