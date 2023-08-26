@@ -11,6 +11,7 @@ use Filament\Tables\Table;
 use App\Enums\EventFrequency;
 use Filament\Resources\Resource;
 use App\Filament\Resources\EventResource\Pages;
+use Tables\Action;
 
 class EventResource extends Resource
 {
@@ -114,6 +115,45 @@ class EventResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('duplicate')
+                    ->form([
+                        Forms\Components\Fieldset::make('Event Time')
+                            ->schema([
+                                Forms\Components\DateTimePicker::make('starts_at')
+                                    ->required()
+                                    ->seconds(false)
+                                    ->label('Event Start')
+                                    ->afterOrEqual('today'),
+                                Forms\Components\DateTimePicker::make('ends_at')
+                                    ->label('Event End')
+                                    ->seconds(false)
+                                    ->helperText('Optional. Add only if you want to specify an end time on the event page.')
+                                    ->nullable()
+                                    ->afterOrEqual('starts_at'),
+                                Forms\Components\Select::make('repeat_frequency')
+                                    ->label('Recurring Schedule')
+                                    ->options(EventFrequency::class)
+                                    ->placeholder('Event does not repeat')
+                                    ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.')
+                            ]),
+                    ])
+                    ->fillForm(function (Event $event) {
+                        return [
+                            'starts_at' => $event->starts_at,
+                            'ends_at' => $event->ends_at,
+                            'repeat_frequency' => $event->repeat_frequency,
+                        ];
+                    })
+                    ->label('Duplicate')
+                    ->modalIcon('heroicon-o-square-2-stack')
+                    ->icon('heroicon-o-square-2-stack')
+                    ->action(function (Event $event, $data) {
+                        $event->replicate()->fill([
+                            'starts_at' => $data['starts_at'],
+                            'ends_at' => $data['ends_at'],
+                            'repeat_frequency' => $data['repeat_frequency'],
+                        ])->save();
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
