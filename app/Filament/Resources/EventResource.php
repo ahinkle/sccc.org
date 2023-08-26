@@ -108,6 +108,7 @@ class EventResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('ends_at')
+                    ->placeholder('No end time')
                     ->label('Event End')
                     ->dateTime('M j, Y g:i A'),
 
