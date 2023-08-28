@@ -8,69 +8,60 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900 font-libre">About</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Marketing</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Our Beliefs</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Analytics</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Staff</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Commerce</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Location & Times</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Insights</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Events</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Careers</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-10 md:mt-0">
-                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Support</h3>
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Messages</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">View All Messages</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Documentation</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" /> Sunday, 9 AM</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Guides</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">API Status</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" /> Wednesday, 6 PM (Youth)</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
-                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Resources</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">About</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Member Directory</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Meetings & Minutes</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Jobs</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Press</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Partners</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Give</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-10 md:mt-0">
-                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Contact</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Claim</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Contact Us</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                                <a href="tel:812-948" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-phone class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600" /> (812) 937-2938</a>
                             </li>
                         </ul>
                     </div>
