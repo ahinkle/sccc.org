@@ -24,13 +24,13 @@
         <x-layout.nav-item href='/' title="Livestream" />
         <x-layout.nav-item href='/' title="Stay Updated">
             <x-layout.nav-item href='/' title="Weekly Newsletter" />
-            <x-layout.nav-item href='/' title="Events" />
-            <x-layout.nav-item href='/' title="Contact Us" />
+            <x-layout.nav-item href='/events' title="Events" />
+            <x-layout.nav-item href='/contact-us' title="Contact Us" />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Resources">
             <x-layout.nav-item href='/' title="Member Directory" />
             <x-layout.nav-item href='/' title="Meetings & Minutes" />
-            <x-layout.nav-item href='/' title="Contact Us" />
+            <x-layout.nav-item href='/contact-us' title="Contact Us" />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Give" />
     </nav>
