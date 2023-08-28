@@ -23,16 +23,14 @@
                             <li class="pt-2">Phone: <a class="underline" href="tel:812-937-2938">(812) 937-2938</a></li>
                         </ol>
                     </div>
-                    <div class="pt-4">
+                    <div class="pt-5">
                         <h2 class="text-lg uppercase font-semibold">Office Hours</h2>
-                        <ul class="pt-2 pl-2">
+                        <ul class="pt-2 pl-2 grid gap-y-5">
                             <li>Monday - 8:00am to 3:30pm</li>
                             <li>Tuesday - 8:00am to 3:30pm</li>
                             <li>Wednesday - 9:00am to 5:00pm</li>
                             <li>Thursday - 8:00am to 3:30pm</li>
                             <li>Friday - 8:00am to 3:30pm</li>
-                            <li>Saturday - Closed</li>
-                            <li>Sunday - Closed <span class="text-sm">(except for services)</span></li>
                         </ul>
                     </div>
                 </div>

@@ -31,10 +31,10 @@
                                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">View All Messages</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" /> Sunday, 9 AM</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Sunday, 9 AM</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" /> Wednesday, 6 PM (Youth)</a>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Wednesday, 6 PM (Youth)</a>
                             </li>
                         </ul>
                     </div>
