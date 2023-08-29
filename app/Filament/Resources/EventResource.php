@@ -2,16 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use App\Enums\State;
-use Filament\Tables;
-use App\Models\Event;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
 use App\Enums\EventFrequency;
-use Filament\Resources\Resource;
+use App\Enums\State;
 use App\Filament\Resources\EventResource\Pages;
-use Tables\Action;
+use App\Models\Event;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class EventResource extends Resource
 {
@@ -57,10 +56,10 @@ class EventResource extends Resource
                             ->label('Recurring Schedule')
                             ->options(EventFrequency::class)
                             ->placeholder('Event does not repeat')
-                            ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.')
+                            ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.'),
                     ]),
 
-                 Forms\Components\Fieldset::make('Event Location')
+                Forms\Components\Fieldset::make('Event Location')
                     ->schema([
                         Forms\Components\TextInput::make('location')
                             ->required()
@@ -88,7 +87,7 @@ class EventResource extends Resource
                                     ->required()
                                     ->label('Event Zip Code')
                                     ->default('47579'),
-                                ])
+                            ]),
                     ]),
             ]);
     }
@@ -139,7 +138,7 @@ class EventResource extends Resource
                                     ->label('Recurring Schedule')
                                     ->options(EventFrequency::class)
                                     ->placeholder('Event does not repeat')
-                                    ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.')
+                                    ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.'),
                             ]),
                     ])
                     ->fillForm(function (Event $event) {

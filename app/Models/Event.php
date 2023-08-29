@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use App\Enums\EventFrequency;
-use Illuminate\Support\Carbon;
-use App\Observers\EventObserver;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\CreatesRedirects;
+use App\Observers\EventObserver;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Event extends Model
 {

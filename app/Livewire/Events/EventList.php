@@ -3,13 +3,12 @@
 namespace App\Livewire\Events;
 
 use App\Models\Event;
-use Livewire\Component;
-use Illuminate\View\View;
-use Livewire\Attributes\Url;
-use Livewire\WithPagination;
-use Livewire\Attributes\Rule;
-use Illuminate\Support\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\View\View;
+use Livewire\Attributes\Rule;
+use Livewire\Attributes\Url;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class EventList extends Component
 {

@@ -6,7 +6,7 @@ use App\Models\NewsletterContact;
 
 class NewsletterContactObserver
 {
-     /**
+    /**
      * Handle the NewsletterContact "creating" event.
      */
     public function creating(NewsletterContact $newsletterContact): void

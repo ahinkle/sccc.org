@@ -2,7 +2,6 @@
 
 use App\Models\Event;
 use App\Models\Redirect;
-use Illuminate\Support\Str;
 
 it('creates a redirect when slug changes', function () {
     $e = Event::factory()->create([

@@ -1,8 +1,8 @@
 <?php
 
+use App\Enums\EventFrequency;
 use App\Jobs\Events\PublishRecurringEvents;
 use App\Models\Event;
-use App\Enums\EventFrequency;
 
 it('publishes a weekly event', function () {
     $e = Event::factory()->create([

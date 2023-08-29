@@ -2,13 +2,12 @@
 
 namespace App\Jobs\NewsletterContacts;
 
-use Illuminate\Bus\Queueable;
 use App\Models\NewsletterContact;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class PruneUnverifiedNewsletterContacts implements ShouldQueue
 {
