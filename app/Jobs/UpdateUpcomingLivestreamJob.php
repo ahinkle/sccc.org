@@ -3,12 +3,14 @@
 namespace App\Jobs;
 
 use Alaouy\Youtube\Facades\Youtube;
+use App\Mail\Livestream\FailedToLocateLivestream;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class UpdateUpcomingLivestreamJob implements ShouldQueue
@@ -48,13 +50,20 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
             cache()->put('livestream.sunday', $sunday->first()->id->videoId, now()->addWeek());
         }
 
-        $wednesday = $upcoming->filter(fn ($item) => Str::contains($item->snippet->title, $this->nextWednesday()->format('l, F n, Y')));
+        $wednesday = $upcoming->filter(fn ($item) => Str::contains($item->snippet->title, $this->nextWednesday()->format('l, F j, Y')));
 
         if ($wednesday->count() > 0) {
             cache()->put('livestream.wednesday', $wednesday->first()->id->videoId, now()->addWeek());
         }
 
         if ($sunday->count() === 0 || $wednesday->count() === 0) {
+            Mail::queue(new FailedToLocateLivestream(
+                sunday: $this->nextSunday(),
+                wednesday: $this->nextWednesday(),
+                videos: $upcoming,
+                tries: $this->attempts(),
+            ));
+
             throw new \Exception('Could not find upcoming livestreams for Sunday and/or Wednesday.');
         }
     }
