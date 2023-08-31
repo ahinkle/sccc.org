@@ -41,6 +41,13 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
         ]));
 
         if ($upcoming->count() === 0) {
+            Mail::queue(new FailedToLocateLivestream(
+                sunday: $this->nextSunday(),
+                wednesday: $this->nextWednesday(),
+                videos: collect(),
+                tries: $this->attempts(),
+            ));
+
             throw new \Exception('No upcoming livestreams found.');
         }
 
