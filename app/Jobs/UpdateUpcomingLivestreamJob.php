@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -28,6 +29,18 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
     public $tries = 3;
 
     /**
+     * Calculate the number of seconds to wait before retrying the job.
+     */
+    public function backoff(): array
+    {
+        return [
+            60 * 60 * 24, // Wait 24 hours before retrying. Ideally, this would be Saturday at 9am.
+            60 * 60 * 8,  // Wait 8 hours after the next attempt, which is 32 hours after the first attempt. Ideally, this would be Saturday at 5pm.
+            60 * 60 * 14, // Finally, we will check Sunday morning at 7 am, which is 46 hours after the first attempt.
+        ];
+    }
+
+    /**
      * Execute the job.
      */
     public function handle(): void
@@ -41,73 +54,60 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
         ]));
 
         if ($upcoming->count() === 0) {
-            Mail::queue(new FailedToLocateLivestream(
-                sunday: $this->nextSunday(),
-                wednesday: $this->nextWednesday(),
-                videos: collect(),
-                tries: $this->attempts(),
-            ));
-
-            throw new \Exception('No upcoming livestreams found.');
+            tap($this->notifyOnJobFailure(), fn () => throw new \Exception('No upcoming livestreams found.'));
         }
 
-        $sunday = $upcoming->filter(fn ($item) => Str::contains($item->snippet->title, $this->nextSunday()->format('l, F j, Y')));
+        $sunday = $this->firstLivestreamByDate($this->upcomingSunday(), $upcoming);
+        $wednesday = $this->firstLivestreamByDate($this->upcomingWednesday(), $upcoming);
 
         if ($sunday->count() > 0) {
-            cache()->put('livestream.sunday', $sunday->first()->id->videoId, now()->addWeek());
+            cache()->put('livestream.sunday', $sunday->first()->id?->videoId, now()->addWeek());
         }
-
-        $wednesday = $upcoming->filter(fn ($item) => Str::contains($item->snippet->title, $this->nextWednesday()->format('l, F j, Y')));
-
         if ($wednesday->count() > 0) {
-            cache()->put('livestream.wednesday', $wednesday->first()->id->videoId, now()->addWeek());
+            cache()->put('livestream.wednesday', $wednesday->first()->id?->videoId, now()->addWeek());
         }
 
         if ($sunday->count() === 0 || $wednesday->count() === 0) {
-            Mail::queue(new FailedToLocateLivestream(
-                sunday: $this->nextSunday(),
-                wednesday: $this->nextWednesday(),
-                videos: $upcoming,
-                tries: $this->attempts(),
-            ));
-
-            throw new \Exception('Could not find upcoming livestreams for Sunday and/or Wednesday.');
+            tap($this->notifyOnJobFailure($upcoming), fn () => throw new \Exception('Could not find upcoming livestreams for Sunday and/or Wednesday.'));
         }
-    }
-
-    /**
-     * Calculate the number of seconds to wait before retrying the job.
-     */
-    public function backoff(): array
-    {
-        return [
-            60 * 60 * 24, // Wait 24 hours before retrying. Ideally, this would be Saturday at 9am.
-            60 * 60 * 8,  // Wait 8 hours after the next attempt, which is 32 hours after the first attempt. Ideally, this would be Saturday at 5pm.
-            60 * 60 * 14, // Finally, we will check Sunday morning at 7 am, which is 46 hours after the first attempt.
-        ];
     }
 
     /**
      * Retrieve the coming Sunday.
      */
-    protected function nextSunday(): Carbon
+    protected function upcomingSunday(): Carbon
     {
-        if (today() === today()->startOfWeek()) {
-            return today();
-        }
-
-        return today()->copy()->next(Carbon::SUNDAY);
+        return today()->format('D') === 'Sun' ? today() : today()->copy()->next(Carbon::SUNDAY);
     }
 
     /**
      * Retrieve the coming Wednesday.
      */
-    protected function nextWednesday(): Carbon
+    protected function upcomingWednesday(): Carbon
     {
-        if (today() === today()->startOfWeek()->addDays(3)) {
-            return today();
-        }
+        return today()->format('D') === 'Wed' ? today() : today()->copy()->next(Carbon::WEDNESDAY);
+    }
 
-        return today()->copy()->next(Carbon::WEDNESDAY);
+    /**
+     * Locate the livestream by a provided Carbon date by the video title.
+     */
+    protected function firstLivestreamByDate(Carbon $date, Collection $videos)
+    {
+        return $videos->filter(
+            fn ($item) => Str::contains($item->snippet?->title, $date->format('l, F j, Y'))
+        );
+    }
+
+    /**
+     * Notify via email that the job has failed.
+     */
+    private function notifyOnJobFailure(Collection $videos = null): void
+    {
+        Mail::queue(new FailedToLocateLivestream(
+            sunday: $this->upcomingSunday(),
+            wednesday: $this->upcomingWednesday(),
+            videos: $videos ?? collect(),
+            tries: $this->attempts(),
+        ));
     }
 }
