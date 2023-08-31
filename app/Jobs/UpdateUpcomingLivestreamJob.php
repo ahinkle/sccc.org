@@ -61,10 +61,10 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
         $wednesday = $this->firstLivestreamByDate($this->upcomingWednesday(), $upcoming);
 
         if ($sunday->count() > 0) {
-            cache()->put('livestream.sunday', $sunday->first()->id?->videoId, now()->addWeek());
+            cache()->put('livestream.sunday', $sunday->first()?->id?->videoId, now()->addWeek());
         }
         if ($wednesday->count() > 0) {
-            cache()->put('livestream.wednesday', $wednesday->first()->id?->videoId, now()->addWeek());
+            cache()->put('livestream.wednesday', $wednesday->first()?->id?->videoId, now()->addWeek());
         }
 
         if ($sunday->count() === 0 || $wednesday->count() === 0) {
@@ -103,11 +103,13 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
      */
     private function notifyOnJobFailure(Collection $videos = null): void
     {
-        Mail::queue(new FailedToLocateLivestream(
-            sunday: $this->upcomingSunday(),
-            wednesday: $this->upcomingWednesday(),
-            videos: $videos ?? collect(),
-            tries: $this->attempts(),
-        ));
+        Mail::queue(
+            new FailedToLocateLivestream(
+                sunday: $this->upcomingSunday(),
+                wednesday: $this->upcomingWednesday(),
+                videos: $videos ?? collect(),
+                tries: $this->attempts(),
+            )
+        );
     }
 }

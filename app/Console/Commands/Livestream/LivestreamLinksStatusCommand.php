@@ -18,7 +18,7 @@ class LivestreamLinksStatusCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Show the status of the upcoming livestream links';
+    protected $description = 'Show the status of the livestream links';
 
     /**
      * Execute the console command.
