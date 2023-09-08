@@ -7,7 +7,7 @@ We're thrilled to have you as a part of our church community, and we're excited 
 
 To ensure you receive our newsletters promptly, please take a moment to verify your email address by clicking the button below:
 
-<x-mail::button :url="''">
+<x-mail::button url="{{ route('newsletter.verify') }}?email={{ $newsletterContact->email }}&token={{ $newsletterContact->token }}">
 Verify Email Address
 </x-mail::button>
 

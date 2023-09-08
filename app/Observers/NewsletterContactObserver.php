@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Mail\Newsletter\VerifiedNewsletterEmailAddress;
 use App\Mail\Newsletter\VerifyNewsletterEmailAddress;
 use App\Models\NewsletterContact;
 use Illuminate\Support\Facades\Mail;
@@ -23,5 +24,18 @@ class NewsletterContactObserver
     {
         Mail::to($newsletterContact->email)
             ->queue(new VerifyNewsletterEmailAddress($newsletterContact));
+    }
+
+    /**
+     * Handle the NewsletterContact "saved" event.
+     */
+    public function saved(NewsletterContact $newsletterContact): void
+    {
+        if ($newsletterContact->email_verified_at
+            && $newsletterContact->wasChanged('email_verified_at')
+        ) {
+            Mail::to('office@sccc.org')
+                ->queue(new VerifiedNewsletterEmailAddress($newsletterContact));
+        }
     }
 }
