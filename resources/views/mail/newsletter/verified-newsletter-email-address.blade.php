@@ -11,6 +11,6 @@ Email: {{ $newsletterContact->email }}
 
 Please take a moment to manually add this subscriber to our newsletter distribution list. We want to ensure they start receiving our updates promptly.
 
-This is an automated message - If you find the submissions to be inappropriate or higher spam than normal, please contact the Site Administrator (Andy Hinkle) at ahinkle10@gmail.com.
+This is an automated message - If you find the submissions to be inappropriate or higher spam than normal, please contact the Site Administrator (Andy Hinkle) at andy@sccc.org.
 
 </x-mail::message>

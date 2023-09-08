@@ -1,7 +1,8 @@
 <div class="mt-6">
     @if ($showVerifyEmailMessage)
-        <p class="mt-2 text-xs leading-6 text-white p-4 font-libre bg-green-800 rounded font-semibold">
-            Please check your email and click the link we sent you to confirm your subscription. If you don't see the email, check your spam folder.
+        <p class="mt-2 text-base leading-6 text-white p-4 font-libre bg-green-700 rounded font-semibold">
+            Please check your email and click the link we sent you to confirm your subscription.
+            <span class="block pt-2">If you don't see the email, check your spam folder.</span>
         </p>
     @else
         <form class="grid gap-y-3" wire:submit="subscribe">
