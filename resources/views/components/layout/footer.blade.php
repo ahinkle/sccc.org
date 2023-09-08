@@ -70,25 +70,7 @@
             <div class="mt-10 xl:mt-0">
                 <h3 class="text-sm font-semibold leading-6 text-gray-900 font-libre">Subscribe to our newsletter: The Weekly Word</h3>
                 <p class="mt-2 text-xs leading-6 text-gray-600 font-libre">The latest news, events, and happenings around the church, sent to your inbox weekly.</p>
-                <form class="mt-6 grid gap-y-3">
-                    <x-inputs.input
-                        name="name"
-                        label="Enter your name"
-                        hideLabel
-                        required
-                    />
-                    <x-inputs.input
-                        type="email"
-                        name="email"
-                        label="Enter your e mail address"
-                        hideLabel
-                        required
-                    />
-                    <x-inputs.button type="submit" class="md:max-w-none">
-                        <x-fas-envelope class="mr-1 w-4 h-4 inline-block" />
-                        Subscribe
-                    </x-inputs.button>
-                </form>
+                <livewire:newsletter.newsletter-footer-signup-form />
             </div>
         </div>
         <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">

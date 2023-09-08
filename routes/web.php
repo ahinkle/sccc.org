@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,4 @@ Route::view('/about/what-we-believe', 'pages.about.what-we-believe')->name('abou
 Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/events', 'pages.events')->name('events');
+Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);

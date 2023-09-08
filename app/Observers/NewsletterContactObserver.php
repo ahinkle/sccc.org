@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Mail\Newsletter\VerifyNewsletterEmailAddress;
 use App\Models\NewsletterContact;
+use Illuminate\Support\Facades\Mail;
 
 class NewsletterContactObserver
 {
@@ -19,6 +21,7 @@ class NewsletterContactObserver
      */
     public function created(NewsletterContact $newsletterContact): void
     {
-        //
+        Mail::to($newsletterContact->email)
+            ->queue(new VerifyNewsletterEmailAddress($newsletterContact));
     }
 }

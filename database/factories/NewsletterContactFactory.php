@@ -18,7 +18,7 @@ class NewsletterContactFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'email_verified_at' => now(),
+                'email_verified_at' => $this->faker->dateTimeBetween('-1 year', '-1 day'),
             ];
         });
     }
