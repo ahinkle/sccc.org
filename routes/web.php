@@ -20,3 +20,6 @@ Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/events', 'pages.events')->name('events');
 Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
+
+Route::get('/livestream/sunday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.sunday')))->name('livestream.sunday');
+Route::get('/livestream/wednesday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.wednesday')))->name('livestream.wednesday');

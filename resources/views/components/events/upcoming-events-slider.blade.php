@@ -4,13 +4,13 @@
     <div class="overflow-x-scroll py-10">
         <div class="flex flex-nowrap">
             @foreach($upcomingEvents as $event)
-                <div class="flex-shrink-0 w-[300px] mr-4 rounded-lg shadow">
+                <div class="flex-shrink-0 w-[300px] mr-4 shadow">
                     <div class="relative">
                         <a href="#">
-                            <img class="w-full h-36 object-cover rounded-t-lg" src="{{ $event->image }}" alt="{{ $event->name }}">
+                            <img class="w-full h-36 object-cover" src="{{ $event->image }}" alt="{{ $event->name }}">
                         </a>
                     </div>
-                    <div class="px-1 rounded-b-lg">
+                    <div class="px-1">
                         <div class="grid grid-cols-12">
                             <div class="text-center py-4 col-span-3 border-r">
                                 <div class="grid grid-cols-1 gap-y-2">
