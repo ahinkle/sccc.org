@@ -27,9 +27,9 @@ class NewsletterContactObserver
     }
 
     /**
-     * Handle the NewsletterContact "saved" event.
+     * Handle the NewsletterContact "updated" event.
      */
-    public function saved(NewsletterContact $newsletterContact): void
+    public function updated(NewsletterContact $newsletterContact): void
     {
         if ($newsletterContact->email_verified_at
             && $newsletterContact->wasChanged('email_verified_at')
