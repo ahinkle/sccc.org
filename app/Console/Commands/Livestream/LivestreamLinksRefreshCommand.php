@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Livestream;
 
+use App\Jobs\Livestream\UpdateUpcomingLivestreamJob;
 use Illuminate\Console\Command;
 
 class LivestreamLinksRefreshCommand extends Command
@@ -25,6 +26,10 @@ class LivestreamLinksRefreshCommand extends Command
      */
     public function handle(): int
     {
+        UpdateUpcomingLivestreamJob::dispatch();
+
+        $this->info('Launched job to refresh upcoming livestream links.');
+
         return 0;
     }
 }

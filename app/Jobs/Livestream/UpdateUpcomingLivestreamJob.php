@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Jobs\Livestream;
 
 use Alaouy\Youtube\Facades\Youtube;
 use App\Mail\Livestream\FailedToLocateLivestream;
