@@ -14,23 +14,23 @@
     <nav class="w-1/2 hidden xl:grid xl:grid-flow-col xl:auto-cols-max gap-10 justify-center mx-auto font-poppins uppercase text-lg leading-10 tracking-wide">
         <x-layout.nav-item href='/' title="Home" />
         <x-layout.nav-item href='/' title="About">
-            <x-layout.nav-item href='/about/what-we-believe' title="Our Beliefs" />
-            <x-layout.nav-item href='/about/staff' title="Staff" />
-            <x-layout.nav-item href='/' title="Location & Times" />
-            <x-layout.nav-item href='/' title="Events & Calendar" />
-            <x-layout.nav-item href='/' title="Careers" />
+            <x-layout.nav-item href='/about/what-we-believe' title="Our Beliefs" preventUnderline />
+            <x-layout.nav-item href='/about/staff' title="Staff" preventUnderline />
+            <x-layout.nav-item href='/' title="Location & Times" preventUnderline />
+            <x-layout.nav-item href='/' title="Events & Calendar" preventUnderline />
+            <x-layout.nav-item href='/' title="Careers" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Messages" />
         <x-layout.nav-item href='/' title="Livestream" />
         <x-layout.nav-item href='/' title="Stay Updated">
-            <x-layout.nav-item href='/' title="Weekly Newsletter" />
-            <x-layout.nav-item href='/events' title="Events" />
-            <x-layout.nav-item href='/contact-us' title="Contact Us" />
+            <x-layout.nav-item href='/' title="Weekly Newsletter" preventUnderline />
+            <x-layout.nav-item href='/events' title="Events" preventUnderline />
+            <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Resources">
-            <x-layout.nav-item href='/' title="Member Directory" />
-            <x-layout.nav-item href='/' title="Meetings & Minutes" />
-            <x-layout.nav-item href='/contact-us' title="Contact Us" />
+            <x-layout.nav-item href='/' title="Member Directory" preventUnderline />
+            <x-layout.nav-item href='/' title="Meetings & Minutes" preventUnderline />
+            <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Give" />
     </nav>

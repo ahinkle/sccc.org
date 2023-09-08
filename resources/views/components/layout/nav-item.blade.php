@@ -1,5 +1,10 @@
 <li class="list-none group relative">
-    <a href="{{ $href }}" class="whitespace-nowrap pb-2 before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-green-700 before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-500">
+    <a href="{{ $href }}"
+        @class([
+            'whitespace-nowrap pb-2',
+            "before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-green-700 before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-500" => ! $preventUnderline,
+        ])
+    >
         {{ $title }}
         @if ($slot->isNotEmpty())
             <span>
