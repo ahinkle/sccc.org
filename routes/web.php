@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
 Route::view('/about/what-we-believe', 'pages.about.what-we-believe')->name('about.what-we-believe');
+Route::redirect('/about', '/about/what-we-believe')->name('about');
 Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/events', 'pages.events')->name('events');
@@ -23,3 +24,10 @@ Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)-
 
 Route::get('/livestream/sunday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.sunday')))->name('livestream.sunday');
 Route::get('/livestream/wednesday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.wednesday')))->name('livestream.wednesday');
+
+Route::get('/livestream',
+    fn () => match (now()->dayOfWeek) {
+        3 => redirect()->route('livestream.wednesday'),
+        default => redirect()->route('livestream.sunday'),
+    }
+)->name('livestream');

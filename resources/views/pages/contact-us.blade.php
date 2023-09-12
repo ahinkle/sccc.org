@@ -15,17 +15,26 @@
                 </p>
 
                 <div class="font-poppins max-w-3xl">
-                    <h2 class="text-lg uppercase font-semibold">Location</h2>
+                    <h2 class="text-lg uppercase font-semibold">Service Times</h2>
                     <div class="pl-2">
                         <ol class="pt-2 pl-2">
-                            <li><a class="underline" href="https://goo.gl/maps/nivjbdc4zE58Ss4g6" target="_blank">351 N Holiday Blvd</a></li>
-                            <li><a class="underline" href="https://goo.gl/maps/nivjbdc4zE58Ss4g6" target="_blank">Santa Claus, Indiana 47579</a></li>
-                            <li class="pt-2">Phone: <a class="underline" href="tel:812-937-2938">(812) 937-2938</a></li>
+                            <li>GROUNDED (Tranditional) Sunday - 9:00am</li>
+                            <li>ROOTED (Youth) Wednesday - 6:00pm</li>
                         </ol>
                     </div>
                     <div class="pt-5">
+                        <h2 class="text-lg uppercase font-semibold">Location</h2>
+                        <div class="pl-2">
+                            <ol class="pt-2 pl-2">
+                                <li><a class="underline" href="https://goo.gl/maps/nivjbdc4zE58Ss4g6" target="_blank">351 N Holiday Blvd</a></li>
+                                <li><a class="underline" href="https://goo.gl/maps/nivjbdc4zE58Ss4g6" target="_blank">Santa Claus, Indiana 47579</a></li>
+                                <li class="pt-2">Phone: <a class="underline" href="tel:812-937-2938">(812) 937-2938</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="pt-5">
                         <h2 class="text-lg uppercase font-semibold">Office Hours</h2>
-                        <ul class="pt-2 pl-2 grid gap-y-5">
+                        <ul class="pt-4 pl-2 grid gap-y-5">
                             <li>Monday - 8:00am to 3:30pm</li>
                             <li>Tuesday - 8:00am to 3:30pm</li>
                             <li>Wednesday - 9:00am to 5:00pm</li>
