@@ -20,7 +20,7 @@
             <x-layout.nav-item href='/' title="Events & Calendar" preventUnderline />
             <x-layout.nav-item href='/' title="Careers" preventUnderline />
         </x-layout.nav-item>
-        <x-layout.nav-item href='/' title="Messages" />
+        <x-layout.nav-item href='/messages' title="Messages" />
         <x-layout.nav-item href='/livestream' title="Livestream" />
         <x-layout.nav-item href='/' title="Stay Updated">
             <x-layout.nav-item href='/' title="Weekly Newsletter" preventUnderline />

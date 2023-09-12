@@ -44,6 +44,7 @@ class EventResource extends Resource
                         Forms\Components\DateTimePicker::make('starts_at')
                             ->required()
                             ->seconds(false)
+                            ->helperText('Set the time as midnight if the event does not have a specific start time.')
                             ->label('Event Start')
                             ->afterOrEqual('today'),
                         Forms\Components\DateTimePicker::make('ends_at')

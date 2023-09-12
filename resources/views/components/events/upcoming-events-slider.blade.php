@@ -3,7 +3,7 @@
 
     <div class="overflow-x-scroll py-10">
         <div class="flex flex-nowrap">
-            @foreach($upcomingEvents as $event)
+            @forelse($upcomingEvents as $event)
                 <div class="flex-shrink-0 w-[300px] mr-4 shadow">
                     <div class="relative">
                         <a href="#">
@@ -40,7 +40,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div>
+                    <p class="text-center">No upcoming events.</p>
+                </div>
+            @endforelse
         </div>
     </div>
 
