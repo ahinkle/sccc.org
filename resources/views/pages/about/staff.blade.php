@@ -26,5 +26,8 @@
                 <img src="https://via.placeholder.com/600x600" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
+        <div class="pt-10">
+            <x-staff.staff-listing-grid />
+        </div>
     </div>
 </x-layout.app>
