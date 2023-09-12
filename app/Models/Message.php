@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Message extends Model
 {
@@ -13,8 +13,9 @@ class Message extends Model
     /**
      * The speakers of the message.
      */
-    public function speakers(): HasManyThrough
+    public function speakers(): BelongsToMany
     {
-        return $this->hasManyThrough(Person::class, AssignedMessageSpeaker::class);
+        return $this->belongsToMany(Person::class, AssignedMessageSpeaker::class, 'message_id', 'speaker_id')
+            ->withTimestamps();
     }
 }
