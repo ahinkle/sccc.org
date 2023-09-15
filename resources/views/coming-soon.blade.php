@@ -45,7 +45,7 @@
                     <a href="https://youtube.com/@SantaClausChristianChurch" target="_blank" class="text-2xl text-white hover:text-red-500 underline">Watch on YouTube</a>
 
                     <div class="pt-5">
-                        <a href="https://www.facebook.com/SantaClausChristianChurch" target="_blank" class="text-base text-white hover:text-blue-500 underline">Facebook</a>
+                        <a href="https://www.facebook.com/sccc.org" target="_blank" class="text-base text-white hover:text-blue-500 underline">Facebook</a>
                         <span class="text-white px-2">&#x2022;</span>
                         <a href="https://www.instagram.com/santaclauschristianchurch/" target="_blank" class="text-base text-white hover:text-blue-500 underline">Instagram</a>
                     </div>
