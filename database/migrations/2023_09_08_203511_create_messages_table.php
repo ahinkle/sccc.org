@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('youtube_url');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->date('message_date');
             $table->timestamps();
         });

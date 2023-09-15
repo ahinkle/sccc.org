@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         $schedule->job(PublishRecurringEvents::class)->daily();
         $schedule->job(PruneUnverifiedNewsletterContacts::class)->daily();
         $schedule->job(UpdateUpcomingLivestreamJob::class)->weeklyOn(6, '9:00');
+        $schedule->job(PublishLivestreamAsMessageJob::class)->weeklyOn(0, '11:00');
     }
 
     /**

@@ -12,7 +12,6 @@ class MessageFactory extends Factory
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'youtube_url' => $this->faker->url,
-            'thumbnail_url' => $this->faker->imageUrl(640, 480, 'people'),
             'message_date' => $this->faker->date,
         ];
     }
