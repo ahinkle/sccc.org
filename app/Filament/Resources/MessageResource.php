@@ -40,8 +40,7 @@ class MessageResource extends Resource
                 FileUpload::make('image')
                     ->image()
                     ->imageEditor()
-                    ->directory('messages')
-                    ->required(),
+                    ->directory('messages'),
 
                 DatePicker::make('message_date')
                     ->required(),
@@ -81,7 +80,8 @@ class MessageResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ]);
+            ])
+            ->defaultSort('message_date', 'desc');
     }
 
     public static function getRelations(): array
