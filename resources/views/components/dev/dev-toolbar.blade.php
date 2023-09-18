@@ -1,5 +1,5 @@
 <aside
-    class="fixed z-50 flex text-xs divide-x divide-white shadow-sm bottom-1 right-1 divide-solid motion-safe:transition-opacity hover:opacity-100"
+    class="fixed z-50 flex text-xs divide-x divide-white shadow-sm bottom-10 right-1 divide-solid motion-safe:transition-opacity hover:opacity-100"
     x-data="{ toolbarVisible: true }"
     x-ref="toolbar"
     x-cloak
