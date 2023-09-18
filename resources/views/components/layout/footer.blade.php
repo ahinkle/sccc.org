@@ -94,7 +94,7 @@
             </div>
             <div>
                 <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">&copy; {{ date('Y') }} Santa Claus Christian Church. All rights reserved.</p>
-                <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">Web Design by <a href="https://grayloon.com" class="text-gray-500 hover:text-gray-600 underline">Andy Hinkle</a></p>
+                {{-- <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">Web Design by <a href="https://grayloon.com" class="text-gray-500 hover:text-gray-600 underline">Andy Hinkle</a></p> --}}
             </div>
         </div>
     </div>

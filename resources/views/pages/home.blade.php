@@ -35,10 +35,14 @@
                 <h2 class="text-black text-2xl">Livestream</h2>
                 <h2>(background will be an image)</h2>
             </div>
-            <div class="bg-sand-200 border border-black p-24">
-                <h2 class="text-black text-2xl">Events</h2>
-                <h2>(background will be an image)</h2>
-            </div>
+            <a class="bg-sand-200 border border-black p-24 hover:cursor-pointer group hover:border-green-900 hover:shadow bg-cover bg-top lg:bg-center bg-no-repeat"
+                style="background-image: url('{{ asset('img/events/youth-group.jpg') }}');"
+                href="{{ route('events') }}"
+            >
+                <h2 class="text-white uppercase text-4xl font-poppins tracking-wide mt-3.5 group-hover:scale-105 transition-all duration-300">
+                    Events
+                </h2>
+            </a>
         </div>
     </div>
 

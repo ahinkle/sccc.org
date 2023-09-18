@@ -7,6 +7,6 @@
         <x-inputs.button href="#">Discover Rooted</x-inputs.button>
     </div>
     <div>
-        <img src="https://via.placeholder.com/600x600" alt="ROOTED" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
+        <img src="{{ asset('img/rooted/rooted-home.JPG') }}" alt="ROOTED" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
     </div>
 </x-cards.two-column-card>

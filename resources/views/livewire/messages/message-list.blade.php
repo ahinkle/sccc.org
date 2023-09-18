@@ -98,7 +98,7 @@
                                     </p>
 
                                     <x-inputs.button :href="$message->youtube_url" target="_blank">
-                                        <x-fas-video class="w-4 h-4 mr-2"></x-fas-video>
+                                        <x-fas-video class="w-4 h-4 mr-2 inline-block" />
                                         Watch on YouTube
                                     </x-inputs.button>
                                 </div>
