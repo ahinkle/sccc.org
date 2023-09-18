@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Person extends Model
 {
@@ -27,5 +28,13 @@ class Person extends Model
     public function scopeStaff(Builder $query): Builder
     {
         return $query->where('is_staff', true);
+    }
+
+    /**
+     * The messages that the person has been assigned to.
+     */
+    public function messages(): HasManyThrough
+    {
+        return $this->hasManyThrough(Message::class, AssignedMessageSpeaker::class, 'speaker_id', 'id', 'id', 'message_id');
     }
 }

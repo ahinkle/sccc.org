@@ -1,7 +1,7 @@
 <x-layout.app>
     <x-slot name="seo">
         <title>Messages | Santa Claus Christian Church</title>
-        <meta name="description" content="Join us for one of our upcoming events and happenings at Santa Claus Christian Church.">
+        <meta name="description" content="View our past messages and sermons from Santa Claus Christian Church.">
     </x-slot>
 
     <x-hero.page-hero bgUrl="{{ url('/img/headers/messages.JPG') }}">
@@ -9,6 +9,6 @@
     </x-hero.page-hero>
 
     <div>
-
+        <livewire:messages.message-list />
     </div>
 </x-layout.app>

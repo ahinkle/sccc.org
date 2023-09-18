@@ -11,6 +11,13 @@ class Message extends Model
     use HasFactory;
 
     /**
+     * The attributes that should be cast.
+     */
+    protected $casts = [
+        'message_date' => 'datetime',
+    ];
+
+    /**
      * The speakers of the message.
      */
     public function speakers(): BelongsToMany

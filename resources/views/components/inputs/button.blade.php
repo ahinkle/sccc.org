@@ -3,7 +3,12 @@
 ])
 
 @if ($href)
-    <a href="{{ $href }}" {{ $attributes->merge(['class' => $class]) }}>{{ $slot }}</a>
+    <a href="{{ $href }}"
+        {{ $attributes->merge(['class' => $class]) }}
+        {{ $attributes }}
+    >
+        {{ $slot }}
+    </a>
 @endif
 
 @if (! $href)

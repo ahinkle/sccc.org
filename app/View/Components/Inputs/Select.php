@@ -5,7 +5,7 @@ namespace App\View\Components\Inputs;
 use Ahinkle\AutoResolvableComponents\AutoResolvableComponent;
 use App\View\Components\Inputs\Concerns\InputLabelGuesser;
 
-class Input extends AutoResolvableComponent
+class Select extends AutoResolvableComponent
 {
     use InputLabelGuesser;
 
@@ -14,10 +14,8 @@ class Input extends AutoResolvableComponent
         public ?string $type = 'text',
         public ?string $label = null,
         public bool $hideLabel = false,
-        public ?string $placeholder = null,
         public ?string $class = null,
     ) {
         $this->label ??= $this->guessLabel();
-        $this->placeholder ??= $this->label;
     }
 }

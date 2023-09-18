@@ -17,7 +17,7 @@ class EventList extends Component
     /**
      * The start date search range for events.
      */
-    #[Rule(['required', 'date', 'gte:today'])]
+    #[Rule(['required', 'date'])]
     #[Url]
     public ?string $startDate = null;
 
@@ -70,7 +70,7 @@ class EventList extends Component
     }
 
     /**
-     * Determine if the user is searching for events.
+     * Determine if the user has performed a search.
      */
     protected function isSearching(): bool
     {
