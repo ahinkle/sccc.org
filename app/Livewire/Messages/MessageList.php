@@ -65,7 +65,7 @@ class MessageList extends Component
             ->with('speakers')
             ->when($this->search, fn ($query, $search) => $query->where('title', 'like', "%{$search}%"))
             ->when($this->speaker, function ($query, $speaker) {
-                return $query->whereHas('speakers', fn ($query) => $query->where('id', $speaker));
+                return $query->whereHas('speakers', fn ($query) => $query->where('speaker_id', $speaker));
             })
             ->when($this->startDate, fn ($query, $startDate) => $query->where('message_date', '>=', $startDate))
             ->when($this->endDate, fn ($query, $endDate) => $query->where('message_date', '<=', $endDate))

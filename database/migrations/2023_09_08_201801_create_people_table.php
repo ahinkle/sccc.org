@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->tinyInteger('is_staff')->default(0);
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }
