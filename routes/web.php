@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
+use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,15 @@ Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/events', 'pages.events')->name('events');
 Route::view('/messages', 'pages.messages')->name('messages');
+
+Route::get('/messages/latest', function () {
+    $latestMessage = Message::orderBy('message_date', 'desc')->first();
+
+    return $latestMessage
+        ? redirect($latestMessage->youtube_url)
+        : redirect()->route('messages');
+})->name('messages.latest');
+
 Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
 
 Route::get('/livestream/sunday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.sunday')))->name('livestream.sunday');
