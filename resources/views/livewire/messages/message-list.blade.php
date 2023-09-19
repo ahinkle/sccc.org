@@ -108,5 +108,24 @@
                 </li>
             @endforeach
         </ul>
+           @if ($messages->hasPages())
+                <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between pt-5 max-w-[100rem] pr-2">
+                    <span>
+                        @if ($messages->onFirstPage())
+                            <x-inputs.button disabled>&laquo; Previous</x-inputs.button>
+                        @else
+                            <x-inputs.button wire:click="previousPage" wire:loading.attr="disabled" rel="prev">&laquo; Previous</x-inputs.button>
+                        @endif
+                    </span>
+
+                    <span>
+                        @if ($messages->onLastPage())
+                            <x-inputs.button disabled>Next &raquo;</x-inputs.button>
+                        @else
+                            <x-inputs.button wire:click="nextPage" wire:loading.attr="disabled" rel="next">Next &raquo;</x-inputs.button>
+                        @endif
+                    </span>
+                </nav>
+            @endif
     </div>
 </div>
