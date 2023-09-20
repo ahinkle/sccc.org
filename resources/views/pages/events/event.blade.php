@@ -19,9 +19,12 @@
                         <span class="block sm:inline">This event has passed and some information may be out of date. Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</span>
                     </div>
                 @endif
-                <p class="text-lg font-poppins pr-10">
-                    {{ $event->description }}
-                </p>
+                <p class="text-lg font-poppins pr-10 whitespace-pre-wrap">{{ $event->description }}</p>
+                @if ($event->link)
+                <x-inputs.button href="{{ $event->link }}" class="mt-5" target="_blank">
+                    {{ $event->button_link_text ?? 'Sign-up' }}
+                </x-inputs.button>
+                @endif
             </div>
             <div class="bg-white py-10 -mt-40 shadow-lg">
                 <div class="px-4">

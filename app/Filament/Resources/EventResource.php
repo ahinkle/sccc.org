@@ -8,6 +8,7 @@ use App\Filament\Resources\EventResource\Pages;
 use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -43,6 +44,17 @@ class EventResource extends Resource
                             ->placeholder('John Doe at john@doe.com')
                             ->helperText('Optional. Add only if you want to display "questions" area within the event page.')
                             ->columnSpan(2),
+                        Forms\Components\TextInput::make('link')
+                            ->label('Event Link')
+                            ->placeholder('e.g. https://www.google.com')
+                            ->helperText('The link to the event page. Optional. Add only if you want to display a link to the event page.')
+                            ->url()
+                            ->live(),
+                        Forms\Components\TextInput::make('button_link_text')
+                            ->label('Event Link Text')
+                            ->placeholder('e.g. Sign-up')
+                            ->default('Sign-up')
+                            ->hidden(fn (Get $get): bool => ! $get('link')),
                     ]),
 
                 Forms\Components\Fieldset::make('Event Time')

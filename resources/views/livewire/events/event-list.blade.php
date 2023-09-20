@@ -104,14 +104,14 @@
                                         {{ $event->name }}
                                     </h2>
 
-                                    <div class="w-38">
-                                        <p class="whitespace-pre-line text-sm italic font-poppins -mb-3">
+                                    <div>
+                                        <p class="whitespace-pre-line text-sm italic font-poppins">
                                             {{ $event->location }}
                                         </p>
                                     </div>
 
                                     <p>
-                                        {{ \Illuminate\Support\Str::limit($event->description, 150) }} <a href="#" class="text-green-900 hover:text-green-700 text-xs">read more</a>
+                                        {{ \Illuminate\Support\Str::limit($event->description, 150) }} <a href="{{ $event->slug }}" class="text-green-900 hover:text-green-700 text-xs">read more</a>
                                     </p>
 
                                     <x-inputs.button :href="$event->slug">

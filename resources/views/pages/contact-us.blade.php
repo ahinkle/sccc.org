@@ -5,7 +5,7 @@
     </x-slot>
 
     <x-hero.page-hero>
-       <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">Contact Us</h1>
+       <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">About SCCC</h1>
     </x-hero.page-hero>
     <div class="max-w-screen-xl mx-auto py-20">
         <x-cards.two-column-card>
