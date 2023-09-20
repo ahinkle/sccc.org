@@ -22,7 +22,12 @@
                                     </div>
                                     <div class="row-span-1">
                                         @if ($event->starts_at->format('H:i:s') !== '00:00:00')
-                                            <span class="text-xs font-poppins py-2 text-green-900">{{ $event->starts_at->format('g:i A') }}</span>
+                                            <span class="text-xs font-poppins py-2 text-green-900">
+                                                {{ $event->starts_at->format('g:i A') }}
+                                                @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
+                                                    <span class="text-xs font-poppins py-2 text-green-900">- {{ $event->ends_at->format('g:i A') }}</span>
+                                                @endif
+                                            </span>
                                         @endif
                                     </div>
                                 </div>
