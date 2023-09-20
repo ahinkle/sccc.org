@@ -12,7 +12,7 @@ it('creates a redirect when slug changes', function () {
     $e->update(['name' => 'New Name']);
 
     $this->assertDatabaseHas(Redirect::class, [
-        'from' => 'events/'.$original,
+        'from' => $original,
         'to' => 'events/new-name-jan-1-2000',
     ]);
 });

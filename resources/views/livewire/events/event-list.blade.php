@@ -87,6 +87,9 @@
                                     @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
                                         <span class="text-sm font-poppins py-2 text-green-900">- {{ $event->ends_at->format('g:i A') }}</span>
                                     @endif
+                                    @if ($event->hasPassed())
+                                        <span class="text-xs font-poppins py-2 text-red-500 block">(this event has passed)</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -94,7 +97,10 @@
                         <div class="col-span-9 border-t border-b border-r">
                             <div class="p-4">
                                 <div class="grid grid-cols-1 gap-y-4">
-                                    <h2 class="text-xl font-semibold font-sen text-green-900">
+                                    <h2 @class([
+                                        'text-xl font-semibold font-sen text-green-900',
+                                        'line-through' => $event->hasPassed(),
+                                    ])>
                                         {{ $event->name }}
                                     </h2>
 
@@ -107,6 +113,11 @@
                                     <p>
                                         {{ \Illuminate\Support\Str::limit($event->description, 150) }} <a href="#" class="text-green-900 hover:text-green-700 text-xs">read more</a>
                                     </p>
+
+                                    <x-inputs.button :href="$event->slug" target="_blank">
+                                        <x-fas-calendar class="w-4 h-4 mr-2 inline-block" />
+                                        View Datails
+                                    </x-inputs.button>
                                 </div>
                             </div>
                         </div>

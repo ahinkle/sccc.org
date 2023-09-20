@@ -6,9 +6,11 @@ use App\Enums\EventFrequency;
 use App\Models\Concerns\CreatesRedirects;
 use App\Observers\EventObserver;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class Event extends Model
 {
@@ -31,6 +33,33 @@ class Event extends Model
         'ends_at' => 'datetime',
         'repeat_frequency' => EventFrequency::class,
     ];
+
+    /**
+     * Interact with the event slug attribute.
+     */
+    protected function slug(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => Str::plural(strtolower(class_basename($this))).'/'.$value,
+        );
+    }
+
+    /**
+     * Determine if the event has passed.
+     */
+    public function hasPassed(): bool
+    {
+        if ($this->ends_at) {
+            return $this->ends_at->isPast();
+        }
+
+        // Start of day is assuming the event is an all day event.
+        if ($this->starts_at === $this->starts_at->startOfDay()) {
+            return $this->starts_at->endOfDay()->isPast();
+        }
+
+        return $this->starts_at->isPast();
+    }
 
     /**
      * Scope a query to only include events that are upcoming.
