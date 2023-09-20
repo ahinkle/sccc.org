@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
+use App\Models\Event;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
@@ -21,14 +22,14 @@ Route::redirect('/about', '/about/what-we-believe')->name('about');
 Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/events', 'pages.events')->name('events');
+Route::get('/events/{event:slug}', fn (Event $event) => view('pages.events.event', compact('event')))->name('events.show');
+Route::view('/messages', 'pages.messages')->name('messages');
 Route::view('/messages', 'pages.messages')->name('messages');
 
 Route::get('/messages/latest', function () {
     $latestMessage = Message::orderBy('message_date', 'desc')->first();
 
-    return $latestMessage
-        ? redirect($latestMessage->youtube_url)
-        : redirect()->route('messages');
+    return redirect($latestMessage?->youtube_url ?? route('messages'));
 })->name('messages.latest');
 
 Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
