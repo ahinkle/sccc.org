@@ -6,7 +6,7 @@
             @forelse($upcomingEvents as $event)
                 <div class="flex-shrink-0 w-[300px] mr-4 shadow">
                     <div class="relative">
-                        <a href="#">
+                        <a href="{{ $event->slug }}">
                             <img class="w-full h-36 object-cover" src="{{ $event->image }}" alt="{{ $event->name }}">
                         </a>
                     </div>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-span-9">
                                 <div class="mt-2 px-2 grid gap-y-2">
-                                    <a href="#">
+                                    <a href="{{ $event->slug }}">
                                         <h3 class="text-sm font-semibold font-poppins">{{ $event->name }}</h3>
                                     </a>
 
