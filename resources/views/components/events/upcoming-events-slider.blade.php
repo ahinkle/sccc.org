@@ -12,7 +12,7 @@
                     </div>
                     <div class="px-1">
                         <div class="grid grid-cols-12">
-                            <div class="text-center py-4 col-span-3 border-r">
+                            <div class="text-center py-8 col-span-3 border-r">
                                 <div class="grid grid-cols-1 gap-y-2">
                                     <div class="row-span-1">
                                         <p class="text-xl font-semibold font-poppins text-green-900">{{ $event->starts_at->format('j') }}</p>
@@ -32,8 +32,13 @@
                                     <a href="#">
                                         <h3 class="text-sm font-semibold font-poppins">{{ $event->name }}</h3>
                                     </a>
+
                                     <p class="text-xs font-poppins italic text-black opacity-80">
-                                        Santa Claus Christian Church
+                                        {{ $event->location }}
+                                    </p>
+
+                                    <p class="text-xs font-poppins">
+                                        {{ \Illuminate\Support\Str::limit($event->description, 75) }} <a href="#" class="text-green-900 hover:text-green-700 text-xs">read more</a>
                                     </p>
                                 </div>
                             </div>

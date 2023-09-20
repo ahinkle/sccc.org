@@ -102,7 +102,7 @@
                                     </div>
 
                                     <p>
-                                        {{ $event->description }} .. <a href="#" class="text-green-900 hover:text-green-700 text-sm">read more</a>
+                                        {{ \Illuminate\Support\Str::limit($event->description, 150) }} <a href="#" class="text-green-900 hover:text-green-700 text-xs">read more</a>
                                     </p>
                                 </div>
                             </div>

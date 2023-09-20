@@ -13,6 +13,8 @@ class EventObserver
     public function saving(Event $event): void
     {
         $event->last_updated_id = auth()->id() ?? $event->last_updated_id;
-        $event->slug = Str::slug($event->name.'-'.$event->starts_at->format('M-j-Y'));
+        $event->slug = $event->ends_at
+            ? Str::slug($event->name.'-'.$event->starts_at->format('M-j-Y-hia').'-to-'.$event->ends_at->format('M-j-Y-hia'))
+            : Str::slug($event->name.'-'.$event->starts_at->format('M-j-Y'));
     }
 }
