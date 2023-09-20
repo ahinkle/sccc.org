@@ -19,9 +19,6 @@
                             <li>
                                 <a href="{{ route('events') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Events</a>
                             </li>
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Careers</a>
-                            </li>
                         </ul>
                     </div>
                     <div class="mt-10 md:mt-0">
@@ -61,7 +58,7 @@
                                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Contact Us</a>
                             </li>
                             <li>
-                                <a href="tel:812-948" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-phone class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600" /> (812) 937-2938</a>
+                                <a href="tel:812-937-2938" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-phone class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600" /> (812) 937-2938</a>
                             </li>
                         </ul>
                     </div>

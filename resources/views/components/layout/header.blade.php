@@ -16,9 +16,8 @@
         <x-layout.nav-item href='/' title="About">
             <x-layout.nav-item href='/about/what-we-believe' title="Our Beliefs" preventUnderline />
             <x-layout.nav-item href='/about/staff' title="Staff" preventUnderline />
-            <x-layout.nav-item href='/' title="Location & Times" preventUnderline />
-            <x-layout.nav-item href='/' title="Events & Calendar" preventUnderline />
-            <x-layout.nav-item href='/' title="Careers" preventUnderline />
+            <x-layout.nav-item href='/contact-us' title="Location & Times" preventUnderline />
+            <x-layout.nav-item href='/events' title="Events & Calendar" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/messages' title="Messages" />
         <x-layout.nav-item href='/livestream' title="Livestream" />

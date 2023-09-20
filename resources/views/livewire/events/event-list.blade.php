@@ -114,9 +114,9 @@
                                         {{ \Illuminate\Support\Str::limit($event->description, 150) }} <a href="#" class="text-green-900 hover:text-green-700 text-xs">read more</a>
                                     </p>
 
-                                    <x-inputs.button :href="$event->slug" target="_blank">
+                                    <x-inputs.button :href="$event->slug">
                                         <x-fas-calendar class="w-4 h-4 mr-2 inline-block" />
-                                        View Datails
+                                        View Details
                                     </x-inputs.button>
                                 </div>
                             </div>

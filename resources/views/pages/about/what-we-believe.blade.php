@@ -10,7 +10,7 @@
 
     <div class="max-w-screen-xl mx-auto">
         <p class="py-20 font-poppins max-w-3xl text-center mx-auto">
-            Amet enim sint esse eiusmod non consequat adipisicing cillum incididunt. Quis exercitation eiusmod cillum commodo sunt laboris mollit dolor. Tempor magna sit commodo non reprehenderit mollit nulla nostrud. Duis nostrud esse do reprehenderit culpa fugiat commodo.
+            Coming Soon! We are currently working on this page. Please check back later.
         </p>
     </div>
 </x-layout.app>

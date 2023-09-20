@@ -13,7 +13,13 @@
     <div class="py-10">
         <div class="grid grid-cols-3 max-w-7xl mx-auto">
             <div class="col-span-2">
-                <p class="text-lg font-poppins pr-4">
+                @if ($event->hasPassed())
+                    <div class="bg-white border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 font-sen ml-4 lg:ml-0 mr-4" role="alert">
+                        <strong class="font-bold">Warning:</strong>
+                        <span class="block sm:inline">This event has passed and some information may be out of date. Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</span>
+                    </div>
+                @endif
+                <p class="text-lg font-poppins pr-10">
                     {{ $event->description }}
                 </p>
             </div>
@@ -50,6 +56,18 @@
                                     {{ $event->city }}, {{ $event->state }} {{ $event->zip_code }}
                                 </p>
                             </div>
+                        </div>
+                        <div>
+                            <h3 class="uppercase text-lg font-semibold font-sen text-green-900">
+                                Questions
+                            </h3>
+                            <p class="text-sm font-poppins">
+                                @if ($event->more_information)
+                                    {{ $event->more_information }}
+                                @else
+                                    Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>

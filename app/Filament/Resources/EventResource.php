@@ -36,6 +36,12 @@ class EventResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->required()
                             ->label('Event Description')
+                            ->helperText('Please do not include any links in the description - they will not be clickable. Use the "Event Link" field instead.')
+                            ->columnSpan(2),
+                        Forms\Components\TextInput::make('more_information')
+                            ->label('Questions? (Contact Info)')
+                            ->placeholder('John Doe at john@doe.com')
+                            ->helperText('Optional. Add only if you want to display "questions" area within the event page.')
                             ->columnSpan(2),
                     ]),
 
