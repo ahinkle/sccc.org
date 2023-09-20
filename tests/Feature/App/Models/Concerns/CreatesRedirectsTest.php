@@ -12,8 +12,8 @@ it('creates a redirect when slug changes', function () {
     $e->update(['name' => 'New Name']);
 
     $this->assertDatabaseHas(Redirect::class, [
-        'from' => $original,
-        'to' => 'new-name-jan-1-2000',
+        'from' => 'events/'.$original,
+        'to' => 'events/new-name-jan-1-2000',
     ]);
 });
 
