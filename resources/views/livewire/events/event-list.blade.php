@@ -114,5 +114,24 @@
                 </li>
             @endforeach
         </ul>
+        @if ($events->hasPages())
+            <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between pt-5 pr-2">
+                <span>
+                    @if ($events->onFirstPage())
+                        <x-inputs.button disabled>&laquo; Previous</x-inputs.button>
+                    @else
+                        <x-inputs.button wire:click="previousPage" wire:loading.attr="disabled" rel="prev">&laquo; Previous</x-inputs.button>
+                    @endif
+                </span>
+
+                <span>
+                    @if ($events->onLastPage())
+                        <x-inputs.button disabled>Next &raquo;</x-inputs.button>
+                    @else
+                        <x-inputs.button wire:click="nextPage" wire:loading.attr="disabled" rel="next">Next &raquo;</x-inputs.button>
+                    @endif
+                </span>
+            </nav>
+        @endif
     </div>
 </div>
