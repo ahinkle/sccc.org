@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class MeetingTopicObserver
 {
     /**
-     * Handle the MeetingTopic "created" event.
+     * Handle the MeetingTopic "saving" event.
      */
     public function saving(MeetingTopic $meetingTopic): void
     {

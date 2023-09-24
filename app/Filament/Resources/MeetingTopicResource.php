@@ -38,6 +38,9 @@ class MeetingTopicResource extends Resource
                     ->searchable()
                     ->description(fn (MeetingTopic $meetingTopic) => $meetingTopic->slug)
                     ->sortable(),
+                TextColumn::make('meetings_count')
+                    ->label('Files / Meetings')
+                    ->counts('meetings'),
                 TextColumn::make('lastUpdatedBy.name')
                     ->label('Last Updated By')
                     ->description(fn (MeetingTopic $meetingTopic) => Carbon::parse($meetingTopic->updated_at)->format('F j, Y').' at '.Carbon::parse($meetingTopic->updated_at)->format('g:i A')),
