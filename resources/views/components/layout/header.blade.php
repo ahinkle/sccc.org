@@ -34,7 +34,7 @@
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Resources">
             <x-layout.nav-item href='/' title="Member Directory" preventUnderline />
-            <x-layout.nav-item href='/' title="Meetings & Minutes" preventUnderline />
+            <x-layout.nav-item href='/resources/meetings-and-minutes' title="Meetings & Minutes" preventUnderline />
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Give" />

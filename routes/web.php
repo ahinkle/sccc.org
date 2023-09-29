@@ -32,6 +32,8 @@ Route::get('/messages/latest', function () {
     return redirect($latestMessage?->youtube_url ?? route('messages'));
 })->name('messages.latest');
 
+Route::view('/resources/meetings-and-minutes', 'pages.resources.meetings-and-minutes')->name('resources.meetings-and-minutes');
+
 Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
 
 Route::get('/livestream/sunday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.sunday')))->name('livestream.sunday');

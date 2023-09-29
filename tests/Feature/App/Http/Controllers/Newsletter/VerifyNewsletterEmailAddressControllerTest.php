@@ -12,7 +12,7 @@ it('will verify the newsletter email address', function () {
         ]))
         ->assertRedirect('/');
 
-    $this->assertNotNull($newsletterContact->fresh()->email_verified_at);
+    expect($newsletterContact->fresh()->email_verified_at)->not()->toBe(null);
 });
 
 it('doesnt verify invalid token but correct email', function () {
@@ -25,7 +25,7 @@ it('doesnt verify invalid token but correct email', function () {
         ]))
         ->assertNotFound();
 
-    $this->assertNull($newsletterContact->fresh()->email_verified_at);
+    expect($newsletterContact->fresh()->email_verified_at)->toBe(null);
 });
 
 it('doesnt verify invalid email but correct token', function () {
@@ -38,7 +38,7 @@ it('doesnt verify invalid email but correct token', function () {
         ]))
         ->assertNotFound();
 
-    $this->assertNull($newsletterContact->fresh()->email_verified_at);
+    expect($newsletterContact->fresh()->email_verified_at)->toBe(null);
 });
 
 it('doesnt reverify', function () {
@@ -53,7 +53,7 @@ it('doesnt reverify', function () {
         ]))
         ->assertRedirect('/');
 
-    $this->assertEquals('2020-01-01 00:00:00', $newsletterContact->fresh()->email_verified_at);
+    expect($newsletterContact->fresh()->email_verified_at)->toBe('2020-01-01 00:00:00');
 });
 
 it('throttles newsletter verification requests', function () {
