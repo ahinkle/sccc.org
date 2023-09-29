@@ -24,7 +24,7 @@ class Message extends Model
     protected function youtubeUrl(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => 'https://youtu.be/'.$value,
+            get: fn (?string $value) => 'https://youtu.be/'.$this->youtube_id,
         );
     }
 
