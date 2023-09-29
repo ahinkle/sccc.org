@@ -32,10 +32,10 @@ class MessageResource extends Resource
                 Textarea::make('description')
                     ->nullable(),
 
-                TextInput::make('youtube_url')
-                    ->label('YouTube URL')
+                TextInput::make('youtube_id')
+                    ->label('YouTube ID')
                     ->required()
-                    ->url(),
+                    ->helperText('The ID of the YouTube video. e.g., youtu.be.com/ABC123, "ABC123 would be the ID.'),
 
                 FileUpload::make('image')
                     ->image()

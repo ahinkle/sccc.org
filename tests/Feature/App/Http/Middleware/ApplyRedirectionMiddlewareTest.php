@@ -2,7 +2,7 @@
 
 use App\Models\Redirect;
 
-it('applies redirect', function () {
+it('will apply redirect', function () {
     $r = Redirect::factory()->permanent()->create();
 
     $this->get($r->from)

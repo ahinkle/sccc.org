@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('youtube_url');
+            $table->string('youtube_id');
             $table->string('image')->nullable();
             $table->date('message_date');
             $table->timestamps();

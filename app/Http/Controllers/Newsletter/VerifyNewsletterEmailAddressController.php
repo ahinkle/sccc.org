@@ -18,13 +18,11 @@ class VerifyNewsletterEmailAddressController extends Controller
             ->where('email', $request->email)
             ->firstOrFail();
 
-        if ($newsletterContact->email_verified_at) {
-            return redirect('/');
+        if (! $newsletterContact->email_verified_at) {
+            $newsletterContact->update([
+                'email_verified_at' => now(),
+            ]);
         }
-
-        $newsletterContact->update([
-            'email_verified_at' => now(),
-        ]);
 
         return redirect('/')->with('modal', [
             'title' => 'Email Address Verified',

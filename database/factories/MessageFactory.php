@@ -11,7 +11,7 @@ class MessageFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'youtube_url' => $this->faker->url,
+            'youtube_id' => $this->faker->slug,
             'message_date' => $this->faker->date,
         ];
     }

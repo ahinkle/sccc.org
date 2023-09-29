@@ -9,7 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Str;
 
 class PublishLivestreamAsMessageJob implements ShouldQueue
 {
@@ -31,7 +30,7 @@ class PublishLivestreamAsMessageJob implements ShouldQueue
 
         Message::create([
             'title' => $livestream->snippet->title,
-            'youtube_url' => cache()->get('livestream.sunday'),
+            'youtube_id' => cache()->get('livestream.sunday'),
             'message_date' => today(),
         ]);
     }
@@ -41,7 +40,7 @@ class PublishLivestreamAsMessageJob implements ShouldQueue
      */
     protected function messageAlreadyExists(): bool
     {
-        return Message::where('youtube_url', cache()->get('livestream.sunday'))->exists();
+        return Message::where('youtube_id', cache()->get('livestream.sunday'))->exists();
     }
 
     /**
@@ -49,14 +48,6 @@ class PublishLivestreamAsMessageJob implements ShouldQueue
      */
     protected function videoDetailsFromYouTube(): \StdClass
     {
-        return Youtube::getVideoInfo($this->youtubeId());
-    }
-
-    /**
-     * Get the YouTube ID of the livestream.
-     */
-    private function youtubeId(): string
-    {
-        return Str::afterLast(cache()->get('livestream.sunday'), '/');
+        return Youtube::getVideoInfo(cache()->get('livestream.sunday'));
     }
 }

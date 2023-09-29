@@ -6,7 +6,7 @@ use App\Models\Message;
 it('publishes livestream', function () {
     expect(Message::count())->toBe(0);
 
-    cache()->put('livestream.sunday', 'https://youtu.be/D6krCJFvp_E');
+    cache()->put('livestream.sunday', 'D6krCJFvp_E');
     PublishLivestreamAsMessageJob::dispatch();
 
     expect(Message::count())->toBe(1);
@@ -17,10 +17,10 @@ it('publishes livestream', function () {
 
 it('doesnt publish duplicate', function () {
     $m = Message::factory()->create([
-        'youtube_url' => 'https://youtu.be/D6krCJFvp_E',
+        'youtube_id' => 'D6krCJFvp_E',
     ]);
 
-    cache()->put('livestream.sunday', 'https://youtu.be/D6krCJFvp_E');
+    cache()->put('livestream.sunday', 'D6krCJFvp_E');
     PublishLivestreamAsMessageJob::dispatch();
 
     expect(Message::count())->toBe(1);

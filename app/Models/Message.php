@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,6 +17,16 @@ class Message extends Model
     protected $casts = [
         'message_date' => 'datetime',
     ];
+
+    /**
+     * Interact with the YouTube URL accessor.
+     */
+    protected function youtubeUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => 'https://youtu.be/'.$value,
+        );
+    }
 
     /**
      * The speakers of the message.
