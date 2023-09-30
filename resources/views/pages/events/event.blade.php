@@ -1,8 +1,7 @@
 <x-layout.app>
     <x-slot name="seo">
         <title>{{ $event->name }} | Santa Claus Christian Church</title>
-        <meta name="description" content="We are a group of people who love Jesus and love people. We are here to serve you and help you grow in your relationship with Jesus.">
-    </x-slot>
+        <meta name="description" content="{{ $event->name}} is taking place at {{ $event->location }} on {{ $event->starts_at->format('F j, Y') }}">
 
     <x-hero.page-hero>
         <div class="w-full">
