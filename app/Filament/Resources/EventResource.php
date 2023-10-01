@@ -101,7 +101,7 @@ class EventResource extends Resource
                                     ->required()
                                     ->label('Event State')
                                     ->options(State::class)
-                                    ->default(State::INDIANA),
+                                    ->default(State::IN),
                                 Forms\Components\TextInput::make('zip_code')
                                     ->required()
                                     ->label('Event Zip Code')
