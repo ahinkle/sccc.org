@@ -27,17 +27,20 @@ class EventResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->autofocus()
+                            ->placeholder('e.g., Family Fun Weekend')
                             ->required()
                             ->label('Event Name'),
                         Forms\Components\FileUpload::make('image')
                             ->required()
                             ->label('Event Image')
+                            ->helperText('Recommend 600x600 -- Do not upload anything under copyright law.')
                             ->image()
                             ->imageEditor(),
                         Forms\Components\Textarea::make('description')
                             ->required()
                             ->label('Event Description')
-                            ->helperText('Please do not include any links in the description - they will not be clickable. Use the "Event Link" field instead.')
+                            ->placeholder('This event will be for ages X to X, includes fun for the entire family, childcare included.. etc.')
+                            ->helperText('Please do not include links in the description - they will not be clickable. Use the "Event Link" field instead.')
                             ->columnSpan(2),
                         Forms\Components\TextInput::make('more_information')
                             ->label('Questions? (Contact Info)')
@@ -47,7 +50,7 @@ class EventResource extends Resource
                         Forms\Components\TextInput::make('link')
                             ->label('Event Link')
                             ->placeholder('e.g. https://www.google.com')
-                            ->helperText('The link to the event page. Optional. Add only if you want to display a link to the event page.')
+                            ->helperText('Optional. The link to the event page.')
                             ->url()
                             ->live(),
                         Forms\Components\TextInput::make('button_link_text')
@@ -63,6 +66,7 @@ class EventResource extends Resource
                             ->required()
                             ->seconds(false)
                             ->helperText('Set the time as midnight if the event does not have a specific start time.')
+                            ->default(now()->startOfDay())
                             ->label('Event Start')
                             ->afterOrEqual('today'),
                         Forms\Components\DateTimePicker::make('ends_at')
@@ -75,7 +79,7 @@ class EventResource extends Resource
                             ->label('Recurring Schedule')
                             ->options(EventFrequency::class)
                             ->placeholder('Event does not repeat')
-                            ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.'),
+                            ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week.'),
                     ]),
 
                 Forms\Components\Fieldset::make('Event Location')
