@@ -22,4 +22,22 @@ class NewsletterContactFactory extends Factory
             ];
         });
     }
+
+    public function unverified(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => $this->faker->dateTimeBetween('-1 year', '-1 day'),
+            ];
+        });
+    }
+
+    public function pending(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => now()->subHour(),
+            ];
+        });
+    }
 }
