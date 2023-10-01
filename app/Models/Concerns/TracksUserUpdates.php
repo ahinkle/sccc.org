@@ -19,7 +19,7 @@ trait TracksUserUpdates
     }
 
     /**
-     * The last user to update the meeting topic.
+     * The last user to update the model.
      */
     public function lastUpdatedBy(): BelongsTo
     {
