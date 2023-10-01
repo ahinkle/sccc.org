@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Message\LatestMessageController;
 use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
 use App\Models\Event;
-use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +26,7 @@ Route::get('/events/{event:slug}', fn (Event $event) => view('pages.events.event
 Route::view('/messages', 'pages.messages')->name('messages');
 Route::view('/messages', 'pages.messages')->name('messages');
 
-Route::get('/messages/latest', function () {
-    $latestMessage = Message::orderBy('message_date', 'desc')->first();
-
-    return redirect($latestMessage?->youtube_url ?? route('messages'));
-})->name('messages.latest');
+Route::get('/messages/latest', [LatestMessageController::class, 'redirect'])->name('messages.latest');
 
 Route::view('/resources/meetings-and-minutes', 'pages.resources.meetings-and-minutes')->name('resources.meetings-and-minutes');
 
