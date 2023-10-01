@@ -12,7 +12,6 @@ class MeetingTopicObserver
      */
     public function saving(MeetingTopic $meetingTopic): void
     {
-        $meetingTopic->updated_by_id ??= auth()->id();
         $meetingTopic->slug = Str::slug($meetingTopic->name);
     }
 }

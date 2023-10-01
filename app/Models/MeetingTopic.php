@@ -3,17 +3,18 @@
 namespace App\Models;
 
 use App\Models\Concerns\CreatesRedirects;
+use App\Models\Concerns\TracksUserUpdates;
 use App\Observers\MeetingTopicObserver;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MeetingTopic extends Model
 {
     use HasFactory,
-        CreatesRedirects;
+        CreatesRedirects,
+        TracksUserUpdates;
 
     /**
      * The "booted" method of the model.
@@ -39,13 +40,5 @@ class MeetingTopic extends Model
     public function meetings(): HasMany
     {
         return $this->hasMany(Meeting::class);
-    }
-
-    /**
-     * The last user to update the meeting topic.
-     */
-    public function lastUpdatedBy(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'updated_by_id');
     }
 }
