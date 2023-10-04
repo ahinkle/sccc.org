@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <nav class="w-full xl:w-1/2 absolute xl:static xl:grid xl:grid-flow-col xl:auto-cols-max gap-10 justify-center mx-auto font-poppins uppercase text-lg leading-10 tracking-wide"
+    <nav class="hidden w-1/2 static xl:grid grid-flow-col auto-cols-max gap-10 justify-center mx-auto font-poppins uppercase text-lg leading-10 tracking-wide"
         {{-- x-show="open" x-on:click.away="open = false"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90"
         x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300"
