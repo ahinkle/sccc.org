@@ -10,22 +10,28 @@
         </div>
     </x-hero.page-hero>
     <div class="py-10">
+        @if ($event->hasPassed())
+            <div class="bg-white block xl:hidden border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 font-sen ml-4 lg:ml-0 mr-4" role="alert">
+                <strong class="font-bold">Warning:</strong>
+                <span class="block sm:inline">This event has passed and some information may be out of date. Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</span>
+            </div>
+        @endif
         <div class="grid grid-cols-3 max-w-7xl mx-auto">
-            <div class="col-span-2">
+            <div class="col-span-3 xl:col-span-2 order-2 xl:order-1 px-4 xl:px-0">
                 @if ($event->hasPassed())
-                    <div class="bg-white border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 font-sen ml-4 lg:ml-0 mr-4" role="alert">
+                    <div class="bg-white hidden xl:block border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 font-sen ml-4 lg:ml-0 mr-4" role="alert">
                         <strong class="font-bold">Warning:</strong>
                         <span class="block sm:inline">This event has passed and some information may be out of date. Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</span>
                     </div>
                 @endif
-                <p class="text-lg font-poppins pr-10 whitespace-pre-wrap">{{ $event->description }}</p>
+                <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">{{ $event->description }}</p>
                 @if ($event->link)
                 <x-inputs.button href="{{ $event->link }}" class="mt-5" target="_blank">
                     {{ $event->button_link_text ?? 'Sign-up' }}
                 </x-inputs.button>
                 @endif
             </div>
-            <div class="bg-white py-10 -mt-40 shadow-lg">
+            <div class="bg-white py-10 xl:-mt-40 xl:shadow-lg order-1 xl:order-2 col-span-3 xl:col-span-1">
                 <div class="px-4">
                     <img class="w-full h-36 object-cover rounded-lg" src="{{ asset($event->image) }}" alt="{{ $event->name }}">
                     <div class="py-2 border-t mt-5 grid grid-cols-1 gap-y-3">
