@@ -90,7 +90,11 @@
                                     </h2>
 
                                     <p class="text-sm text-gray-700">
-                                        {{ $message->message_date->format('F j, Y') }} | {{ $message->speakers->pluck('name')->join(', ', ', and ') }}
+                                        {{ $message->message_date->format('F j, Y') }}
+                                        @if ($message->speakers->count() > 0)
+                                            |
+                                        @endif
+                                        {{ $message->speakers->pluck('name')->join(', ', ', and ') }}
                                     </p>
 
                                     <p class="max-w-xl">

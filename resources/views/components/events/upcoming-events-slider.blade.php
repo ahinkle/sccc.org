@@ -1,7 +1,7 @@
 <div class="pt-20 px-2">
-    <h2 class="text-4xl font-poppins font-semibold">Upcoming Events</h2>
+    <h2 class="text-4xl font-poppins font-semibold px-8 xl:px-0">Upcoming Events</h2>
 
-    <div class="overflow-x-scroll py-10">
+    <div class="overflow-x-scroll py-10 px-8 xl:px-0">
         <div class="flex flex-nowrap">
             @forelse($upcomingEvents as $event)
                 <div class="flex-shrink-0 w-[300px] mr-4 shadow">

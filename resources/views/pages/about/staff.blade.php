@@ -9,7 +9,7 @@
     </x-hero.page-hero>
     <div class="max-w-screen-xl mx-auto py-20">
         <x-cards.two-column-card>
-            <div class="grid gap-y-10 px-5 self-center">
+            <div class="grid gap-y-10 px-5 self-center order-2 lg:order-1">
                 <p class="font-poppins max-w-3xl">
                     At Santa Claus Christian Church, we are more than just a team - we are a family united by our love for Jesus and our passion for serving people. Our diverse and dedicated staff members are here to support you on your spiritual journey and facilitate your growth in your relationship with Jesus Christ.
                 </p>
@@ -22,8 +22,8 @@
                     From pastors who provide insightful sermons and pastoral care, to administrative staff who ensure the smooth functioning of our church, to dedicated volunteers who lead various ministries and programs – we are all here to create an environment where you can experience God's love, find purpose, and develop meaningful connections with others who share your faith.
                 </p>
             </div>
-            <div class="flex justify-center">
-                <img src="https://via.placeholder.com/600x600" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
+            <div class="flex justify-center order-1 lg:order-2">
+                <img src="{{ asset('img/grounded/message-with-pastor-joseph.JPG') }}" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
         <div class="pt-10">
