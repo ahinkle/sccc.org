@@ -2,7 +2,7 @@
     <div class="col-span-1 lg:col-span-4 xl:col-span-3">
         <form wire:submit class="bg-gray-100 py-10 -mt-16 shadow-lg">
             <div class="px-4">
-                <h2 class="text-black pb-5 uppercase text-sm">Filters</h2>
+                <h2 class="text-black pb-5 uppercase text-sm font-poppins">Search</h2>
 
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -71,9 +71,11 @@
             @foreach ($events as $event)
                 <li wire:key="{{ $event->id }}">
                     <div class="grid grid-cols-12">
-                        <div class="col-span-3 text-center border-r border-b border-l">
-                            <img class="w-full h-36 object-cover rounded-t-lg" src="{{ $event->image }}" alt="{{ $event->name }}">
-                            <div class="grid grid-cols-1 gap-y-2 py-2">
+                        <div class="col-span-12 sm:col-span-3 text-center lg:border-r lg:border-b lg:border-l">
+                            <a href="{{ $event->slug }}">
+                                <img class="w-full h-36 object-cover rounded-t-lg" src="{{ $event->image }}" alt="{{ $event->name }}">
+                            </a>
+                            <div class="hidden sm:grid grid-cols-1 gap-y-2 py-2">
                                 <div class="row-span-1">
                                     <p class="text-2xl font-semibold font-poppins text-green-900">{{ $event->starts_at->format('j') }}</p>
                                 </div>
@@ -94,15 +96,30 @@
                             </div>
                         </div>
 
-                        <div class="col-span-9 border-t border-b border-r">
+                        <div class="col-span-12 sm:col-span-9 lg:border-t border-b lg:border-r">
                             <div class="p-4">
                                 <div class="grid grid-cols-1 gap-y-4">
                                     <h2 @class([
                                         'text-xl font-semibold font-sen text-green-900',
                                         'line-through' => $event->hasPassed(),
                                     ])>
-                                        {{ $event->name }}
+                                        <a href="{{ $event->slug }}">
+                                            {{ $event->name }}
+                                        </a>
                                     </h2>
+
+                                    <div class="block sm:hidden">
+                                        <span class="text-sm font-poppins py-2 text-green-900">{{ $event->starts_at->format('l, F j') }}</span>
+                                        @if ($event->starts_at->format('H:i:s') !== '00:00:00')
+                                            <span class="text-sm font-poppins py-2 text-green-900">at {{ $event->starts_at->format('g:i A') }}</span>
+                                        @endif
+                                        @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
+                                            <span class="text-sm font-poppins py-2 text-green-900">- {{ $event->ends_at->format('g:i A') }}</span>
+                                        @endif
+                                        @if ($event->hasPassed())
+                                            <span class="text-xs font-poppins py-2 text-red-500 block">(this event has passed)</span>
+                                        @endif
+                                    </div>
 
                                     <div>
                                         <p class="whitespace-pre-line text-sm italic font-poppins">
