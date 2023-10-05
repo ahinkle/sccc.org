@@ -2,7 +2,7 @@
     <div class="col-span-1 lg:col-span-4 xl:col-span-3">
         <form wire:submit class="bg-gray-100 py-10 -mt-16 shadow-lg">
             <div class="px-4">
-                <h2 class="text-black pb-5 uppercase text-sm">Filters</h2>
+                <h2 class="text-black pb-5 uppercase text-sm font-poppins">Search</h2>
 
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -19,7 +19,7 @@
                         name="search"
                         wire:model.live="search"
                         type="search"
-                        placeholder="Name of Message"
+                        placeholder="Name or description of message"
                         hideLabel
                     />
                     <div>
@@ -80,9 +80,9 @@
             @foreach ($messages as $message)
                 <li wire:key="{{ $message->id }}">
                     <div class="grid grid-cols-12">
-                        <div class="col-span-3 text-center border-r border-b border-l bg-no-repeat bg-center bg-cover" style="background-image: url('{{ $message->image }}'); min-height: 200px;"></div>
+                        <div class="col-span-12 lg:col-span-3 text-center border-r border-b border-l bg-no-repeat bg-center bg-cover" style="background-image: url('{{ $message->image }}'); min-height: 200px;"></div>
 
-                        <div class="col-span-9 border-t border-b border-r">
+                        <div class="col-span-12 lg:col-span-9 border-t border-b border-r">
                             <div class="p-4">
                                 <div class="grid grid-cols-1 gap-y-4">
                                     <h2 class="text-xl font-semibold font-sen text-green-900">

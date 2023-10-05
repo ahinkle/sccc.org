@@ -34,13 +34,11 @@
         <x-layout.nav-item href='/messages' title="Messages" />
         <x-layout.nav-item href='/livestream' title="Livestream" />
         <x-layout.nav-item href='/' title="Stay Updated">
-            <x-layout.nav-item href='/' title="Weekly Newsletter" preventUnderline />
             <x-layout.nav-item href='/events' title="Events" preventUnderline />
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Resources">
             <x-layout.nav-item href='/' title="Member Directory" preventUnderline />
-            <x-layout.nav-item href='/resources/meetings-and-minutes' title="Meetings & Minutes" preventUnderline />
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
 
