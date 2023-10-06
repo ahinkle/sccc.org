@@ -146,6 +146,14 @@ class EventResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\Action::make('duplicate')
                         ->form([
+                            Forms\Components\Fieldset::make('Event Information')
+                                ->schema([
+                                    Forms\Components\TextInput::make('name')
+                                        ->autofocus()
+                                        ->placeholder('e.g., Family Fun Weekend')
+                                        ->required()
+                                        ->label('Event Name'),
+                                ]),
                             Forms\Components\Fieldset::make('Event Time')
                                 ->schema([
                                     Forms\Components\DateTimePicker::make('starts_at')
@@ -168,6 +176,7 @@ class EventResource extends Resource
                         ])
                         ->fillForm(function (Event $event) {
                             return [
+                                'name' => $event->name,
                                 'starts_at' => $event->starts_at,
                                 'ends_at' => $event->ends_at,
                                 'repeat_frequency' => $event->repeat_frequency,
@@ -178,6 +187,7 @@ class EventResource extends Resource
                         ->icon('heroicon-o-square-2-stack')
                         ->action(function (Event $event, $data) {
                             $event->replicate()->fill([
+                                'name' => $data['name'],
                                 'starts_at' => $data['starts_at'],
                                 'ends_at' => $data['ends_at'],
                                 'repeat_frequency' => $data['repeat_frequency'],
