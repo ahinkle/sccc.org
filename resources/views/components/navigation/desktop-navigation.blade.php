@@ -23,7 +23,7 @@
             <x-layout.nav-item href='/' title="Member Directory" preventUnderline />
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
-        <x-layout.nav-item href='/' title="Give" />
+        <x-layout.nav-item href='https://www.elexiogiving.com/App/Form/de761f23-9f10-4013-bb2a-9b73c870cb10' title="Give" />
     </nav>
     <div class="w-1/4 flex">
         {{-- --}}
