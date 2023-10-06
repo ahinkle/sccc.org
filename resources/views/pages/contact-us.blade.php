@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <img src="https://via.placeholder.com/600x600" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
+                <img src="{{ asset('img/grounded/message-with-pastor-joseph.JPG') }}" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
     </div>

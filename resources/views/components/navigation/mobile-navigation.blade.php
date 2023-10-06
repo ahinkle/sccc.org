@@ -38,36 +38,38 @@
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
         <x-layout.nav-item href='/' title="Resources">
-            <x-layout.nav-item href='/' title="Member Directory" preventUnderline />
+            <x-layout.nav-item href='https://santaclausumc.ctrn.co/directory/index.php' title="Member Directory" preventUnderline />
             <x-layout.nav-item href='/contact-us' title="Contact Us" preventUnderline />
         </x-layout.nav-item>
+        <x-layout.nav-item href='https://www.elexiogiving.com/App/Form/de761f23-9f10-4013-bb2a-9b73c870cb10' title="Give" />
+
 
 		 <div class="border-t border-gray-900/10 pt-6 pb-8">
 	 		<div class="flex justify-center">
-				<a href="https://cfcnewbedford.org/" target="_blank" class="text-green-700 text-center text-sm underline font-poppins" rel="noopener noreferrer">
+				<a href="https://cfcnewbedford.org/" target="_blank" class="text-green-800 text-center text-sm underline font-poppins" rel="noopener noreferrer">
 					Looking for CFC New Bedford (formerly sccc.org?)
 				</a>
 			</div>
             <div class="mt-6 flex space-x-10 md:order-2 justify-center">
-                <a href="https://www.facebook.com/SantaClausChristianChurch" class="text-green-700">
+                <a href="https://www.facebook.com/SantaClausChristianChurch" class="text-green-800">
                     <span class="sr-only">Facebook</span>
                     <x-fab-facebook class="h-8 w-8" />
                 </a>
-                <a href="https://www.instagram.com/santaclauschristianchurch/" class="text-green-700">
+                <a href="https://www.instagram.com/santaclauschristianchurch/" class="text-green-800">
                     <span class="sr-only">Instagram</span>
                     <x-fab-instagram class="h-8 w-8" />
                 </a>
-                <a href="https://x.com/sccc_org" class="text-green-700">
+                <a href="https://x.com/sccc_org" class="text-green-800">
                     <span class="sr-only">Twitter</span>
                     <x-fab-x-twitter class="h-8 w-8" />
                 </a>
-                <a href="https://www.youtube.com/SantaClausChristianChurch" class="text-green-700">
+                <a href="https://www.youtube.com/SantaClausChristianChurch" class="text-green-800">
                     <span class="sr-only">YouTube</span>
                     <x-fab-youtube class="h-8 w-8" />
                 </a>
             </div>
 			<div class="flex justify-center mt-8">
-				<a href="https://cfcnewbedford.org/" target="_blank" class="text-green-700 text-center text-sm font-poppins" rel="noopener noreferrer">
+				<a href="https://cfcnewbedford.org/" target="_blank" class="text-green-800 text-center text-sm font-poppins" rel="noopener noreferrer">
 					<x-fas-phone class="inline-block w-4 h-4 mr-1" /> <span class="underline">812-937-2938</span>
 				</a>
 			</div>

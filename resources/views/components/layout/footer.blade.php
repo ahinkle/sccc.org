@@ -8,16 +8,16 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900 font-libre">About</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Our Beliefs</a>
+                                <a href="{{ route('about.what-we-believe') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Our Beliefs</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Staff</a>
+                                 <a href="{{ route('about.staff') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Staff</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Location & Times</a>
+                                 <a href="{{ route('contact-us') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Location &amp; Times</a>
                             </li>
                             <li>
-                                <a href="{{ route('events') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Events</a>
+                                <a href="{{ route('events') }}" class="ttext-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Events</a>
                             </li>
                         </ul>
                     </div>
@@ -25,13 +25,13 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900">Messages</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">View All Messages</a>
+                                <a href="{{ route('messages') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">View All Messages</a>
                             </li>
                             <li>
-                                <a href="{{ route('livestream.sunday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Sunday, 9 AM</a>
+                                <a href="{{ route('livestream.sunday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Sunday, 9 AM</a>
                             </li>
                             <li>
-                                <a href="{{ route('livestream.wednesday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Wednesday, 6 PM (Youth)</a>
+                                <a href="{{ route('livestream.wednesday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Wednesday, 6 PM (Youth)</a>
                             </li>
                         </ul>
                     </div>
@@ -41,10 +41,10 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900">Resources</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Member Directory</a>
+                                <a href="https://santaclausumc.ctrn.co/directory/index.php" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Member Directory</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Give</a>
+                                <a href="https://www.elexiogiving.com/App/Form/de761f23-9f10-4013-bb2a-9b73c870cb10" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Give</a>
                             </li>
                         </ul>
                     </div>
@@ -52,10 +52,10 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900">Contact</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Contact Us</a>
+                                <a href="{{ route('contact-us') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Contact Us</a>
                             </li>
                             <li>
-                                <a href="tel:812-937-2938" class="text-sm leading-6 text-gray-600 hover:text-gray-900"><x-fas-phone class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600" /> (812) 937-2938</a>
+                                <a href="tel:812-937-2938" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-phone class="mr-1 w-2.5 h-2.5 inline-block fill-gray-600" /> (812) 937-2938</a>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +88,7 @@
             </div>
             <div>
                 <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">&copy; {{ date('Y') }} Santa Claus Christian Church. All rights reserved.</p>
-                {{-- <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">Web Design by <a href="https://grayloon.com" class="text-gray-500 hover:text-gray-600 underline">Andy Hinkle</a></p> --}}
+                <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">Site Design by <a href="https://grayloon.com" class="text-gray-500 hover:text-gray-600 underline">Andy Hinkle</a></p>
             </div>
         </div>
     </div>
