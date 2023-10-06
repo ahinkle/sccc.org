@@ -44,9 +44,6 @@
                                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Member Directory</a>
                             </li>
                             <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Meetings & Minutes</a>
-                            </li>
-                            <li>
                                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Give</a>
                             </li>
                         </ul>
