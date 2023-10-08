@@ -4,7 +4,7 @@
         <meta name="description" content="Welcome to Santa Claus Christian Church (Formerly Santa Claus Methodist Church), where faith, fellowship, and love come together. Join us on a journey of spiritual growth and connection as we embrace the love of Jesus Christ.">
     </x-slot>
 
-    <div class="home-hero relative h-[calc(100vh-20rem)] ">
+    <div class="home-hero relative h-[calc(100vh-20rem)] min-h-[38rem]">
         <div class="flex max-w-screen-xl mx-auto h-full items-center justify-center xl:justify-start">
             <div class="flex flex-wrap px-5 text-white -mt-28 text-center xl:text-left">
                 <h1 class="w-full pt-5 text-2xl md:text-3xl xl:text-5xl font-libre uppercase">
