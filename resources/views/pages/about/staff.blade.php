@@ -23,7 +23,7 @@
                 </p>
             </div>
             <div class="flex justify-center order-1 lg:order-2">
-                <img src="{{ asset('img/grounded/message-with-pastor-joseph.jpg') }}" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
+                <img src="{{ asset('img/grounded/message-with-pastor-joseph.JPG') }}" alt="Current Message Series" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
         <div class="pt-10">
