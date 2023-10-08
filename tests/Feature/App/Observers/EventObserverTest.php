@@ -18,7 +18,7 @@ it('sets slug on save', function () {
         'starts_at' => Carbon::parse('2021-01-01 12:00:00'),
     ]);
 
-    expect($e->slug)->toBe('my-event-jan-1-2021');
+    expect($e->slug)->toBe('events/my-event-jan-1-2021');
 });
 
 it('sets places end time in slug when end time is established', function () {
@@ -28,5 +28,5 @@ it('sets places end time in slug when end time is established', function () {
         'ends_at' => Carbon::parse('2021-01-01 13:00:00'),
     ]);
 
-    expect($e->slug)->toBe('my-event-jan-1-2021-1200pm-to-jan-1-2021-0100pm');
+    expect($e->slug)->toBe('events/my-event-jan-1-2021-1200pm-to-jan-1-2021-0100pm');
 });

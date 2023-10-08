@@ -53,7 +53,7 @@ it('doesnt reverify', function () {
         ]))
         ->assertRedirect('/');
 
-    expect($newsletterContact->fresh()->email_verified_at)->toBe('2020-01-01 00:00:00');
+    expect($newsletterContact->fresh()->email_verified_at->format('Y-m-d H:i:s'))->toBe('2020-01-01 00:00:00');
 });
 
 it('throttles newsletter verification requests', function () {

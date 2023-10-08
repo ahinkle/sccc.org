@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\EventFrequency;
 use App\Models\Concerns\CreatesRedirects;
+use App\Models\Concerns\TracksUserUpdates;
 use App\Observers\EventObserver;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -15,7 +16,8 @@ use Illuminate\Support\Str;
 class Event extends Model
 {
     use HasFactory,
-        CreatesRedirects;
+        CreatesRedirects,
+        TracksUserUpdates;
 
     /**
      * The "booted" method of the model.
