@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use App\Jobs\Events\PublishRecurringEvents;
+use App\Jobs\Livestream\PublishLivestreamAsMessageJob;
+use App\Jobs\Livestream\UpdateUpcomingLivestreamJob;
 use App\Jobs\NewsletterContacts\PruneUnverifiedNewsletterContactsJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
