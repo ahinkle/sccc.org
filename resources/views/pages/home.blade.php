@@ -28,7 +28,7 @@
     <div class="max-w-screen-xl mx-auto grid px-2 xl:px-0 -mt-[135px]">
         <div class="grid lg:grid-cols-3 grid-cols-1 gap-2 xl:gap-4 text-center z-20">
             <a class="bg-sand-200 border border-black p-24 hover:cursor-pointer group hover:border-green-900 hover:shadow bg-cover bg-top lg:bg-center bg-no-repeat"
-                style="background-image: url('{{ asset('img/events/youth-group.jpg') }}');"
+                style="background-image: url('{{ asset('img/events/youth-group.JPG') }}');"
                 href="{{ route('contact-us') }}"
             >
                 <h2 class="text-white uppercase text-3xl md:text-4xl font-poppins tracking-wide mt-3.5 group-hover:scale-105 transition-all duration-300">
