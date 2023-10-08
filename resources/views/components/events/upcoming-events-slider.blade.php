@@ -7,7 +7,7 @@
                 <div class="flex-shrink-0 w-[300px] mr-4 shadow">
                     <div class="relative">
                         <a href="{{ $event->slug }}">
-                            <img class="w-full h-36 object-cover" src="{{ $event->image }}" alt="{{ $event->name }}">
+                            <img class="w-full h-36 object-cover" src="{{ asset($event->image) }}" alt="{{ $event->name }}">
                         </a>
                     </div>
                     <div class="px-1">
