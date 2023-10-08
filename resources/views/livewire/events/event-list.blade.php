@@ -73,7 +73,7 @@
                     <div class="grid grid-cols-12">
                         <div class="col-span-12 sm:col-span-3 text-center lg:border-r lg:border-b lg:border-l">
                             <a href="{{ $event->slug }}">
-                                <img class="w-full h-36 object-cover rounded-t-lg" src="{{ $event->image }}" alt="{{ $event->name }}">
+                                <img class="w-full h-36 object-cover rounded-t-lg" src="{{ asset('storage/'.$event->image) }}" alt="{{ $event->name }}">
                             </a>
                             <div class="hidden sm:grid grid-cols-1 gap-y-2 py-2">
                                 <div class="row-span-1">
