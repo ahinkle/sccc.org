@@ -34,11 +34,5 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-     - name: Launch Pint inspection
-        run: vendor/bin/pint
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: PHP Linting (Pint)
-          skip_fetch: true
+      - name: Tests
+        run: ./vendor/bin/pest
