@@ -2,6 +2,10 @@
 
 namespace App\Console;
 
+use App\Jobs\Events\PublishRecurringEvents;
+use App\Jobs\Livestream\PublishLivestreamAsMessageJob;
+use App\Jobs\Livestream\UpdateUpcomingLivestreamJob;
+use App\Jobs\NewsletterContacts\PruneUnverifiedNewsletterContactsJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,7 +16,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->job(PublishRecurringEvents::class)->daily();
+        $schedule->job(PruneUnverifiedNewsletterContactsJob::class)->daily();
+        $schedule->job(UpdateUpcomingLivestreamJob::class)->weeklyOn(6, '9:00');
+        $schedule->job(PublishLivestreamAsMessageJob::class)->weeklyOn(0, '11:00');
     }
 
     /**
@@ -21,7 +28,5 @@ class Kernel extends ConsoleKernel
     protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
-
-        require base_path('routes/console.php');
     }
 }
