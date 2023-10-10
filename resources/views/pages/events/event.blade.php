@@ -71,7 +71,7 @@
                             </h3>
                             <p class="text-sm font-poppins">
                                 @if ($event->more_information)
-                                    {{ $event->more_information }}
+                                    {{ $event->more_information }} or contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a>
                                 @else
                                     Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a>
                                 @endif
