@@ -69,7 +69,7 @@
         </div>
         <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
             <div class="flex space-x-6 md:order-2">
-                <a href="https://www.facebook.com/SantaClausChristianChurch" class="text-gray-400 hover:text-gray-500">
+                <a href="https://www.facebook.com/sccc.org" class="text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Facebook</span>
                     <x-fab-facebook class="h-6 w-6" />
                 </a>

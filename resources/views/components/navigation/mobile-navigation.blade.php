@@ -51,7 +51,7 @@
 				</a>
 			</div>
             <div class="mt-6 flex space-x-10 md:order-2 justify-center">
-                <a href="https://www.facebook.com/SantaClausChristianChurch" class="text-green-800">
+                <a href="https://www.facebook.com/sccc.org" class="text-green-800">
                     <span class="sr-only">Facebook</span>
                     <x-fab-facebook class="h-8 w-8" />
                 </a>
