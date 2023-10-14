@@ -19,7 +19,7 @@
             <x-dev.dev-toolbar />
         @endif
 
-        {{-- <x-modal.default-modal /> --}}
+        <x-modal.default-modal />
 
         <x-layout.header />
             {{ $slot }}
