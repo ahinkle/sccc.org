@@ -1,7 +1,7 @@
 <footer class="bg-white border-t border-gray-200 mt-10" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8 pt-10">
+        <div class="xl:grid xl:grid-cols-2 xl:gap-8 pt-10">
             <div class="grid grid-cols-2 gap-8 xl:col-span-2">
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
@@ -61,11 +61,11 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-10 xl:mt-0">
+            {{-- <div class="mt-10 xl:mt-0">
                 <h3 class="text-sm font-semibold leading-6 text-gray-900 font-libre">Subscribe to our newsletter: The Weekly Word</h3>
                 <p class="mt-2 text-xs leading-6 text-gray-600 font-libre">The latest news, events, and happenings around the church, sent to your inbox weekly.</p>
                 <livewire:newsletter.newsletter-footer-signup-form />
-            </div>
+            </div> --}}
         </div>
         <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
             <div class="flex space-x-6 md:order-2">
