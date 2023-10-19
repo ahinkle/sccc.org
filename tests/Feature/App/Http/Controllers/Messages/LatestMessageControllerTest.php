@@ -2,7 +2,7 @@
 
 use App\Models\Message;
 
-it('successfully redirects to latest youtube video', function () {
+it('redirects to latest youtube video', function () {
     $olderMessage = Message::factory()->create([
         'message_date' => '2020-01-01 00:00:00',
     ]);
