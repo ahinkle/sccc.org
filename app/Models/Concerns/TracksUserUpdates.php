@@ -23,6 +23,6 @@ trait TracksUserUpdates
      */
     public function lastUpdatedBy(): BelongsTo
     {
-        return self::belongsTo(User::class, 'updated_by_id');
+        return self::belongsTo(User::class, 'last_updated_id');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Enums\EventFrequency;
-use App\Jobs\Events\PublishRecurringEvents;
+use App\Jobs\Events\PublishRecurringEventsJob;
 use App\Models\Event;
 
 it('publishes a weekly event', function () {
@@ -10,7 +10,7 @@ it('publishes a weekly event', function () {
         'starts_at' => now()->subDay(),
     ]);
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
 
     expect(Event::count())->toBe(2);
     expect(Event::latest('id')->first()->starts_at->format('Y-m-d H:i:s'))
@@ -23,7 +23,7 @@ it('publishes a biweekly event', function () {
         ->repeats(EventFrequency::BIWEEKLY)
         ->create();
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
 
     expect(Event::count())->toBe(2);
     expect(Event::latest('id')->first()->starts_at->format('Y-m-d H:i:s'))
@@ -36,7 +36,7 @@ it('publishes a monthly event', function () {
         ->repeats(EventFrequency::MONTHLY)
         ->create();
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
 
     expect(Event::count())->toBe(2);
     expect(Event::latest('id')->first()->starts_at->format('Y-m-d H:i:s'))
@@ -49,7 +49,7 @@ it('publishes a quarterly event', function () {
         ->repeats(EventFrequency::QUARTERLY)
         ->create();
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
 
     expect(Event::count())->toBe(2);
     expect(Event::latest('id')->first()->starts_at->format('Y-m-d H:i:s'))
@@ -62,7 +62,7 @@ it('publishes a yearly event', function () {
         ->repeats(EventFrequency::YEARLY)
         ->create();
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
 
     expect(Event::count())->toBe(2);
     expect(Event::latest('id')->first()->starts_at->format('Y-m-d H:i:s'))
@@ -71,7 +71,7 @@ it('publishes a yearly event', function () {
 
 it('doesnt publish non-repeat event', function () {
     Event::factory()->past()->create();
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
     expect(Event::count())->toBe(1);
 });
 
@@ -82,12 +82,12 @@ it('doesnt publish expired event', function () {
         ->repeats(EventFrequency::WEEKLY)
         ->create();
 
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
     expect(Event::count())->toBe(1);
 });
 
 it('doesnt publish event that hasnt started yet', function () {
     Event::factory()->upcoming()->create();
-    PublishRecurringEvents::dispatch();
+    PublishRecurringEventsJob::dispatch();
     expect(Event::count())->toBe(1);
 });

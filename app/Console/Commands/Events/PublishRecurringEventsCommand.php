@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands\Events;
 
-use App\Jobs\Events\PublishRecurringEvents;
+use App\Jobs\Events\PublishRecurringEventsJob;
 use Illuminate\Console\Command;
 
 class PublishRecurringEventsCommand extends Command
@@ -28,7 +28,7 @@ class PublishRecurringEventsCommand extends Command
     {
         if ($this->option('force') || $this->confirm('This will launch a background task to publish recurring events from the prior day. Are you sure you want to continue?', true)) {
             $this->info('Publishing recurring events from the prior day...');
-            dispatch(new PublishRecurringEvents());
+            dispatch(new PublishRecurringEventsJob());
             $this->info('Successfully launched task.');
         }
     }

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class PublishRecurringEvents implements ShouldQueue
+class PublishRecurringEventsJob implements ShouldQueue
 {
     use Dispatchable,
         InteractsWithQueue,
@@ -21,7 +21,11 @@ class PublishRecurringEvents implements ShouldQueue
      */
     public function handle(): void
     {
-        $events = Event::query()->recurring()->hasStarted()->notEnded()->get();
+        $events = Event::query()
+            ->recurring()
+            ->hasStarted()
+            ->notEnded()
+            ->get();
 
         $events->each(fn (Event $event) => $this->publishNextOccurrence($event));
     }
@@ -32,7 +36,7 @@ class PublishRecurringEvents implements ShouldQueue
     protected function publishNextOccurrence(Event $event): void
     {
         $event->replicate()
-            ->fill(['starts_at' => $event->nextOccurance()])
+            ->fill(['starts_at' => $event->nextOccurance])
             ->save();
     }
 }

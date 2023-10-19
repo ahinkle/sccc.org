@@ -1,6 +1,6 @@
 <?php
 
-use App\Jobs\Events\PublishRecurringEvents;
+use App\Jobs\Events\PublishRecurringEventsJob;
 use Illuminate\Support\Facades\Queue;
 
 it('queues job from command execution', function () {
@@ -12,5 +12,5 @@ it('queues job from command execution', function () {
         ->expectsOutput('Successfully launched task.')
         ->assertExitCode(0);
 
-    Queue::assertPushed(PublishRecurringEvents::class);
+    Queue::assertPushed(PublishRecurringEventsJob::class);
 });

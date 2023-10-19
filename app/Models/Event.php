@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 class Event extends Model
@@ -43,6 +42,16 @@ class Event extends Model
     {
         return Attribute::make(
             get: fn (string $value) => Str::plural(strtolower(class_basename($this))).'/'.$value,
+        );
+    }
+
+    /**
+     * Interact with the next occurance attribute.
+     */
+    protected function nextOccurance(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->repeat_frequency?->nextOccurance($this->starts_at),
         );
     }
 
@@ -96,17 +105,5 @@ class Event extends Model
             $query->whereNull('ends_at')
                 ->orWhere('ends_at', '>=', now());
         });
-    }
-
-    /**
-     * Get the next occurance of the event.
-     */
-    public function nextOccurance(): ?Carbon
-    {
-        if (! $this->repeat_frequency) {
-            return null;
-        }
-
-        return $this->repeat_frequency->nextOccurance($this->starts_at);
     }
 }
