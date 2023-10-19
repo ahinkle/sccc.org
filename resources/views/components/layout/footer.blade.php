@@ -41,9 +41,6 @@
                         <h3 class="text-sm font-semibold leading-6 text-gray-900">Resources</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="https://santaclausumc.ctrn.co/directory/index.php" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Member Directory</a>
-                            </li>
-                            <li>
                                 <a href="https://www.elexiogiving.com/App/Form/de761f23-9f10-4013-bb2a-9b73c870cb10" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Give</a>
                             </li>
                         </ul>
