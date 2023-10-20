@@ -1,7 +1,17 @@
 <?php
 
 use App\Enums\EventFrequency;
+use App\Models\Concerns\CreatesRedirects;
+use App\Models\Concerns\TracksUserUpdates;
 use App\Models\Event;
+
+it('should use redirects trait', function () {
+    expect(Event::class)->toUse(CreatesRedirects::class);
+});
+
+it('should use track user updates trait', function () {
+    expect(Event::class)->toUse(TracksUserUpdates::class);
+});
 
 it('appropriately gets slug', function () {
     $e = Event::factory()->create([
