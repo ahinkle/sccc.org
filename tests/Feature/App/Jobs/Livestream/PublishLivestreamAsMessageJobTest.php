@@ -3,13 +3,14 @@
 use Alaouy\Youtube\Facades\Youtube;
 use App\Jobs\Livestream\PublishLivestreamAsMessageJob;
 use App\Models\Message;
+use Illuminate\Support\Carbon;
 
 it('publishes livestream as message', function () {
     cache()->put('livestream.sunday', 'hKza3UAB3qc');
 
     Youtube::shouldReceive('getVideoInfo')
         ->once()
-        ->andReturn(fakeVideo());
+        ->andReturn(fakeYouTubeVideo(Carbon::parse('2023-10-29 09:00:00'), 'hKza3UAB3qc'));
 
     PublishLivestreamAsMessageJob::dispatch();
 
@@ -28,17 +29,3 @@ it('doesnt publish livestream that is already published', function () {
 
     expect(Message::where('youtube_id', 'hKza3UAB3qc')->count())->toBe(1);
 });
-
-/**
- * Mock an API response from YouTube.
- */
-function fakeVideo(): stdClass
-{
-    $video = new \stdClass();
-    $video->id = new \stdClass();
-    $video->id->videoId = 'hKza3UAB3qc';
-    $video->snippet = new \stdClass();
-    $video->snippet->title = 'Grounded | 9:00 AM Sunday, October 29, 2023';
-
-    return $video;
-}

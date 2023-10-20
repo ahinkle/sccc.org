@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -42,7 +44,16 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Mock an API response from YouTube.
+ */
+function fakeYouTubeVideo(Carbon $titleDate, string $videoId = null): stdClass
 {
-    // ..
+    $video = new \stdClass();
+    $video->id = new \stdClass();
+    $video->id->videoId = $videoId ?? fake()->uuid;
+    $video->snippet = new \stdClass();
+    $video->snippet->title = 'Grounded | '.$titleDate->format('g:i A l, F j, Y');
+
+    return $video;
 }

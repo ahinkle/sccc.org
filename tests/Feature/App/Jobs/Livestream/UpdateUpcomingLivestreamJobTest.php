@@ -4,7 +4,6 @@ use Alaouy\Youtube\Facades\Youtube;
 use App\Jobs\Livestream\UpdateUpcomingLivestreamJob;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
-use function Pest\Faker\fake;
 use function Pest\Laravel\travelTo;
 
 it('updates livestream links from YouTube', function () {
@@ -20,10 +19,10 @@ it('updates livestream links from YouTube', function () {
     Youtube::shouldReceive('searchAdvanced')
         ->once()
         ->andReturn([
-            fakeVideo($weekBeforeSunday),
-            $expectedSunday = fakeVideo($sunday),
-            $expectedWednesday = fakeVideo($wednesday),
-            fakeVideo($weekAfterSunday),
+            fakeYouTubeVideo($weekBeforeSunday),
+            $expectedSunday = fakeYouTubeVideo($sunday),
+            $expectedWednesday = fakeYouTubeVideo($wednesday),
+            fakeYouTubeVideo($weekAfterSunday),
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
@@ -44,10 +43,10 @@ it('current date is sunday; get todays livestream -- not next sunday', function 
     Youtube::shouldReceive('searchAdvanced')
         ->once()
         ->andReturn([
-            fakeVideo($weekBeforeSunday),
-            $expectedSunday = fakeVideo($sunday),
-            $expectedWednesday = fakeVideo($wednesday),
-            fakeVideo($weekAfterSunday),
+            fakeYouTubeVideo($weekBeforeSunday),
+            $expectedSunday = fakeYouTubeVideo($sunday),
+            $expectedWednesday = fakeYouTubeVideo($wednesday),
+            fakeYouTubeVideo($weekAfterSunday),
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
@@ -71,7 +70,7 @@ it('throws exception if sunday isnt found', function () {
     Youtube::shouldReceive('searchAdvanced')
         ->once()
         ->andReturn([
-            fakeVideo($wednesday),
+            fakeYouTubeVideo($wednesday),
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
@@ -84,22 +83,8 @@ it('throws exception if wednesday isnt found', function () {
     Youtube::shouldReceive('searchAdvanced')
         ->once()
         ->andReturn([
-            fakeVideo($sunday),
+            fakeYouTubeVideo($sunday),
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
 })->throws(Exception::class, 'Could not find upcoming livestreams for Sunday and/or Wednesday.');
-
-/**
- * Mock an API response from YouTube.
- */
-function fakeVideo(Carbon $titleDate): stdClass
-{
-    $video = new \stdClass();
-    $video->id = new \stdClass();
-    $video->id->videoId = fake()->uuid;
-    $video->snippet = new \stdClass();
-    $video->snippet->title = 'Grounded | '.$titleDate->format('g:i A l, F j, Y');
-
-    return $video;
-}
