@@ -65,7 +65,7 @@ class Event extends Model
         }
 
         // Check if it's the end of the day for all day events.
-        if ($this->starts_at === $this->starts_at->startOfDay()) {
+        if ($this->starts_at->isStartOfDay()) {
             return $this->starts_at->endOfDay()->isPast();
         }
 
