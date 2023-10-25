@@ -30,3 +30,15 @@ it('sets places end time in slug when end time is established', function () {
 
     expect($e->slug)->toBe('events/my-event-jan-1-2021-1200pm-to-jan-1-2021-0100pm');
 });
+
+it('sets image of event from previous event if the title matches and incoming is null', function () {
+    //
+});
+
+it('doesnt image of event from previous event if incoming is null', function () {
+    //
+});
+
+it('sets description of event from previous event if the title matches and incoming is null', function () {
+    //
+});

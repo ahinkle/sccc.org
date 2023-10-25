@@ -17,3 +17,7 @@ test('it does not show past event', function () {
 
     $component->assertDontSee($e->name);
 });
+
+it('all day events more than 5 days at a time should only show start and end dates in listings', function () {
+    //
+});

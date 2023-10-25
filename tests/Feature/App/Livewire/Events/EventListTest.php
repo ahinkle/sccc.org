@@ -42,3 +42,11 @@ it('can filter by date range of event', function () {
         ->assertSee($e->name)
         ->assertDontSee($dontSee->name);
 });
+
+it('all day events more than 5 days at a time should only show start and end dates in listings', function () {
+    //
+});
+
+it('all day events 5 days or less displays every day in date listing', function () {
+    //
+});
