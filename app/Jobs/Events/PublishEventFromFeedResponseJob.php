@@ -4,14 +4,14 @@ namespace App\Jobs\Events;
 
 use App\Enums\State;
 use App\Models\Event;
+use Illuminate\Support\Str;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Carbon;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 
 class PublishEventFromFeedResponseJob implements ShouldQueue
 {
@@ -98,7 +98,7 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             'elexio_batch_id' => $this->batch_id,
             'elexio_updated_at' => now(),
             'name' => $this->data['title'],
-            'description' => strip_tags($this->relatedEvent?->description) ?? strip_tags($this->data['description']),
+            'description' => $this->relatedEvent?->description ?? strip_tags($this->data['description']),
             'image' => $this->relatedEvent?->image,
             'location' => $location['location'],
             'address' => $location['address'],
