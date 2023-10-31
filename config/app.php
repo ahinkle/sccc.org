@@ -183,7 +183,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Elexio' => App\Support\Elexio\Elexio::class,
     ])->toArray(),
 
 ];

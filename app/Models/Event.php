@@ -31,6 +31,8 @@ class Event extends Model
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
+        'elexio_id' => 'integer',
+        'elexio_updated_at' => 'datetime',
     ];
 
     /**

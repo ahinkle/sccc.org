@@ -36,7 +36,3 @@ it('determines if event has passed', function () {
     expect($earlierToday->hasPassed())->toBeTrue();
     expect($allDayToday->hasPassed())->toBeFalse();
 });
-
-it('determines extended span state', function () {
-    //
-});

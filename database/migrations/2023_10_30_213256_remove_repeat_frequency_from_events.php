@@ -9,8 +9,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->text('description')->nullable()->change();
-            $table->string('image')->nullable()->change();
             $table->dropColumn('repeat_frequency');
         });
     }
