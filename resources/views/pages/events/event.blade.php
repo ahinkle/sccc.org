@@ -24,7 +24,12 @@
                         <span class="block sm:inline">This event has passed and some information may be out of date. Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</span>
                     </div>
                 @endif
-                <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">{{ $event->description }}</p>
+                @if ($event->description)
+                    <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">{{ $event->description }}</p>
+                @else
+                    <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">No additional details have been provided for this event.
+                    <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</p>
+                @endif
                 @if ($event->link)
                 <x-inputs.button href="{{ $event->link }}" class="mt-5" target="_blank">
                     {{ $event->button_link_text ?? 'Sign-up' }}

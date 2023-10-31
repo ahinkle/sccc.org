@@ -4,16 +4,19 @@ namespace App\Jobs\Events;
 
 use App\Enums\State;
 use App\Models\Event;
+use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class PublishEventFromFeedResponseJob implements ShouldQueue
 {
-    use Dispatchable,
+    use Batchable,
+        Dispatchable,
         InteractsWithQueue,
         Queueable,
         SerializesModels;
@@ -95,7 +98,7 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             'elexio_batch_id' => $this->batch_id,
             'elexio_updated_at' => now(),
             'name' => $this->data['title'],
-            'description' => $this->relatedEvent?->description ?? $this->data['description'],
+            'description' => strip_tags($this->relatedEvent?->description) ?? strip_tags($this->data['description']),
             'image' => $this->relatedEvent?->image,
             'location' => $location['location'],
             'address' => $location['address'],
@@ -132,7 +135,9 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
         $rooms = collect($this->data['buildings'])
             ->map(fn ($building) => collect($building['rooms']))
             ->flatten()
-            ->filter(fn ($item) => is_string($item));
+            ->filter(fn ($item) => is_string($item))
+            ->filter(fn ($item) => preg_match('/[A-Z]\d\s-\s/', $item) === 1)
+            ->map(fn ($item) => Str::before($item, ' - '));
 
         if ($rooms->count() > 0) {
             return 'Santa Claus Christian Church - '.$rooms->join(', ', ', and ');

@@ -3,7 +3,6 @@
 namespace App\Jobs\Events;
 
 use App\Support\Elexio\ElexioFacade as Elexio;
-use Illuminate\Bus\Batch;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -44,10 +43,6 @@ class PublishEventsFromFeedJob implements ShouldQueue
             fn (array $event) => new PublishEventFromFeedResponseJob($event, $id),
         );
 
-        Bus::batch($jobs)
-            ->then(function (Batch $batch) use ($id) {
-                EventFeedSynchronizationCleanupJob::dispatch($this->start, $this->end, $id);
-            })
-            ->dispatch();
+        Bus::batch($jobs)->dispatch();
     }
 }

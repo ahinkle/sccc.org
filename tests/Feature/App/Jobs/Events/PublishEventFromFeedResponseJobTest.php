@@ -2,6 +2,11 @@
 
 use App\Jobs\Events\PublishEventFromFeedResponseJob;
 use App\Models\Event;
+use Illuminate\Bus\Batchable;
+
+it('is batchable', function () {
+    expect(PublishEventFromFeedResponseJob::class)->toUse(Batchable::class);
+});
 
 it('publishes a event from feed', function () {
     $data = [
@@ -202,7 +207,7 @@ it('uses provided location', function () {
                 'rooms' => [
                     [
                         'id' => 1,
-                        'name' => 'Worship Center \/ Sanctuary',
+                        'name' => 'L3 - Nursery',
                     ],
                 ],
             ],
@@ -212,7 +217,7 @@ it('uses provided location', function () {
     PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
 
     expect(Event::count())->toBe(1);
-    expect(Event::first()->location)->toBe('Santa Claus Christian Church - Worship Center \/ Sanctuary');
+    expect(Event::first()->location)->toBe('Santa Claus Christian Church - L3');
 });
 
 it('uses previous event location', function () {
@@ -253,7 +258,7 @@ it('displays two room numbers', function () {
                 'rooms' => [
                     [
                         'id' => 1,
-                        'name' => 'Worship Center \/ Sanctuary',
+                        'name' => 'U1 - Worship Center \/ Sanctuary',
                     ],
                     [
                         'id' => 2,
@@ -267,7 +272,7 @@ it('displays two room numbers', function () {
     PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
 
     expect(Event::count())->toBe(1);
-    expect(Event::first()->location)->toBe('Santa Claus Christian Church - Worship Center \/ Sanctuary, and L3 - Nursery');
+    expect(Event::first()->location)->toBe('Santa Claus Christian Church - U1 and L3');
 });
 
 it('displays multiple room numbers', function () {
@@ -295,6 +300,10 @@ it('displays multiple room numbers', function () {
                         'id' => 3,
                         'name' => 'L4 - Toddler Classroom',
                     ],
+                    [
+                        'id' => 3,
+                        'name' => 'L5 - Toddler Classroom',
+                    ],
                 ],
             ],
         ],
@@ -303,7 +312,7 @@ it('displays multiple room numbers', function () {
     PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
 
     expect(Event::count())->toBe(1);
-    expect(Event::first()->location)->toBe('Santa Claus Christian Church - Worship Center \/ Sanctuary, L3 - Nursery, and L4 - Toddler Classroom');
+    expect(Event::first()->location)->toBe('Santa Claus Christian Church - L3, L4, and L5');
 });
 
 it('updates location when api provides location update', function () {
@@ -326,7 +335,7 @@ it('updates location when api provides location update', function () {
                 'rooms' => [
                     [
                         'id' => 1,
-                        'name' => 'Worship Center \/ Sanctuary',
+                        'name' => 'L3 - Nursery',
                     ],
                 ],
             ],
@@ -336,7 +345,7 @@ it('updates location when api provides location update', function () {
     PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
 
     expect(Event::count())->toBe(1);
-    expect($e->refresh()->location)->toBe('Santa Claus Christian Church - Worship Center \/ Sanctuary');
+    expect($e->refresh()->location)->toBe('Santa Claus Christian Church - L3');
 });
 
 it('defaults to worship center if no location is provided', function () {
