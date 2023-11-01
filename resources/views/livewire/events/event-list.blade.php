@@ -41,7 +41,7 @@
                     <h3 class="text-2xl font-semibold font-sen text-black uppercase ">
                         No Results Found <a wire:click.prevent="resetFilters" class="text-green-900 hover:text-green-700 text-xs pt-2 cursor-pointer">Clear</a>
                         <span class="block text-base max-w-xl py-2">
-                            We couldn't find any results. Please utilize the available filters to refine your search.
+                            We couldn't find any results for your search. Try searching for something else.
                         </span>
                     </h3>
                 @else

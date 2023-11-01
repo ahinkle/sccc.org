@@ -21,11 +21,6 @@ class EventList extends Component
     #[Url]
     public ?string $search = null;
 
-    public function mount(): void
-    {
-        $this->startDate = today()->format('Y-m-d');
-    }
-
     public function render(): View
     {
         return view('livewire.events.event-list', [
@@ -39,7 +34,7 @@ class EventList extends Component
      */
     public function resetFilters(): void
     {
-        $this->reset(['startDate' => today()->format('Y-m-d'), 'endDate', 'search']);
+        $this->search = null;
     }
 
     /**
@@ -48,6 +43,7 @@ class EventList extends Component
     protected function events(): LengthAwarePaginator
     {
         return Event::query()
+            ->where('starts_at', '>=', today())
             ->when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%"))
             ->orderBy('starts_at')
             ->paginate(10);
