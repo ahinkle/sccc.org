@@ -48,9 +48,9 @@
                                 {{ $event->starts_at->format('F j, Y') }}
                                 @if ($event->starts_at->format('H:i:s') !== '00:00:00')
                                     <span> - {{ $event->starts_at->format('g:i A') }}</span>
-                                @endif
-                                @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
-                                    <span> - {{ $event->ends_at->format('g:i A') }}</span>
+                                    @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
+                                        <span> - {{ $event->ends_at->format('g:i A') }}</span>
+                                    @endif
                                 @endif
                             </p>
                         </div>

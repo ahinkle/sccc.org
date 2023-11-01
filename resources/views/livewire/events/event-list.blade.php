@@ -69,9 +69,11 @@
                                 <div class="row-span-1">
                                     @if ($event->starts_at->format('H:i:s') !== '00:00:00')
                                         <span class="text-sm font-poppins py-2 text-green-900">{{ $event->starts_at->format('g:i A') }}</span>
-                                    @endif
-                                    @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
-                                        <span class="text-sm font-poppins py-2 text-green-900">- {{ $event->ends_at->format('g:i A') }}</span>
+                                        @if ($event->ends_at && $event->ends_at->format('H:i:s') !== '00:00:00')
+                                            <span class="text-sm font-poppins py-2 text-green-900">- {{ $event->ends_at->format('g:i A') }}</span>
+                                        @endif
+                                    @else
+                                        <span class="text-sm font-poppins py-2 text-green-900">(All Day)</span>
                                     @endif
                                     @if ($event->hasPassed())
                                         <span class="text-xs font-poppins py-2 text-red-500 block">(this event has passed)</span>
