@@ -38,7 +38,7 @@
             </div>
             <div class="bg-white py-10 xl:-mt-40 xl:shadow-lg order-1 xl:order-2 col-span-3 xl:col-span-1">
                 <div class="px-4">
-                    <img class="w-full h-36 object-cover rounded-lg" src="{{ asset('storage/'.$event->image) }}" alt="{{ $event->name }}">
+                    <img class="w-full h-36 object-cover rounded-lg" src="{{ $event->image ? asset('storage/'.$event->image) : asset('img/background/SCCC_HighAngle-min.jpg') }}" alt="{{ $event->name }}">
                     <div class="py-2 border-t mt-5 grid grid-cols-1 gap-y-3">
                         <div>
                             <h3 class="uppercase text-lg font-semibold font-sen text-green-900">

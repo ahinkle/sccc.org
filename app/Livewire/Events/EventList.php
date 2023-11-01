@@ -15,20 +15,6 @@ class EventList extends Component
     use WithPagination;
 
     /**
-     * The start date search range for events.
-     */
-    #[Rule(['required', 'date'])]
-    #[Url]
-    public ?string $startDate = null;
-
-    /**
-     * The end date search range for events.
-     */
-    #[Rule(['nullable', 'date', 'after_or_equal:startDate'])]
-    #[Url]
-    public ?string $endDate = null;
-
-    /**
      * The search term for events.
      */
     #[Rule(['nullable', 'string', 'max:255'])]
@@ -62,8 +48,6 @@ class EventList extends Component
     protected function events(): LengthAwarePaginator
     {
         return Event::query()
-            ->when($this->startDate, fn ($query) => $query->whereDate('starts_at', '>=', $this->startDate))
-            ->when($this->endDate, fn ($query) => $query->whereDate('starts_at', '<=', $this->endDate))
             ->when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%"))
             ->orderBy('starts_at')
             ->paginate(10);
@@ -74,14 +58,6 @@ class EventList extends Component
      */
     protected function isSearching(): bool
     {
-        if ($this->endDate || $this->search) {
-            return true;
-        }
-
-        if ($this->startDate) {
-            return $this->startDate !== today()->format('Y-m-d');
-        }
-
-        return false;
+        return $this->search !== null;
     }
 }

@@ -14,7 +14,6 @@ class EventFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'description' => $this->faker->text,
-            'image' => 'https://via.placeholder.com/400x400',
             'starts_at' => $this->faker->dateTime(),
             'location' => $this->faker->company(),
             'address' => $this->faker->streetAddress(),
