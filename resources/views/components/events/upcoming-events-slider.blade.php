@@ -7,7 +7,7 @@
                 <div class="flex-shrink-0 w-[300px] mr-4 shadow">
                     <div class="relative">
                         <a href="{{ $event->slug }}">
-                            <img class="w-full h-36 object-cover" src="{{ asset('storage/'.$event->image) }}" alt="{{ $event->name }}">
+                            <img class="w-full h-36 object-cover" src="{{ $event->image ? asset('storage/'.$event->image) : asset('img/background/SCCC_HighAngle-min.jpg') }}" alt="{{ $event->name }}">
                         </a>
                     </div>
                     <div class="px-1">
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="col-span-9">
-                                <div class="mt-2 px-2 grid gap-y-2">
+                                <div class="mt-2 px-2 grid gap-y-2 pb-4">
                                     <a href="{{ $event->slug }}">
                                         <h3 class="text-sm font-semibold font-poppins">{{ $event->name }}</h3>
                                     </a>
@@ -43,7 +43,10 @@
                                     </p>
 
                                     <p class="text-xs font-poppins">
-                                        {{ \Illuminate\Support\Str::limit($event->description, 75) }} <a href="{{ $event->slug }}" class="text-green-900 hover:text-green-700 text-xs">read more</a>
+                                        {{ \Illuminate\Support\Str::limit($event->description, 75) }}
+                                        @if ($event->description)
+                                            <a href="{{ $event->slug }}" class="text-green-900 hover:text-green-700 text-xs">read more</a>
+                                        @endif
                                     </p>
 
                                     <a href="{{ $event->slug }}" class="text-xs font-poppins text-green-900 hover:text-green-700">Learn More &rarr;</a>

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\EventFrequency;
 use App\Models\Concerns\CreatesRedirects;
 use App\Models\Concerns\TracksUserUpdates;
 use App\Observers\EventObserver;
@@ -32,7 +31,8 @@ class Event extends Model
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
-        'repeat_frequency' => EventFrequency::class,
+        'elexio_id' => 'integer',
+        'elexio_updated_at' => 'datetime',
     ];
 
     /**
@@ -42,16 +42,6 @@ class Event extends Model
     {
         return Attribute::make(
             get: fn (string $value) => Str::plural(strtolower(class_basename($this))).'/'.$value,
-        );
-    }
-
-    /**
-     * Interact with the next occurance attribute.
-     */
-    protected function nextOccurance(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->repeat_frequency?->nextOccurance($this->starts_at),
         );
     }
 

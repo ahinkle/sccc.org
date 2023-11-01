@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\Jobs\Events\PublishRecurringEventsJob;
+use App\Jobs\Events\PublishEventsFromFeedJob;
 use App\Jobs\Livestream\PublishLivestreamAsMessageJob;
 use App\Jobs\Livestream\UpdateUpcomingLivestreamJob;
 use App\Jobs\NewsletterContacts\PruneUnverifiedNewsletterContactsJob;
@@ -16,7 +16,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->job(PublishRecurringEventsJob::class)->daily();
+        $schedule->command('queue:prune-batches')->daily();
+        $schedule->job(new PublishEventsFromFeedJob(today(), today()->addWeek()->endOfDay()))->hourly();
+        $schedule->job(new PublishEventsFromFeedJob(today()->addDays(8), today()->addMonths(6)->endOfDay()))->everySixHours();
         $schedule->job(PruneUnverifiedNewsletterContactsJob::class)->daily();
         $schedule->job(UpdateUpcomingLivestreamJob::class)->weeklyOn(6, '9:00');
         $schedule->job(PublishLivestreamAsMessageJob::class)->weeklyOn(0, '11:00');

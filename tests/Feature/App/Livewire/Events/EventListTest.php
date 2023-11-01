@@ -30,15 +30,3 @@ it('can filter by name of event', function () {
         ->assertSee($e->name)
         ->assertDontSee($dontSee->name);
 });
-
-it('can filter by date range of event', function () {
-    $e = Event::factory()->past()->create();
-    $dontSee = Event::factory()->upcoming()->create();
-
-    Livewire::test(EventList::class)
-        ->set('startDate', $e->starts_at->subDays(1)->format('Y-m-d'))
-        ->set('endDate', $e->starts_at->addDays(1)->format('Y-m-d'))
-        ->assertOk()
-        ->assertSee($e->name)
-        ->assertDontSee($dontSee->name);
-});

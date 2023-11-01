@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\EventFrequency;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +15,6 @@ class EventFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'description' => $this->faker->text,
-            'image' => 'https://via.placeholder.com/400x400',
             'starts_at' => $this->faker->dateTime(),
             'location' => $this->faker->company(),
             'address' => $this->faker->streetAddress(),
@@ -43,20 +42,31 @@ class EventFactory extends Factory
         });
     }
 
-    public function repeats(EventFrequency $eventFrequency = null): self
-    {
-        return $this->state(function (array $attributes) use ($eventFrequency) {
-            return [
-                'repeat_frequency' => $eventFrequency ?? $this->faker->randomElement(EventFrequency::values()),
-            ];
-        });
-    }
-
     public function expired(): self
     {
         return $this->state(function (array $attributes) {
             return [
                 'ends_at' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
+            ];
+        });
+    }
+
+    public function hasUserEdit(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'last_updated_id' => User::factory(),
+            ];
+        });
+    }
+
+    public function withElexio(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'elexio_id' => $this->faker->randomNumber(),
+                'elexio_batch_id' => $this->faker->uuid(),
+                'elexio_updated_at' => $this->faker->dateTime(),
             ];
         });
     }
