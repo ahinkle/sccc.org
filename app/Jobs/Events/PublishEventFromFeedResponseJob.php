@@ -4,14 +4,14 @@ namespace App\Jobs\Events;
 
 use App\Enums\State;
 use App\Models\Event;
-use Illuminate\Support\Str;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Carbon;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class PublishEventFromFeedResponseJob implements ShouldQueue
 {
@@ -22,9 +22,9 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
         SerializesModels;
 
     /**
-     * The correlated matching event by title.
+     * Any missing event details that we want to include.
      */
-    public ?Event $relatedEvent;
+    public ?Event $eventDetailsOverride;
 
     /**
      * Create a new job instance.
@@ -49,7 +49,7 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             return;
         }
 
-        $this->relatedEvent = $this->attemptToFindRelatedEvent();
+        $this->attemptToFindOverrideValuesFromPreviousEvent();
         $this->createOrUpdateEvent();
     }
 
@@ -75,15 +75,17 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
     }
 
     /**
-     * Attempt to find a related event where we provided a bit more detail (such as an image)
+     * Attempt to find any missing details (image, description, location, etc.) provided from a previous event.
+     * This is mostly for recurring events - say we manually include an image or override a description.
      */
-    protected function attemptToFindRelatedEvent(): ?Event
+    protected function attemptToFindOverrideValuesFromPreviousEvent(): self
     {
-        return Event::where('name', $this->data['title'])
-            ->whereNot('elexio_id', $this->data['instanceId'])
-            ->whereNotNull('image')
+        $this->eventDetailsOverride = Event::where('name', $this->data['title'])
+            ->whereNotNull('last_updated_id')
             ->latest()
             ->first();
+
+        return $this;
     }
 
     /**
@@ -99,8 +101,8 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             'elexio_batch_id' => $this->batch_id,
             'elexio_updated_at' => now(),
             'name' => $this->data['title'],
-            'description' => $this->relatedEvent?->description ?? strip_tags($this->data['description']),
-            'image' => $this->relatedEvent?->image,
+            'description' => $this->eventDetailsOverride?->description ?? strip_tags($this->data['description']),
+            'image' => $this->eventDetailsOverride?->image,
             'location' => $location['location'],
             'address' => $location['address'],
             'city' => $location['city'],
@@ -119,10 +121,20 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
      */
     protected function location(): array
     {
+        if ($this->eventDetailsOverride) {
+            return [
+                'location' => $this->eventDetailsOverride->location,
+                'address' => $this->eventDetailsOverride->address,
+                'city' => $this->eventDetailsOverride->city,
+                'state' => $this->eventDetailsOverride->state,
+                'zip_code' => $this->eventDetailsOverride->zip_code,
+            ];
+        }
+
         return [
             'location' => $this->resolveLocationName(),
             'address' => '351 N Holiday Blvd',
-            'city' => $this->data['buildings'] ? 'Santa Claus' : $this->relatedEvent?->city ?? 'Santa Claus',
+            'city' => 'Santa Claus',
             'state' => State::IN,
             'zip_code' => '47579',
         ];
@@ -140,11 +152,8 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             ->filter(fn ($item) => preg_match('/[A-Z]\d\s-\s/', $item) === 1)
             ->map(fn ($item) => Str::before($item, ' - '));
 
-        if ($rooms->count() > 0) {
-            return 'Santa Claus Christian Church - '.$rooms->join(', ', ', and ');
-        }
-
-        return $this->relatedEvent?->location
-            ?? 'Santa Claus Christian Church';
+        return ($rooms->count() > 0)
+            ? 'Santa Claus Christian Church - '.$rooms->join(', ', ', and ')
+            : 'Santa Claus Christian Church';
     }
 }

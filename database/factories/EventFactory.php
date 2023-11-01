@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -46,6 +47,15 @@ class EventFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'ends_at' => $this->faker->dateTimeBetween('-1 year', 'yesterday'),
+            ];
+        });
+    }
+
+    public function hasUserEdit(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'last_updated_id' => User::factory(),
             ];
         });
     }

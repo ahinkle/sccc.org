@@ -105,7 +105,7 @@ it('does not publish events that have passed', function () {
 });
 
 it('uses previous event description if there is a match', function () {
-    $relatedEvent = Event::factory()->withElexio()->create([
+    $e = Event::factory()->hasUserEdit()->create([
         'name' => 'Test Event',
         'description' => 'foo',
         'starts_at' => today()->subWeek()->toIso8601String(),
@@ -128,7 +128,7 @@ it('uses previous event description if there is a match', function () {
 });
 
 it('uses previous event image', function () {
-    $relatedEvent = Event::factory()->withElexio()->create([
+    $e = Event::factory()->hasUserEdit()->create([
         'name' => 'Test Event',
         'starts_at' => today()->subWeek()->toIso8601String(),
         'ends_at' => today()->subWeek()->endOfDay()->toIso8601String(),
@@ -221,7 +221,7 @@ it('uses provided location', function () {
 });
 
 it('uses previous event location', function () {
-    $relatedEvent = Event::factory()->withElexio()->create([
+    $e = Event::factory()->hasUserEdit()->create([
         'name' => 'Test Event',
         'starts_at' => today()->subWeek()->toIso8601String(),
         'ends_at' => today()->subWeek()->endOfDay()->toIso8601String(),
@@ -272,7 +272,7 @@ it('displays two room numbers', function () {
     PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
 
     expect(Event::count())->toBe(1);
-    expect(Event::first()->location)->toBe('Santa Claus Christian Church - U1 and L3');
+    expect(Event::first()->location)->toBe('Santa Claus Christian Church - U1, and L3');
 });
 
 it('displays multiple room numbers', function () {
