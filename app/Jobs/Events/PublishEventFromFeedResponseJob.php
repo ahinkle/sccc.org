@@ -75,12 +75,13 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
     }
 
     /**
-     * Attempt to find a related event by the incoming title.
+     * Attempt to find a related event where we provided a bit more detail (such as an image)
      */
     protected function attemptToFindRelatedEvent(): ?Event
     {
         return Event::where('name', $this->data['title'])
             ->whereNot('elexio_id', $this->data['instanceId'])
+            ->whereNotNull('image')
             ->latest()
             ->first();
     }
