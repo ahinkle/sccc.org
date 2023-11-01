@@ -43,7 +43,10 @@
                                     </p>
 
                                     <p class="text-xs font-poppins">
-                                        {{ \Illuminate\Support\Str::limit($event->description, 75) }} <a href="{{ $event->slug }}" class="text-green-900 hover:text-green-700 text-xs">read more</a>
+                                        {{ \Illuminate\Support\Str::limit($event->description, 75) }}
+                                        @if ($event->description)
+                                            <a href="{{ $event->slug }}" class="text-green-900 hover:text-green-700 text-xs">read more</a>
+                                        @endif
                                     </p>
 
                                     <a href="{{ $event->slug }}" class="text-xs font-poppins text-green-900 hover:text-green-700">Learn More &rarr;</a>
