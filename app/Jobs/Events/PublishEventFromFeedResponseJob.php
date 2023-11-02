@@ -111,7 +111,7 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
             'starts_at' => Carbon::parse($this->data['start']),
             'ends_at' => Carbon::parse($this->data['end']),
             'more_information' => $this->data['contact']
-                ? 'Contact '.$this->data['contact']['fname'].' '.$this->data['contact']['lname'].' ('.$this->data['contact']['email'].')'
+                ? 'Contact '.$this->resolveContactFirstName().' '.$this->data['contact']['lname'].' ('.$this->data['contact']['email'].')'
                 : null,
         ]);
     }
@@ -155,5 +155,21 @@ class PublishEventFromFeedResponseJob implements ShouldQueue
         return ($rooms->count() > 0)
             ? 'Santa Claus Christian Church - '.$rooms->join(', ', ', and ')
             : 'Santa Claus Christian Church';
+    }
+
+    /**
+     * Determine the contact's first name.
+     */
+    protected function resolveContactFirstName(): string
+    {
+        if (! $this->data['contact']) {
+            return '';
+        }
+
+        if ($this->data['contact']['preferredName']) {
+            return $this->data['contact']['preferredName'];
+        }
+
+        return $this->data['contact']['fname'];
     }
 }

@@ -175,6 +175,31 @@ it('uses contact information if provided', function () {
     expect(Event::first()->more_information)->toBe('Contact Jesus Christ (jesus@christ.com)');
 });
 
+it('uses contact preferred name if provided', function () {
+    $data = [
+        'title' => 'Test Event',
+        'start' => today()->toIso8601String(),
+        'end' => today()->endOfDay()->toIso8601String(),
+        'instanceId' => 123,
+        'description' => '',
+        'contact' => [
+            'fname' => 'Samuel',
+            'lname' => 'Jackson',
+            'preferredName' => 'Sam',
+            'phoneHome' => '1-800-heaven',
+            'phoneCell' => '1-800-heaven',
+            'email' => 'sam@jackson.com',
+            'uid' => 1,
+        ],
+        'buildings' => [],
+    ];
+
+    PublishEventFromFeedResponseJob::dispatch($data, 'batch-id-example');
+
+    expect(Event::count())->toBe(1);
+    expect(Event::first()->more_information)->toBe('Contact Sam Jackson (sam@jackson.com)');
+});
+
 it('uses provided description if provided and no previous description was ever found', function () {
     $data = [
         'title' => 'Test Event',
