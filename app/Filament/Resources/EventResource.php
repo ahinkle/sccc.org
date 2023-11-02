@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\EventFrequency;
 use App\Enums\State;
 use App\Filament\Resources\EventResource\Pages;
 use App\Models\Event;
@@ -31,7 +30,6 @@ class EventResource extends Resource
                             ->required()
                             ->label('Event Name'),
                         Forms\Components\FileUpload::make('image')
-                            ->required()
                             ->label('Event Image')
                             ->helperText('Recommend 600x600 -- Do not upload anything under copyright law.')
                             ->image()
