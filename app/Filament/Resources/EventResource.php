@@ -75,11 +75,6 @@ class EventResource extends Resource
                             ->helperText('Optional. Add only if you want to specify an end time on the event page.')
                             ->nullable()
                             ->afterOrEqual('starts_at'),
-                        Forms\Components\Select::make('repeat_frequency')
-                            ->label('Recurring Schedule')
-                            ->options(EventFrequency::class)
-                            ->placeholder('Event does not repeat')
-                            ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week.'),
                     ]),
 
                 Forms\Components\Fieldset::make('Event Location')
@@ -133,9 +128,6 @@ class EventResource extends Resource
                     ->placeholder('No end time')
                     ->label('Event End')
                     ->dateTime('M j, Y g:i A'),
-
-                Tables\Columns\TextColumn::make('repeat_frequency')
-                    ->label('Repeats?'),
             ])
             ->filters([
                 //
@@ -167,11 +159,6 @@ class EventResource extends Resource
                                         ->helperText('Optional. Add only if you want to specify an end time on the event page.')
                                         ->nullable()
                                         ->afterOrEqual('starts_at'),
-                                    Forms\Components\Select::make('repeat_frequency')
-                                        ->label('Recurring Schedule')
-                                        ->options(EventFrequency::class)
-                                        ->placeholder('Event does not repeat')
-                                        ->helperText('Automatically creates recurring events on the event page. For example, if you select "Weekly", the event will be created on the event page every week. Use the "End Date" field to specify when the recurring events should stop being created.'),
                                 ]),
                         ])
                         ->fillForm(function (Event $event) {
@@ -179,7 +166,6 @@ class EventResource extends Resource
                                 'name' => $event->name,
                                 'starts_at' => $event->starts_at,
                                 'ends_at' => $event->ends_at,
-                                'repeat_frequency' => $event->repeat_frequency,
                             ];
                         })
                         ->label('Duplicate')
@@ -190,7 +176,6 @@ class EventResource extends Resource
                                 'name' => $data['name'],
                                 'starts_at' => $data['starts_at'],
                                 'ends_at' => $data['ends_at'],
-                                'repeat_frequency' => $data['repeat_frequency'],
                             ])->save();
                         }),
                 ]),
