@@ -25,7 +25,9 @@ class Person extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => $value ?: 'https://via.placeholder.com/640x480?text=Coming+Soon',
+            get: fn (?string $value) => $value
+                ? asset('storage/'.$value)
+                : 'https://via.placeholder.com/640x480?text=Coming+Soon',
         );
     }
 
