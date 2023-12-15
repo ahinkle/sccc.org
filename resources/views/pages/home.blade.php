@@ -11,7 +11,7 @@
                     <span class="block py-4">A Community</span>
                     <span class="block py-4">Rooted In Christ</span>
                     <span class="block py-4">Grounded By Faith</span>
-                    <span class="block py-4">And Branching Out In Love
+                    <span class="block py-4">And Branching Out In Love</span>
                 </h1>
 
                 <hr class="w-1/2 my-5 border border-white mx-auto xl:mx-0 opacity-25 xl:hidden">
