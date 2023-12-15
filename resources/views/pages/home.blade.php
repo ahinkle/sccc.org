@@ -7,10 +7,11 @@
     <div class="home-hero relative h-[calc(100vh-20rem)] min-h-[38rem]">
         <div class="flex max-w-screen-xl mx-auto h-full items-center justify-center xl:justify-start">
             <div class="flex flex-wrap px-5 text-white -mt-28 text-center xl:text-left">
-                <h1 class="w-full pt-5 text-2xl md:text-3xl xl:text-5xl font-libre uppercase">
-                    <span class="block py-4">Know Christ.</span>
-                    <span class="block py-4">Grow Together.</span>
-                    <span class="block py-4">Transform Lives.</span>
+                <h1 class="w-full pt-5 text-xl md:text-2xl xl:text-4xl font-libre uppercase">
+                    <span class="block py-4">A Community</span>
+                    <span class="block py-4">Rooted In Christ</span>
+                    <span class="block py-4">Grounded By Faith</span>
+                    <span class="block py-4">And Branching Out In Love
                 </h1>
 
                 <hr class="w-1/2 my-5 border border-white mx-auto xl:mx-0 opacity-25 xl:hidden">
