@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Livestream;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class LivestreamController extends Controller
 {
@@ -23,10 +24,8 @@ class LivestreamController extends Controller
      */
     public function show(string $day): RedirectResponse
     {
-        if (! in_array($day, ['sunday', 'wednesday'])) {
-            return redirect('https://youtu.be/@SantaClausChristianChurch');
-        }
-
-        return redirect('https://youtu.be/'.cache()->get("livestream.{$day}", '@SantaClausChristianChurch/streams'));
+        return in_array(Str::lower($day), ['sunday', 'wednesday'])
+            ? redirect('https://youtu.be/'.cache()->get("livestream.{$day}", '@SantaClausChristianChurch/streams'))
+            : redirect('https://youtu.be/@SantaClausChristianChurch');
     }
 }

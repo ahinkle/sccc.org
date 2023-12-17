@@ -25,11 +25,21 @@ it('redirects index to active livestream to sunday when any other day', function
         ->assertRedirect(route('livestream.show', 'sunday'));
 });
 
-it('redirects show to youtube', function () {
+it('redirects sunday show method to youtube', function () {
     travelTo(Carbon::parse('last sunday'));
     cache()->put('livestream.sunday', '1234567890');
+    cache()->put('livestream.wednesday', 'fake-video-id-that-we-should-not-use');
 
     $this->get(route('livestream.show', 'sunday'))
+        ->assertRedirect('https://youtu.be/1234567890');
+});
+
+it('redirects wednesday show method to youtube', function () {
+    travelTo(Carbon::parse('last wednesday'));
+    cache()->put('livestream.sunday', 'fake-video-id-that-we-should-not-use');
+    cache()->put('livestream.wednesday', '1234567890');
+
+    $this->get(route('livestream.show', 'wednesday'))
         ->assertRedirect('https://youtu.be/1234567890');
 });
 
