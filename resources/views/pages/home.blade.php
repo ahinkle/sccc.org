@@ -38,7 +38,7 @@
             </a>
             <a class="bg-sand-200 border border-black p-24 hover:cursor-pointer group hover:border-green-900 hover:shadow bg-cover bg-center bg-no-repeat"
                 style="background-image: url('{{ asset('img/livestream/soundboard.jpg') }}');"
-                href="{{ route('livestream') }}"
+                href="{{ route('livestream.index') }}"
                 target="_blank" rel="noopener noreferrer"
             >
                 <h2 class="text-white uppercase text-3xl md:text-4xl font-poppins tracking-wide mt-3.5 group-hover:scale-105 transition-all duration-300 inline-flex items-center">

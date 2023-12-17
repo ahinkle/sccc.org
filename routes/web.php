@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Livestream\LivestreamController;
 use App\Http\Controllers\Message\LatestMessageController;
 use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
 use App\Models\Event;
@@ -32,11 +33,4 @@ Route::get('/messages/latest', [LatestMessageController::class, 'redirect'])->na
 
 Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
 
-Route::get('/livestream/sunday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.sunday')))->name('livestream.sunday');
-Route::get('/livestream/wednesday', fn () => redirect('https://youtu.be/'.cache()->get('livestream.wednesday')))->name('livestream.wednesday');
-Route::get('/livestream',
-    fn () => match (now()->dayOfWeek) {
-        3 => redirect()->route('livestream.wednesday'),
-        default => redirect()->route('livestream.sunday'),
-    }
-)->name('livestream');
+Route::resource('livestream', LivestreamController::class)->only(['index', 'show']);

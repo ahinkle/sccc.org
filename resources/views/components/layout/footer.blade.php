@@ -28,10 +28,10 @@
                                 <a href="{{ route('messages') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">View All Messages</a>
                             </li>
                             <li>
-                                <a href="{{ route('livestream.sunday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Sunday, 9 AM</a>
+                                <a href="{{ route('livestream.show', 'sunday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Sunday, 9 AM</a>
                             </li>
                             <li>
-                                <a href="{{ route('livestream.wednesday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Wednesday, 6 PM (Youth)</a>
+                                <a href="{{ route('livestream.show', 'wednesday') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre"><x-fas-video class="mr-2 w-2.5 h-2.5 inline-block fill-gray-600 mb-0.5" />Wednesday, 6 PM (Youth)</a>
                             </li>
                         </ul>
                     </div>
