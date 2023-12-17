@@ -13,8 +13,8 @@ use Illuminate\Support\Str;
 
 class Event extends Model
 {
-    use HasFactory,
-        CreatesRedirects,
+    use CreatesRedirects,
+        HasFactory,
         TracksUserUpdates;
 
     /**

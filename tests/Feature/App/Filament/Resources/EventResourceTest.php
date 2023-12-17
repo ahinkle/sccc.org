@@ -4,6 +4,7 @@ use App\Filament\Resources\EventResource\Pages\ListEvents;
 use App\Models\Event;
 use Filament\Pages\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
+
 use function Pest\Livewire\livewire;
 
 it('can list events', function () {
