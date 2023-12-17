@@ -12,13 +12,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Sen:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
-        <script>
-            var sf = new Snowflakes({
-                color: "#ffffff"
-            });
-        </script>
-
         @env('local')
             <x-dev.dev-toolbar />
         @endenv
