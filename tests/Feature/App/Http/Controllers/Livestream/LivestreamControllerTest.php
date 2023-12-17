@@ -35,12 +35,12 @@ it('redirects show to youtube', function () {
 
 it('redirects unknown day or unknown stream to youtube channel streams page', function () {
     $this->get(route('livestream.show', 'foo'))
-        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch/streams');
-
-    $this->get(route('livestream.show', 'sunday'))
-        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch/streams');
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch');
 
     $this->get(route('livestream.show', 'monday'))
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch');
+
+    $this->get(route('livestream.show', 'sunday'))
         ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch/streams');
 
     $this->get(route('livestream.show', 'wednesday'))
