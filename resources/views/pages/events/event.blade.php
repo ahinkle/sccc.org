@@ -2,7 +2,7 @@
     <x-slot name="seo">
         <title>{{ $event->name }} | Santa Claus Christian Church</title>
         <meta name="description" content="{{ $event->name}} is taking place at {{ $event->location }} on {{ $event->starts_at->format('F j, Y') }}">
-
+    </x-slot>
     <x-hero.page-hero>
         <div class="w-full">
             <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase w-fit">{{ $event->name }}</h1>
@@ -31,9 +31,9 @@
                     <p class="text-base xl:text-lg font-poppins pr-10 whitespace-pre-wrap">Contact the church office at <a href="tel:812-937-2938" class="underline">812-937-2938</a> if you have any questions.</p>
                 @endif
                 @if ($event->link)
-                <x-inputs.button href="{{ $event->link }}" class="mt-5" target="_blank">
-                    {{ $event->button_link_text ?? 'Sign-up' }}
-                </x-inputs.button>
+                    <x-inputs.button href="{{ $event->link }}" class="mt-5" target="_blank">
+                        {{ $event->button_link_text ?? 'Sign-up' }}
+                    </x-inputs.button>
                 @endif
             </div>
             <div class="bg-white py-10 xl:-mt-40 xl:shadow-lg order-1 xl:order-2 col-span-3 xl:col-span-1">
@@ -86,6 +86,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </x-layout.app>

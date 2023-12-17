@@ -17,7 +17,7 @@
                                  <a href="{{ route('contact-us') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Location &amp; Times</a>
                             </li>
                             <li>
-                                <a href="{{ route('events') }}" class="ttext-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Events</a>
+                                <a href="{{ route('events.index') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900 font-libre">Events</a>
                             </li>
                         </ul>
                     </div>

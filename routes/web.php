@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Events\EventController;
 use App\Http\Controllers\Livestream\LivestreamController;
 use App\Http\Controllers\Message\LatestMessageController;
 use App\Http\Controllers\Newsletter\VerifyNewsletterEmailAddressController;
-use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +19,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
 
-Route::redirect('/about', '/about/what-we-believe')->name('about');
-Route::view('/about/what-we-believe', 'pages.about.what-we-believe')->name('about.what-we-believe');
-Route::view('/about/staff', 'pages.about.staff')->name('about.staff');
-
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 
-Route::view('/events', 'pages.events')->name('events');
-Route::get('/events/{event:slug}', fn (Event $event) => view('pages.events.event', compact('event')))->name('events.show');
+Route::group(['prefix' => 'about'], function () {
+    Route::view('/', 'pages.about.what-we-believe')->name('about');
+    Route::view('/what-we-believe', 'pages.about.what-we-believe')->name('about.what-we-believe');
+    Route::view('/staff', 'pages.about.staff')->name('about.staff');
+});
 
-Route::view('/messages', 'pages.messages')->name('messages');
-Route::get('/messages/latest', [LatestMessageController::class, 'redirect'])->name('messages.latest');
-
-Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)->name('newsletter.verify')->middleware(['throttle:5,1']);
+Route::resource('events', EventController::class)->only(['index', 'show']);
 
 Route::resource('livestream', LivestreamController::class)->only(['index', 'show']);
+
+Route::group(['prefix' => 'messages'], function () {
+    Route::view('/', 'pages.messages')->name('messages');
+    Route::get('/latest', [LatestMessageController::class, 'redirect'])->name('messages.latest');
+});
+
+Route::get('/newsletter/verify', VerifyNewsletterEmailAddressController::class)
+    ->name('newsletter.verify')
+    ->middleware(['throttle:5,1']);

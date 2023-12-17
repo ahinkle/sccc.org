@@ -56,7 +56,7 @@
             </a>
             <a class="bg-sand-200 border border-black p-24 hover:cursor-pointer group hover:border-green-900 hover:shadow bg-cover bg-top lg:bg-center bg-no-repeat"
                 style="background-image: url('{{ asset('img/fmsc/santa-claus-indiana-feed-my-starving-children-event.jpg') }}');"
-                href="{{ route('events') }}"
+                href="{{ route('events.index') }}"
             >
                 <h2 class="text-white uppercase text-3xl md:text-4xl font-poppins tracking-wide mt-3.5 group-hover:scale-105 transition-all duration-300">
                     Events
