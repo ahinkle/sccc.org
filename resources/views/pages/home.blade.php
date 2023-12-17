@@ -17,10 +17,11 @@
                 <hr class="w-1/2 my-5 border border-white mx-auto xl:mx-0 opacity-25 xl:hidden">
 
                 <h2 class="w-full pt-2 text-xs sm:text-sm font-libre">
-                    <span class="block xl:inline-block">Sunday, 9:00 AM</span>
-                    <span class="px-2 hidden xl:inline-block">&#x2022;</span>
+                    {{-- <span class="block xl:inline-block">Sunday, 9:00 AM</span> --}}
+                    <span class="block xl:inline-block">Christmas Eve Services - Sunday: 9:00 AM, 6:00 PM, 11:00 PM</span>
+                    {{-- <span class="px-2 hidden xl:inline-block">&#x2022;</span>
                     <hr class="w-1/12 my-1 border border-white mx-auto xl:mx-0 opacity-25 xl:hidden">
-                    <span class="block xl:inline-block">Wednesday, 6:00 PM (Youth)</span>
+                    <span class="block xl:inline-block">Wednesday, 6:00 PM (Youth)</span> --}}
                 </h2>
             </div>
         </div>
