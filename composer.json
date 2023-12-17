@@ -1,14 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "ahinkle/sccc.org",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Santa Claus Christian Church (Located in Santa Claus, Indiana)",
     "keywords": [
-        "laravel",
-        "framework"
+        "church",
+        "website",
+        "laravel"
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ahinkle/auto-resolvable-blade-components": "^3.0",
         "alaouy/youtube": "^2.2",
         "aws/aws-sdk-php": "^3.284",
@@ -22,8 +23,6 @@
         "sentry/sentry-laravel": "^3.8"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.9",
-        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.10",
         "laravel/sail": "^1.18",
