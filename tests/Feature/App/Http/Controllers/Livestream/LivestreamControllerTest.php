@@ -31,7 +31,7 @@ it('redirects sunday show method to youtube', function () {
     cache()->put('livestream.wednesday', 'fake-video-id-that-we-should-not-use');
 
     $this->get(route('livestream.show', 'sunday'))
-        ->assertRedirect('https://youtu.be/1234567890');
+        ->assertRedirect('https://www.youtube.com/1234567890');
 });
 
 it('redirects wednesday show method to youtube', function () {
@@ -40,19 +40,19 @@ it('redirects wednesday show method to youtube', function () {
     cache()->put('livestream.wednesday', '1234567890');
 
     $this->get(route('livestream.show', 'wednesday'))
-        ->assertRedirect('https://youtu.be/1234567890');
+        ->assertRedirect('https://www.youtube.com/1234567890');
 });
 
 it('redirects unknown day or unknown stream to youtube channel streams page', function () {
     $this->get(route('livestream.show', 'foo'))
-        ->assertRedirect('https://youtu.be/@SantaClausChristianChurch');
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch');
 
     $this->get(route('livestream.show', 'monday'))
-        ->assertRedirect('https://youtu.be/@SantaClausChristianChurch');
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch');
 
     $this->get(route('livestream.show', 'sunday'))
-        ->assertRedirect('https://youtu.be/@SantaClausChristianChurch/streams');
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch/streams');
 
     $this->get(route('livestream.show', 'wednesday'))
-        ->assertRedirect('https://youtu.be/@SantaClausChristianChurch/streams');
+        ->assertRedirect('https://www.youtube.com/@SantaClausChristianChurch/streams');
 });

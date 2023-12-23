@@ -25,7 +25,7 @@ class LivestreamController extends Controller
     public function show(string $day): RedirectResponse
     {
         return in_array(Str::lower($day), ['sunday', 'wednesday'])
-            ? redirect('https://youtu.be/'.cache()->get("livestream.{$day}", '@SantaClausChristianChurch/streams'))
-            : redirect('https://youtu.be/@SantaClausChristianChurch');
+            ? redirect('https://www.youtube.com/'.cache()->get("livestream.{$day}", '@SantaClausChristianChurch/streams'))
+            : redirect('https://www.youtube.com/@SantaClausChristianChurch');
     }
 }
