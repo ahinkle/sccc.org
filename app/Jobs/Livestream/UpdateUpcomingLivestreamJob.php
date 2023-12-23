@@ -67,8 +67,8 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
             cache()->put('livestream.wednesday', $wednesday->first()?->id?->videoId, now()->addWeek());
         }
 
-        if ($sunday->count() === 0 || $wednesday->count() === 0) {
-            tap($this->notifyOnJobFailure($upcoming), fn () => throw new \Exception('Could not find upcoming livestreams for Sunday and/or Wednesday.'));
+        if ($sunday->count() === 0) {
+            tap($this->notifyOnJobFailure($upcoming), fn () => throw new \Exception('Could not find upcoming livestreams for Sunday.'));
         }
     }
 

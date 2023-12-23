@@ -75,9 +75,9 @@ it('throws exception if sunday isnt found', function () {
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
-})->throws(Exception::class, 'Could not find upcoming livestreams for Sunday and/or Wednesday.');
+})->throws(Exception::class, 'Could not find upcoming livestreams for Sunday.');
 
-it('throws exception if wednesday isnt found', function () {
+it('doesnt throw exception if wednesday isnt found', function () {
     travelTo(Carbon::parse('2020-07-31 00:00:00'));
     $sunday = $sunday = Carbon::parse('2020-08-02 09:00:00');
 
@@ -88,4 +88,4 @@ it('throws exception if wednesday isnt found', function () {
         ]);
 
     UpdateUpcomingLivestreamJob::dispatch();
-})->throws(Exception::class, 'Could not find upcoming livestreams for Sunday and/or Wednesday.');
+});
