@@ -47,7 +47,7 @@ expect()->extend('toBeOne', function () {
 /**
  * Mock an API response from YouTube.
  */
-function fakeYouTubeVideo(Carbon $titleDate, string $videoId = null): stdClass
+function fakeYouTubeVideo(Carbon $titleDate, ?string $videoId = null): stdClass
 {
     $video = new \stdClass();
     $video->id = new \stdClass();

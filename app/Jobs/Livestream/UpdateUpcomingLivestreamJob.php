@@ -101,7 +101,7 @@ class UpdateUpcomingLivestreamJob implements ShouldQueue
     /**
      * Notify via email that the job has failed.
      */
-    private function notifyOnJobFailure(Collection $videos = null): void
+    private function notifyOnJobFailure(?Collection $videos = null): void
     {
         Mail::queue(
             new FailedToLocateLivestream(
