@@ -19,6 +19,18 @@ class Message extends Model
     ];
 
     /**
+     * Interact with the Image accessor.
+     */
+    protected function image(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => $value
+                ? asset('storage/'.$value)
+                : "https://i.ytimg.com/vi/{$this->youtube_id}/maxresdefault.jpg"
+        );
+    }
+
+    /**
      * Interact with the YouTube URL accessor.
      */
     protected function youtubeUrl(): Attribute

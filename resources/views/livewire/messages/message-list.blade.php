@@ -80,7 +80,7 @@
             @foreach ($messages as $message)
                 <li wire:key="{{ $message->id }}">
                     <div class="grid grid-cols-12">
-                        <div class="col-span-12 lg:col-span-3 text-center border-r border-b border-l bg-no-repeat bg-center bg-cover" style="background-image: url('{{ asset('storage/'.$message->image) }}'); min-height: 200px;"></div>
+                        <div class="col-span-12 lg:col-span-3 text-center border-r border-b border-l bg-no-repeat bg-center bg-cover" style="background-image: url('{{ $message->image }}'); min-height: 200px;"></div>
 
                         <div class="col-span-12 lg:col-span-9 border-t border-b border-r">
                             <div class="p-4">
