@@ -4,6 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+      day: "sunday"
+    assignees:
+      - "ahinkle"
     groups:
       production-dependencies:
         dependency-type: "production"
@@ -23,6 +26,9 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+      day: "sunday"
+    assignees:
+      - "ahinkle"
     groups:
       production-dependencies:
         dependency-type: "production"
