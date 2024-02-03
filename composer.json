@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ahinkle/auto-resolvable-blade-components": "^3.0",
         "alaouy/youtube": "^2.2",
         "aws/aws-sdk-php": "^3.284",
