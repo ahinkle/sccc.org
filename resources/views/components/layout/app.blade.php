@@ -5,7 +5,6 @@
             {{ $seo }}
         </x-layout.seo-meta>
 
-        @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +19,5 @@
         <x-layout.header />
             {{ $slot }}
         <x-layout.footer />
-
-        @livewireScriptConfig
     </body>
 </html>
