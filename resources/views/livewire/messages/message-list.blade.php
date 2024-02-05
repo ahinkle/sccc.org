@@ -1,8 +1,14 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 px-4 lg:px-0">
     <div class="col-span-1 lg:col-span-4 xl:col-span-3">
         <form wire:submit class="bg-gray-100 py-10 -mt-16 shadow-lg">
-            <div class="px-4">
-                <h2 class="text-black pb-5 uppercase text-sm font-poppins">Search</h2>
+            <div class="px-4" x-data="{ 'showSearchFilter': false }">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-black pb-5 uppercase text-base font-poppins">Search</h2>
+
+                    <x-fas-chevron-down class="size-5 text-green-900 cursor-pointer lg:hidden mb-5 transition duration-500 transform"
+                         x-on:click="showSearchFilter = !showSearchFilter"
+                         x-bind:class="{ 'transform rotate-90': !showSearchFilter }" />
+                </div>
 
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -14,7 +20,7 @@
                     </div>
                 @endif
 
-                <div class="grid grid-cols-1 gap-y-4">
+                <div class="grid grid-cols-1 gap-y-4" x-show="showSearchFilter || window.innerWidth >= 1024">
                     <x-inputs.input
                         name="search"
                         wire:model.live="search"
@@ -54,6 +60,10 @@
                             <option value="{{ $speaker->id }}">{{ $speaker->name }}</option>
                         @endforeach
                     </x-inputs.select>
+                </div>
+
+                <div x-show="!showSearchFilter || window.innerWidth >= 1024" class="pt-3 text-center uppercase cursor-pointer lg:hidden" x-on:click="showSearchFilter = !showSearchFilter" x-cloak>
+                    Show Filters
                 </div>
             </div>
         </form>
