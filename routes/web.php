@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// temporary event:
+Route::redirect('/events/silentretreat', 'https://www.elexiogiving.com/App/Form/43503380-4509-4be6-9488-64f4fa49e644')->name('events.silentretreat');
+
 Route::view('/', 'pages.home')->name('home');
 
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
