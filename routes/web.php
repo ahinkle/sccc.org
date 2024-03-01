@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// temporary event:
+/** Temporary Pages */
 Route::redirect('/events/silentretreat', 'https://www.elexiogiving.com/App/Form/43503380-4509-4be6-9488-64f4fa49e644')->name('events.silentretreat');
-
+Route::view('/jedicamp', 'pages.events.jedi-camp-2024')->name('events.jedi-camp');
+/** End of Temporary Pages */
 Route::view('/', 'pages.home')->name('home');
 
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');

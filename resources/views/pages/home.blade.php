@@ -78,8 +78,21 @@
                 <img src="{{ asset('img/events/silent-retreat.jpeg') }}" alt="Silent Retreat" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
+        <x-cards.two-column-card>
+            <div>
+                <img src="{{ asset('img/events/jedi-elementary-camp.jpg') }}" alt="Jedi Elementary Camp" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
+            </div>
+            <div class="xl:px-10 self-center grid gap-y-10 xl:py-24 xl:pt-8">
+                <h2 class="text-4xl font-poppins font-semibold">Jedi Elementary Church Camp</h2>
+                <h3 class="text-xl font-poppins font-semibold uppercase">July 7th - July 12th</h3>
+                <p class="text-base font-poppins">Jedi Camp is geared for both boys & girls who are going into grades 3 through 6. This year at Jedi Camp (Jedi Knight Training Academy) we are purposefully training and equipping our Jedi Younglings with God's personalized weaponry: Prayer</p>
+                <p class="text-base font-poppins">So, to get into the spirit of our theme, our Younglings will have loads of fun with Star Wars games, themes and activities.</p>
+
+                <x-inputs.button href="{{ route('events.jedi-camp') }}">Register Now</x-inputs.button>
+            </div>
+        </x-cards.two-column-card>
         <x-cards.current-message-series />
-        <x-cards.rooted />
+        {{-- <x-cards.rooted /> --}}
         <x-cards.about-us-cta />
         <x-events.upcoming-events-slider />
     </div>
