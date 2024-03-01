@@ -5,7 +5,7 @@
     </x-slot>
 
     <x-hero.page-hero>
-       <h1 class="text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">Jedi Camp 2024: July 7th - July 12</h1>
+       <h1 class="text-3xl lg:text-5xl font-bold text-white font-sen border-b-4 pb-2 uppercase">Jedi Camp 2024: July 7th - July 12</h1>
     </x-hero.page-hero>
     
     <div class="max-w-screen-xl mx-auto py-20">
