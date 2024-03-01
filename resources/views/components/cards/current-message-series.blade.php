@@ -1,5 +1,5 @@
 <x-cards.two-column-card>
-    <div>
+    <div class="order-2 lg:order-1">
         <img src="{{ asset('img/grounded/message.JPG') }}" alt="Grounded: Traditonal Worship" class="w-full h-full object-cover max-w-lg xl:max-w-none xl:mx-auto">
     </div>
     <div class="xl:px-10 self-center grid gap-y-10">
