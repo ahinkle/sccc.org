@@ -85,7 +85,8 @@
             <div class="xl:px-10 self-center grid gap-y-10 xl:py-24 xl:pt-8">
                 <h2 class="text-4xl font-poppins font-semibold">Jedi Elementary Church Camp</h2>
                 <h3 class="text-xl font-poppins font-semibold uppercase">July 7th - July 12th</h3>
-                <p class="text-base font-poppins">Jedi Camp is geared for both boys & girls who are going into grades 3 through 6. This year at Jedi Camp (Jedi Knight Training Academy) we are purposefully training and equipping our Jedi Younglings with God's personalized weaponry: Prayer So, to get into the spirit of our theme, our Younglings will have loads of fun with Star Wars games, themes and activities.</p>
+                <p class="text-base font-poppins">Jedi Camp is geared for both boys & girls who are going into grades 3 through 6. This year at Jedi Camp (Jedi Knight Training Academy) we are purposefully training and equipping our Jedi Younglings with God's personalized weaponry: Prayer</p>
+                <p class="text-base font-poppins">So, to get into the spirit of our theme, our Younglings will have loads of fun with Star Wars games, themes and activities.</p>
 
                 <x-inputs.button href="{{ route('events.jedi-camp') }}">Register Now</x-inputs.button>
             </div>
