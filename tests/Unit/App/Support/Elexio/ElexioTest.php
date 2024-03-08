@@ -2,6 +2,8 @@
 
 use App\Support\Elexio\Elexio as ElexioClient;
 use App\Support\Elexio\ElexioFacade as Elexio;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 it('logs in and captures session id', function () {
     Http::fake([
@@ -84,3 +86,19 @@ it('throws exception on failed events API call from Elexio', function () {
 
     Elexio::events(now(), now()->addDay());
 })->throws(Exception::class, 'Elexio events request failed.');
+
+it('gets event by ID from Elexio', function () {
+    Cache::put('elexio_session_id', '1234567890', 60 * 10);
+
+    Http::preventStrayRequests();
+
+    Http::fake([
+        'https://santaclauscc.elexiochms.com/api/calendar/event/1*' => Http::response([
+            'data' => [],
+        ]),
+    ]);
+
+    $events = Elexio::event('1');
+
+    expect($events->ok())->toBeTrue();
+});

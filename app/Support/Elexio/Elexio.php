@@ -3,6 +3,7 @@
 namespace App\Support\Elexio;
 
 use Exception;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -31,6 +32,16 @@ class Elexio
         }
 
         return $response->json()['data'];
+    }
+
+    /**
+     * Get the specified event from Elexio.
+     */
+    public function event(string $id): Response
+    {
+        return Http::get($this->baseUrl.'calendar/event/'.$id, [
+            'session_id' => $this->session(),
+        ]);
     }
 
     /**
