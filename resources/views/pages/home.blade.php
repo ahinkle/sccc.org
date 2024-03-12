@@ -80,8 +80,17 @@
         </x-cards.two-column-card>
         <x-cards.two-column-card>
             <div>
-                <img src="{{ asset('img/events/jedi-elementary-camp.jpg') }}" alt="Jedi Elementary Camp" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
+                <img src="{{ asset('img/wrw/2024-womens-conference.png') }}" alt="Women Reaching Women Conference" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
+            <div class="xl:px-10 self-center grid gap-y-10 xl:py-24 xl:pt-8">
+                <h2 class="text-4xl font-poppins font-semibold">Women Reaching Women Conference</h2>
+                <h3 class="text-xl font-poppins font-semibold uppercase">April 20th, 9:00 AM</h3>
+                <p class="text-base font-poppins">Join Us on Saturday, April 20th for our Women's ROOTED - Real Faith Conference! The Church doors will open at 8:30 and the event will begin at 9:00. Lunch will be provided.</p>
+
+                <x-inputs.button href="{{ route('events.womensconference') }}">Register Now</x-inputs.button>
+            </div>
+        </x-cards.two-column-card>
+        <x-cards.two-column-card>
             <div class="xl:px-10 self-center grid gap-y-10 xl:py-24 xl:pt-8">
                 <h2 class="text-4xl font-poppins font-semibold">Jedi Elementary Church Camp</h2>
                 <h3 class="text-xl font-poppins font-semibold uppercase">July 7th - July 12th</h3>
@@ -89,6 +98,9 @@
                 <p class="text-base font-poppins">So, to get into the spirit of our theme, our Younglings will have loads of fun with Star Wars games, themes and activities.</p>
 
                 <x-inputs.button href="{{ route('events.jedi-camp') }}">Register Now</x-inputs.button>
+            </div>
+            <div>
+                <img src="{{ asset('img/events/jedi-elementary-camp.jpg') }}" alt="Jedi Elementary Camp" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
         <x-cards.current-message-series />
