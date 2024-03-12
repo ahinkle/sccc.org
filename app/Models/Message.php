@@ -12,11 +12,14 @@ class Message extends Model
     use HasFactory;
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      */
-    protected $casts = [
-        'message_date' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'message_date' => 'datetime',
+        ];
+    }
 
     /**
      * Interact with the Image accessor.
