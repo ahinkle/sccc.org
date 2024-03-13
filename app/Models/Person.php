@@ -13,11 +13,14 @@ class Person extends Model
     use HasFactory;
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      */
-    protected $casts = [
-        'is_staff' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'is_staff' => 'boolean',
+        ];
+    }
 
     /**
      * Interact with the staff image attribute.

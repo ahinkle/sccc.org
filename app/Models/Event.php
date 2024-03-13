@@ -26,14 +26,17 @@ class Event extends Model
     }
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      */
-    protected $casts = [
-        'starts_at' => 'datetime',
-        'ends_at' => 'datetime',
-        'elexio_id' => 'integer',
-        'elexio_updated_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'starts_at' => 'datetime',
+            'ends_at' => 'datetime',
+            'elexio_id' => 'integer',
+            'elexio_updated_at' => 'datetime',
+        ];
+    }
 
     /**
      * Interact with the event slug attribute.
