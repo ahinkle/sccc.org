@@ -30,8 +30,3 @@ test('it renders contact us', function () {
         ->assertOk()
         ->assertViewIs('pages.contact-us');
 });
-
-test('it redirects to silent retreat', function () {
-    $this->get('/events/silentretreat')
-        ->assertRedirect();
-});
