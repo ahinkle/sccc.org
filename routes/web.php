@@ -11,7 +11,6 @@ Route::redirect('/events/womensconference', 'https://www.elexiogiving.com/App/Fo
 Route::view('/jedicamp', 'pages.events.jedi-camp-2024')->name('events.jedi-camp'); /* Remove after Jul 12, 2024 */
 Route::redirect('/events/helping-hands', 'https://www.elexiogiving.com/App/Form/9383653b-1aef-469f-87d1-9c65f4da0521')->name('events.helping-hands'); /* Remove after Apr 14, 2024 */
 
-
 Route::view('/', 'pages.home')->name('home');
 
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
