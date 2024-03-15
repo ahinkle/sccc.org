@@ -68,14 +68,14 @@
     <div class="max-w-screen-xl mx-auto pt-20">
         <x-cards.two-column-card>
             <div class="xl:px-10 self-center grid gap-y-10 order-2 xl:order-1 xl:py-24 xl:pt-8">
-                <h2 class="text-4xl font-poppins font-semibold">Silent Retreat</h2>
-                <h3 class="text-xl font-poppins font-semibold uppercase">March 14th, 8:00 AM - 3:00 PM</h3>
-                <p class="text-base font-poppins">Pause. Rest.  Think of God's love. Breathe.  Give yourself time to notice your body rising and falling with the gift of breath, and life. In the brief time you took to read these few short suggestions, chances are you became more aware of yourself and God.  Maybe even connecting a little deeper...with a little more peace.  That peace with and connection to our good God is our hope for all who join us on the upcoming Silent Retreat at the Historic Santa Claus Campground. </p>
+                <h2 class="text-4xl font-poppins font-semibold">Helping Hands Work-Camp Weekend</h2>
+                <h3 class="text-xl font-poppins font-semibold uppercase">April 12th 5pm - April 14th 9am</h3>
+                <p class="text-base font-poppins">Helping Hands is hosting a Camp - Fellowship - Work Weekend at the Historic Santa Claus Campground. There will be food and fellowship, time around the campfire as well as some "Helping Hands" projects to be completed at the campground. You have the option to come each day or stay the night at the campground.</p>
 
-                <x-inputs.button href="{{ route('events.silentretreat') }}">Register Now</x-inputs.button>
+                <x-inputs.button href="{{ route('events.helping-hands') }}">Register Now</x-inputs.button>
             </div>
             <div class="order-1 xl:order-2">
-                <img src="{{ asset('img/events/silent-retreat.jpeg') }}" alt="Silent Retreat" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
+                <img src="{{ asset('img/locations/tabernacle.jpeg') }}" alt="Helping Hands Work-Camp Weekend" class="w-full h-full max-h-[600px] object-cover max-w-lg xl:max-w-none xl:mx-auto">
             </div>
         </x-cards.two-column-card>
         <x-cards.two-column-card>
