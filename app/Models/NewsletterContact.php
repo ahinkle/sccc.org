@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Observers\NewsletterContactObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[ObservedBy(NewsletterContactObserver::class)]
 class NewsletterContact extends Model
 {
     use HasFactory;
@@ -18,13 +20,5 @@ class NewsletterContact extends Model
         return [
             'email_verified_at' => 'datetime',
         ];
-    }
-
-    /**
-     * The "booted" method of the model.
-     */
-    protected static function booted(): void
-    {
-        static::observe(NewsletterContactObserver::class);
     }
 }

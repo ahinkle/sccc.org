@@ -5,25 +5,19 @@ namespace App\Models;
 use App\Models\Concerns\CreatesRedirects;
 use App\Models\Concerns\TracksUserUpdates;
 use App\Observers\EventObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+#[ObservedBy(EventObserver::class)]
 class Event extends Model
 {
     use CreatesRedirects,
         HasFactory,
         TracksUserUpdates;
-
-    /**
-     * The "booted" method of the model.
-     */
-    protected static function booted(): void
-    {
-        static::observe(EventObserver::class);
-    }
 
     /**
      * Get the attributes that should be cast.

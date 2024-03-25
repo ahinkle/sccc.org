@@ -20,7 +20,7 @@ class LivestreamController extends Controller
     }
 
     /**
-     * Redirect to the liveestream page by the given day of the week.
+     * Redirect to the livestream page by the given day of the week.
      */
     public function show(string $day): RedirectResponse
     {
